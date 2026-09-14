@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Achievement Awards — Working Playbook · Berea College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#005A8B; --blue-dark:#00466C; --orange:#C75B12;
+    --lightblue:#BFDBEC; --teal:#3095B4; --green:#739600;
+    --ink:#1F2A33; --gray:#5B6770; --line:#D8E2EA; --wash:#F2F7FA; --paper:#FFFFFF;
+    --amber:#B26A00; --amber-bg:#FFF7EC;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Open Sans",Verdana,sans-serif;font-size:16px;color:var(--ink);background:var(--wash);line-height:1.5}
+
+  header{background:var(--blue);color:#fff;padding:26px 20px 22px;border-bottom:6px solid var(--orange)}
+  header .wrap{max-width:980px;margin:0 auto}
+  header h1{font-family:"EB Garamond",Garamond,"Times New Roman",serif;font-weight:600;font-size:2rem;margin:0;letter-spacing:.3px}
+  header .sub{margin-top:4px;font-size:.95rem;color:var(--lightblue)}
+
+  .savebar{background:#fff;border-bottom:1px solid var(--line);padding:8px 20px;font-size:.85rem}
+  .savebar .wrap{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .savebar .status{color:var(--green);font-weight:600}
+  .savebar button, .savebar a.btnlink{border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:6px;padding:5px 12px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+  .savebar button:hover, .savebar a.btnlink:hover{border-color:var(--blue);background:var(--wash)}
+
+  main{max-width:980px;margin:0 auto;padding:28px 20px 70px}
+
+  h2{font-family:"EB Garamond",Garamond,"Times New Roman",serif;font-weight:600;color:var(--blue);font-size:1.55rem;margin:0 0 4px}
+  h3{color:var(--blue);font-size:1.05rem;margin:26px 0 10px;text-transform:uppercase;letter-spacing:.06em}
+  h3 .em{color:var(--orange)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:18px}
+  .muted{color:var(--gray)}
+  button.btn{border:none;border-radius:8px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer}
+  .btn.blue{background:var(--blue);color:#fff}
+  .btn.blue:hover{background:var(--blue-dark)}
+  .btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--blue)}
+  .btn.ghost:hover{border-color:var(--blue)}
+  .btn.small{padding:5px 11px;font-size:.85rem;font-weight:600}
+  input[type=text],textarea{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:8px 10px;font:inherit;font-size:.95rem;color:var(--ink);background:#fff}
+  textarea{resize:vertical;min-height:56px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--lightblue)}
+  select{border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit;font-size:.9rem;background:#fff;color:var(--ink)}
+  .x{border:none;background:none;color:var(--gray);cursor:pointer;font-size:1.05rem;padding:4px}
+  .x:hover{color:var(--orange)}
+
+  /* readonly styling */
+  .readonly-banner{background:var(--amber-bg);border:1px solid #EBD3C2;border-left:6px solid var(--amber);border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.92rem}
+  .readonly-banner strong{color:var(--amber)}
+  .ro-text{background:var(--wash);border-radius:8px;padding:10px 12px;font-size:.95rem;white-space:pre-wrap}
+  .ro-note{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:8px 10px;margin-top:8px;font-size:.9rem;color:var(--gray)}
+
+  /* path view */
+  .howbox{border-left:6px solid var(--orange)}
+  .howbox ol{margin:8px 0 0;padding-left:22px}
+  .howbox li{margin-bottom:8px}
+  .partlabel{font-family:"EB Garamond",Garamond,serif;font-weight:600;color:var(--orange);font-size:1.2rem;margin:30px 0 4px}
+  .partnote{color:var(--gray);font-size:.9rem;margin:0 0 12px}
+  .sesscard{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+  .sesscard:hover{border-color:var(--blue)}
+  .sessnum{flex:0 0 44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:1.15rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .sesscard.done .sessnum{background:var(--green)}
+  .sesscard.checkin .sessnum{background:var(--teal)}
+  .sesscard h4{margin:0 0 2px;font-size:1.05rem;color:var(--ink)}
+  .sesscard .meta{font-size:.85rem;color:var(--gray)}
+  .sesscard .goalline{font-size:.9rem;margin-top:5px}
+  .statuswrap{margin-left:auto;flex:0 0 auto;display:flex;gap:6px;align-items:center}
+  .status-Done{color:var(--green);font-weight:700}
+  .status-Scheduled{color:var(--orange);font-weight:700}
+  .ro-pill{background:var(--amber-bg);color:var(--amber);border:1px solid #EBD3C2;border-radius:999px;padding:2px 10px;font-size:.75rem;font-weight:700}
+  .checkin-pill{background:#E8F4F7;color:var(--teal);border:1px solid #BEE3EA;border-radius:999px;padding:2px 10px;font-size:.75rem;font-weight:700}
+
+  /* session view */
+  .crumbs{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
+  .crumbs .nav{display:flex;gap:8px;flex-wrap:wrap}
+  .kicker{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .sesshead .timing{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;font-size:.95rem}
+  .sesshead .timing input{max-width:340px}
+  .goal{background:var(--lightblue);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:1.02rem}
+  .goal strong{color:var(--blue-dark)}
+  .whobox .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{background:var(--wash);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.85rem}
+  .chip.lead{background:var(--blue);border-color:var(--blue);color:#fff}
+  .editwho{margin-top:10px}
+  .tip{background:#FFF7F1;border:1px solid #EBD3C2;border-left:6px solid var(--orange);border-radius:10px;padding:12px 16px;font-size:.92rem;margin:16px 0}
+  .tip strong{color:var(--orange)}
+  .agitem{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:#fff}
+  .agitem .top{display:flex;gap:10px;align-items:center}
+  .agitem .top .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--lightblue);color:var(--blue-dark);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+  .agitem textarea{margin-top:8px;background:var(--wash);border-color:transparent;min-height:46px;font-size:.9rem}
+  .agitem textarea:focus{background:#fff;border-color:var(--blue)}
+  .preplist{margin:6px 0 0;padding-left:20px}
+  .preplist li{margin-bottom:4px}
+  table.x-table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .x-table th{background:var(--blue);color:#fff;text-align:left;padding:7px 9px;font-weight:600}
+  .x-table td{border-bottom:1px solid var(--line);padding:5px 6px;vertical-align:middle}
+  .x-table input[type=text]{border-color:transparent;background:transparent;padding:5px 6px}
+  .x-table input[type=text]:hover{border-color:var(--line)}
+  .x-table input[type=text]:focus{background:#fff}
+  .x-table input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+  .picklist label{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;cursor:pointer;background:#fff}
+  .picklist label:hover{border-color:var(--blue)}
+  .picklist input[type=checkbox]{width:18px;height:18px;margin-top:2px;accent-color:var(--blue);cursor:pointer}
+  .commit-table td:last-child{width:36px}
+  .footer-note{color:var(--gray);font-size:.85rem;margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+  .oneNote{background:var(--wash);border:1px dashed var(--line);border-radius:10px;padding:12px 16px;font-size:.88rem;color:var(--gray);margin-top:10px}
+
+  @media print{
+    header{border-bottom-color:var(--blue)}
+    .savebar,.crumbs .nav,.no-print,button.btn,.x{display:none!important}
+    body{background:#fff}
+    .card{border:none;padding:0 0 16px}
+    .agitem textarea,.x-table input,input[type=text],textarea{border:none;background:#fff}
+    .sesscard{cursor:default}
+  }
+  @media (max-width:640px){
+    .sesscard{flex-wrap:wrap}
+    .statuswrap{margin-left:0;width:100%}
+  }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<!-- ===== SIGN-IN SCREEN — same accounts as the Project Dashboard ===== -->
+<div id="authScreen" style="display:none;position:fixed;inset:0;z-index:10000;background:linear-gradient(135deg,#00466C 0%,#005A8B 60%,#C75B12 100%);align-items:center;justify-content:center;flex-direction:column;font-family:'Open Sans',sans-serif;">
+  <div style="background:white;border-radius:16px;padding:40px 36px;max-width:400px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-size:40px;margin-bottom:8px;">🎓</div>
+      <h2 style="color:#005A8B;margin:0 0 4px;font-size:20px;font-family:'EB Garamond',serif;">Berea College</h2>
+      <p style="color:#777;margin:0;font-size:13px;">Student Achievement Awards · Meeting Playbook</p>
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="font-size:13px;font-weight:600;color:#333;display:block;margin-bottom:5px;">Email address</label>
+      <input type="email" id="auth-email" placeholder="your@email.com"
+        style="width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;outline:none;"
+        onkeydown="if(event.key==='Enter')document.getElementById('auth-password').focus()">
+    </div>
+    <div style="margin-bottom:6px;">
+      <label style="font-size:13px;font-weight:600;color:#333;display:block;margin-bottom:5px;">Password</label>
+      <input type="password" id="auth-password" placeholder="••••••••"
+        style="width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;outline:none;"
+        onkeydown="if(event.key==='Enter')doEmailSignIn()">
+    </div>
+    <p id="auth-error" style="color:#c62828;font-size:12px;min-height:18px;margin:4px 0 12px;"></p>
+    <button onclick="doEmailSignIn()" id="signInBtn"
+      style="width:100%;padding:12px;background:#005A8B;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">
+      Sign In
+    </button>
+    <p style="color:#888;font-size:12px;text-align:center;margin-top:10px;">
+      Same email and password as the Project Dashboard.
+    </p>
+    <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
+      <button onclick="enterDemoMode()" style="background:none;border:none;color:#888;font-size:12px;cursor:pointer;text-decoration:underline;">
+        👀 View Demo (no sign-in)
+      </button>
+    </div>
+    <p style="color:#aaa;font-size:11px;text-align:center;margin-top:10px;line-height:1.5;">
+      Don't have an account? Contact<br><strong style="color:#555;">Tiffany Lindsey</strong> to get access.
+    </p>
+  </div>
+</div>
+
+<!-- ===== Demo mode banner ===== -->
+<div id="demoBanner" style="display:none;background:#C75B12;color:white;text-align:center;padding:8px 16px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:999;">
+  👀 Demo Mode — changes are not saved to the shared database.
+  <button onclick="exitDemoMode()" style="background:rgba(255,255,255,0.25);border:none;color:white;padding:3px 12px;border-radius:10px;cursor:pointer;font-size:12px;margin-left:10px;font-weight:600;">Sign In</button>
+</div>
+
+
+<header>
+  <div class="wrap">
+    <h1>Student Achievement Awards · Working Playbook</h1>
+    <div class="sub">Berea College · Academic Affairs · A guided path from goals to ceremony, AY 2026–27</div>
+  </div>
+</header>
+
+<div class="savebar">
+  <div class="wrap">
+    <span class="status" id="saveStatus">☁️ Connecting to shared database…</span>
+    <span id="userBar" style="display:none;align-items:center;gap:8px;">
+      <span style="color:var(--gray)">Signed in as <strong id="userDisplayName" style="color:var(--ink)"></strong></span>
+      <button onclick="doSignOut()">Sign out</button>
+    </span>
+    <button onclick="downloadNotes()">💾 Download my notes</button>
+    <button onclick="document.getElementById('loadFile').click()">📂 Load notes</button>
+    <input type="file" id="loadFile" accept=".json" style="display:none" onchange="loadNotes(event)">
+    <button onclick="window.print()">🖨️ Print</button>
+    <a class="btnlink" href="index.html">🗂 Project Dashboard</a>
+    <button onclick="resetAll()">Start fresh</button>
+  </div>
+</div>
+
+<main>
+  <div id="pathView"></div>
+  <div id="sessionView" style="display:none"></div>
+</main>
+
+<script id="sharedProjectFacts">
+/* ===== SHARED PROJECT FACTS ================================================
+   Same block as index.html. Edit values here — they document what both
+   files agree on. Upload both files together after any edit to keep in sync.
+   =========================================================================== */
+var SHARED_FACTS = {
+  names:{
+    tiffany:"Tiffany Lindsey",    jasonP:"Jason Peavler",
+    kelly:"Kelly Fox",             collis:"Collis Robinson",
+    ashley:"Ashley Cochrane",      sheila:"Sheila Lyons",
+    caroline:"Caroline Bartmess",  lindseyB:"Lindsey Bruner",
+    connie:"Connie Murray",        barry:"Barry Poynter",
+    jasonPr:"Jason Proctor",       mindy:"Mindy Townsend",
+    candis:"Candis Arthur",        desirae:"Desirae Baayen",
+    andy:"Andy McKinney",          kayse:"Kayse Cornett",
+    rashmi:"Rashmi",               kristin:"Kristin Dalessio",
+    eric:"Eric Shyaka",            heather:"Heather Schill",
+  },
+  dates:{
+    ceremony:          "CONFIRMED — April 15, 2027, 3:00–6:00 PM, with a reception immediately following from 6:00–8:00 PM",
+    applicationsClose: "February 13, 2027 — NOTE: Saturday, confirm with group",
+    selectionsDue:      "February 27, 2027 — NOTE: Saturday, confirm with group",
+    launch:             "Monday, January 4, 2027",
+    preBreakContentDue: "Friday, December 11, 2026, 5:00 PM",
+    preBreakSends:       "Week of December 14, 2026",
+    webpageLive:         "October 30, 2026",
+    honSocDeadline:      "October 9, 2026",
+    deptConfirmAwards:   "September 25, 2026",
+    financeBalances:     "September 11, 2026",
+    honorInductees:      "March 12, 2027",
+    programToPrint:      "March 19, 2027 — confirm with Andy McKinney",
+    certsSigned:         "April 9, 2027",
+    invitations:         "Week of April 12, 2027 — adjust once ceremony date is set",
+  },
+  counts:{ improvements:9, sessions:13 },
+};
+</script>
+<script>
+const FULL_GROUP = "Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Collis Robinson, Ashley Cochrane, Sheila Lyons, Caroline Bartmess, Lindsey Bruner, Connie Murray, Jason Proctor, Mindy Townsend, Desirae Baayen, Andy McKinney, Kayse Cornett, Candis Arthur, Kristin Dalessio";
+
+const SESSIONS = [
+/* ============ PART I · SET THE DESTINATION ============ */
+{
+  part:"Part I · Set the Destination", n:1,
+  resources:[{"label":"Project Dashboard — Overview","url":"index.html#overview"},{"label":"AwardSpring","url":"https://berea.awardspring.com"}],
+  title:"Kickoff: Begin with the End in Mind",
+  timing:"July 31, 2026 · 44 minutes — completed",
+  status:"Done",
+  readonly:true,
+  who: "Tiffany Lindsey (lead), Kelly Fox, Desirae Baayen, Mindy Townsend, Jason Proctor, Sheila Lyons, Kayse Cornett, Candis Arthur, Kristin Dalessio, Ashley Cochrane",
+  goal:"A shared understanding of the two-workstream project plan and this year's scope — with the goal statement and success measures finalized at Session 2.",
+  tip:"This playbook borrows one habit from Results-Based Accountability: <strong>decide where you're going before you plan the trip.</strong> The July 31 kickoff covered the destination in broad strokes — the two workstreams and this year's scope. Session 2 opens by tightening that into one goal sentence and locking the ceremony date.",
+  prep:[
+    "Everyone: come prepared to describe what a successful 2026–27 cycle looks like.",
+    "Tiffany: have the Awards Project Plan dashboard open to share for context."
+  ],
+  agenda:[
+    {text:"Project plan overview — Tiffany shared the draft plan (in the shared Teams channel), built around two goals: database & transparency, and cycle & ceremony coordination. (10 min)",
+     notes:"The plan is a starting draft, not final — the group is welcome to revise it heavily."},
+    {text:"New group member: medical & dental scholarships — Kayse Cornett has joined the group; she and Rashmi oversee these scholarships, which have historically run outside this process. (5 min)",
+     notes:"Discussed whether to fold this process into the unified ceremony and communication plan — no decision made yet. Revisit."},
+    {text:"AwardSpring & service award nominations — service awards can't move onto AwardSpring yet; it only supports self-nomination, and the service process depends on third-party nomination. Nominations were down last year, likely due to outreach restrictions, though nominee quality stayed strong. (10 min)",
+     notes:"Tiffany will check whether AwardSpring's recent updates added support for non-self-nominations. Until then, the current service-award nomination process continues as-is."},
+    {text:"Ceremony date — Tiffany wants this locked first, since it drives every other deadline. April 2 is out (Empty Bowls is March 31 — both in one week was too much last year). Discussed combining with All People's Day (came up last year too). (10 min)",
+     notes:"Kristin will check feasibility with Ellie and Caroline (President's Office) — only want to combine if it doesn't create extra work for that team. If not combined, prefer a Thursday without an afternoon convocation or General Assembly; Sarah is still finalizing the spring schedule, so open Thursdays aren't confirmed yet."},
+    {text:"Communication planning — Ashley requested dedicated time on a future agenda for the campus-wide communication plan, since service awards run on a different system than AwardSpring, which complicates messaging. (3 min)",
+     notes:"Group agreed this deserves its own discussion once the ceremony date is set."},
+    {text:"Centralized awards information page — Tiffany proposed one clearly organized webpage listing all awards, deadlines, and links, separate from (or feeding into) the college catalog, which isn't always kept current. (3 min)",
+     notes:"Once the group has a recommended structure, Tiffany will bring it to the catalog/faculty maintenance team."},
+    {text:"Shared workspace access — Candis and Kayse asked for access to the Teams channel where the project plan lives. (2 min)",
+     notes:"Tiffany added Candis, Kayse, and Rashmi to the channel."},
+    {text:"Meeting cadence — the group agreed to meet regularly through the fall, moving to bi-weekly once underway, with the option to scale back once the process is established. Every meeting will be one hour. (3 min)",
+     notes:"August is packed (retreats, start of semester) and Kelly has limited availability through August, so the next meeting moves to early September rather than two weeks out."}
+  ],
+  commitments:[
+    {who:"Tiffany", what:"Follow up with the AwardSpring vendor about support for third-party (non-self) nomination", when:"Before Session 2"},
+    {who:"Kristin", what:"Check with Ellie and Caroline (President's Office) on the feasibility of combining the ceremony with All People's Day", when:"Before Session 2"},
+    {who:"Tiffany, Kristin, Caroline (Sarah as needed)", what:"Once feedback is in, identify a short list of candidate ceremony dates to propose to the group", when:"Before Session 2"},
+    {who:"Tiffany", what:"Draft intentional agendas for upcoming meetings and share with the group for feedback before the next meeting", when:"Before Session 2"}
+  ],
+  exercise:{
+    heading:"Worksheet 1 · Vision & Success Criteria",
+    intro:"This wasn't completed live on July 31 — the group covered the project's purpose and scope but didn't yet write a single goal sentence or pick success measures. The draft answers below are pulled from the kickoff discussion; confirmed at the top of Session 2.",
+    widgets:[
+      {type:"prompt", label:"1 · Describe the successful outcome you want to see at the end of the 2026–27 cycle — the ceremony experience, stakeholder feedback, and overall impression.", key:"postcard",
+       value:"Previously separate award ceremonies and cycles (academic, service, labor, and medical/dental scholarships) are unified into one coordinated process, backed by a shared information repository and clearer campus communication — building on last year's success combining service, learning, and labor into a single ceremony."},
+      {type:"prompt", label:"2 · Draft goal statement for the year:", key:"goaltext",
+       value:"Every Berea student who earns recognition receives it — through one coordinated awards cycle (academic, service, labor, and medical/dental) with a shared information repository, clear deadlines, and a single celebration."},
+      {type:"picklist", label:"3 · Candidate success indicators discussed (proposed — not yet reviewed by the group):", key:"measures",
+       options:[
+        {text:"Every department submits its selections on time, all in one place", on:true},
+        {text:"All planned campus communications go out on schedule, together", on:true},
+        {text:"Every award is matched to a fund, an owner, and a cycle in one shared list", on:true},
+        {text:"Chairs and coordinators say this year was clearer than last (quick May survey)", on:true},
+        {text:"Nomination and application volume recovers over last year", on:false},
+        {text:"All honor societies confirm their induction timing by early October", on:false},
+        {text:"The ceremony and packets come in on budget", on:false}
+       ]}
+    ]
+  }
+},
+{
+  part:"Part I · Set the Destination", n:2,
+  resources:[{"label":"Project Dashboard — Project Timeline","url":"index.html#gantt"},{"label":"Academic Calendar submission link","url":""},{"label":"Spring convocation schedule (from Sarah)","url":""}],
+  title:"Lock the Ceremony Date",
+  timing:"Early September 2026 · 60 minutes",
+  who: FULL_GROUP,
+  goal:"A confirmed ceremony date on its way to the Academic Calendar, a decision on medical/dental integration, and a goal statement the group owns.",
+  tip:"<strong>The date drives everything.</strong> Tiffany named this the first thing to settle, because every review, submission, and communication deadline counts backward from it. Known constraints from the kickoff: April 2 is out (Empty Bowls is March 31), and if the ceremony stands alone the group prefers a Thursday without an afternoon convocation or General Assembly.",
+  prep:[
+    "Kristin: report back on Ellie and Caroline's feedback about combining the ceremony with All People's Day.",
+    "Tiffany, Kristin, and Caroline (Sarah as needed): bring a short list of candidate dates, already checked for conflicts.",
+    "Tiffany: bring the AwardSpring vendor's answer on third-party nomination if it has arrived."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups from July 31 (AwardSpring vendor, All People's Day, candidate dates), then any current or urgent needs from any area. (10 min)", notes:""},
+    {text:"Focus — Confirm the goal statement and success indicators from Worksheet 1, so we know what we're aiming at. (12 min)", notes:""},
+    {text:"Focus — Review the candidate dates and choose the ceremony date. Commit to placing it on the Academic Calendar this week. (20 min)", notes:""},
+    {text:"Focus — Decision: do the medical and dental scholarships join the unified cycle and ceremony this year? Kayse and Rashmi's process has run separately until now, and every downstream deadline depends on the answer. (12 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); next session builds the full schedule backward from today's date. (6 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 2 · Ceremony Date Decision",
+    intro:"Check each candidate against the known conflicts before choosing: Empty Bowls (March 31), afternoon convocations and General Assembly, All People's Day, and the spring schedule Sarah is still finalizing.",
+    widgets:[
+      {type:"prompt", label:"All People's Day — what Ellie and Caroline said about combining:", key:"apd", value:""},
+      {type:"table", key:"candidates", cols:["Candidate date","Conflicts checked","Notes / who it affects"], check:true, rows:[
+        ["","",""], ["","",""], ["","",""], ["","",""]
+      ]},
+      {type:"prompt", label:"CEREMONY DATE SELECTED — and who places it on the Academic Calendar:", key:"chosen", value:"CONFIRMED: April 15, 2027, 3:00–6:00 PM, with a reception immediately following from 6:00–8:00 PM. Thursday — no afternoon convocation conflict."},
+      {type:"prompt", label:"Decision — do medical and dental scholarships join the unified cycle and ceremony this year? Record the decision and any conditions:", key:"meddental", value:""}
+    ]
+  }
+},
+{
+  part:"Part I · Set the Destination", n:3,
+  resources:[{"label":"Project Dashboard — Project Timeline","url":"index.html#gantt"},{"label":"Confirmed Academic Calendar entry","url":""}],
+  title:"Work Backward: The Master Schedule",
+  timing:"Mid-September 2026 · 60 minutes",
+  who: FULL_GROUP,
+  goal:"Every key date for the year confirmed with a named owner, counting backward from the ceremony.",
+  tip:"<strong>Plan backward, not forward.</strong> Now that the date is set, every other deadline follows from it. Rows are pre-filled with the deadlines already known from the project plan — the group's job is to confirm them, adjust what doesn't work, and put a name beside each one.",
+  prep:[
+    "Everyone: review the Master Schedule below before the meeting and flag any row you need to discuss.",
+    "Kayse: bring the medical/dental committee's timeline if they're joining the unified cycle.",
+    "Tiffany: update the ceremony row with the confirmed date before circulating."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups (ceremony date on the Academic Calendar?), then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — Walk the Master Schedule (Worksheet 3) backward from the ceremony: confirm or change each date, name the owner, check the box. (32 min)", notes:""},
+    {text:"Focus — Independent timelines: the medical/dental committee deadline, and honor-society outreach so induction timing is confirmed by early October. (12 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); Tiffany sends the confirmed calendar within 3 days; next session takes the nomination-systems problem. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 3 · Master Schedule",
+    intro:"Review each milestone in sequence, working backward from the ceremony. Edit any field; check off once the group confirms it. Once confirmed here, update the matching rows in the Project Dashboard → 📊 Project Timeline tab so both tools stay in sync.",
+    widgets:[
+      {type:"table", key:"dates", cols:["Milestone","Date","Owner"], check:true, rows:[
+        ["Recognition Ceremony & Reception","Thursday, April 15, 2027, 3:00–6:00 PM (reception 6:00–8:00 PM)","Co-hosts"],
+        ["Recipient & family invitations sent","Week of March 25, 2027","Coordinators"],
+        ["Certificates signed","Week of March 25, 2027","President's Office"],
+        ["Program draft to Printing Services","Thursday, March 4, 2027 (confirm w/ Andy)","Tiffany / Jason"],
+        ["Honor society inductee lists due","Thursday, February 25, 2027","Society advisors"],
+        ["All selections due","February 27, 2027  ⚠ Saturday — confirm with group","All committees"],
+        ["Med/dental selections due","February 27, 2027 (if joining the cycle)  ⚠ Saturday","Kayse Cornett"],
+        ["Applications close","February 13, 2027, 5:00 PM  ⚠ Saturday — confirm with group","AwardSpring / AA"],
+        ["Mid-cycle reminder","Week of January 25, 2027","Coordinators"],
+        ["Campus-wide launch — everyone, same day","Monday, January 4, 2027","All areas"],
+        ["Pre-break emails to chairs & students","Week of December 14, 2026","Coordinators"],
+        ["All pre-break content due to Tiffany","December 11, 2026, 5:00 PM","All areas"],
+        ["Award information webpage live","October 30, 2026","AA + all areas"],
+        ["Honor society timing confirmed","October 9, 2026","Tiffany / advisors"],
+        ["Departments confirm awards & criteria","September 25, 2026","All award areas"],
+        ["Finance delivers balances & amounts","September 11, 2026","Connie Murray"],
+        ["AwardSpring 2026–27 clone complete","Early fall 2026","Tiffany / Jason"]
+      ]}
+    ]
+  }
+},
+
+/* ============ PART II · PLAN THE COMMUNICATION ============ */
+{
+  part:"Part II · Plan the Communication", n:4,
+  resources:[{"label":"AwardSpring","url":"https://berea.awardspring.com"},{"label":"AwardSpring vendor contact / support ticket","url":""},{"label":"Current service-award nomination form","url":""}],
+  title:"Two Nomination Systems, One Message",
+  timing:"Late September / early October 2026 · 60 minutes",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Sheila Lyons, Ashley Cochrane, Kelly Fox, Collis Robinson, Desirae Baayen, Caroline Bartmess, Kayse Cornett",
+  goal:"A decision on whether service awards move to AwardSpring this cycle, and a concrete plan to rebuild nomination volume within current outreach rules.",
+  tip:"<strong>This is the problem Ashley flagged at the kickoff.</strong> Service awards depend on third-party nomination, which AwardSpring didn't support — so two systems, two sets of instructions, and confusing messaging. Sheila also noted nominations dropped last year once direct email outreach was restricted, though nominee quality held up. Both problems get solved here before the calendar gets built.",
+  prep:[
+    "Tiffany: bring the AwardSpring vendor's answer on third-party nomination.",
+    "Sheila and Ashley: bring how the service-award nomination process works today and what outreach is currently permitted.",
+    "Everyone: think about which outreach channels your area can actually use."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — The vendor answer: if AwardSpring now supports third-party nomination, plan the migration for service awards; if not, decide how the two systems coexist this cycle without confusing students. (20 min)", notes:""},
+    {text:"Focus — Rebuilding nomination volume: what outreach is permitted now, which channels each area can use, and a realistic target for this cycle. (24 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); next session builds the communication calendar on top of today's decisions. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 4 · Nomination Systems & Outreach",
+    intro:"",
+    widgets:[
+      {type:"prompt", label:"AwardSpring vendor answer on third-party nomination:", key:"vendor", value:""},
+      {type:"prompt", label:"Decision for this cycle — migrate service awards to AwardSpring, or run both systems? What students will be told either way:", key:"systemdecision", value:""},
+      {type:"table", key:"outreach", cols:["Outreach channel","Permitted?","Who uses it","Notes"], check:true, rows:[
+        ["Campus Bulletin","","",""],
+        ["Targeted email to faculty & staff lists","","",""],
+        ["Department chair outreach","","",""],
+        ["Convocation or class announcements","","",""],
+        ["Posters & physical signage","","",""],
+        ["Social media","","",""],
+        ["Direct mass email to students","Restricted — confirm current rule","",""]
+      ]},
+      {type:"prompt", label:"Nomination target for this cycle, and who tracks progress toward it:", key:"target", value:""}
+    ]
+  }
+},
+{
+  part:"Part II · Plan the Communication", n:5,
+  resources:[{"label":"Project Dashboard — Communications","url":"index.html#comms"},{"label":"Last cycle’s chair email (attach or link)","url":""},{"label":"Bulletin submission portal","url":""}],
+  title:"The Communication Calendar",
+  timing:"Mid-October 2026 · 60 minutes",
+  who: FULL_GROUP,
+  goal:"A campus communication calendar with a named sender and a content deadline for every message.",
+  tip:"<strong>One campus, one message.</strong> The core rule: no area announces awards news on its own — key messages go out together, on the same day, saying the same things. Today's calendar reflects whatever the group decided last session about the two nomination systems.",
+  prep:[
+    "Everyone: know who in your area will actually hit “send,” and bring your area's realistic lead time for drafting content.",
+    "Tiffany: bring last cycle's chair email and Bulletin text as starting points."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — Walk the Communication Calendar (Worksheet 5): confirm each message, its timing, and who sends it. (28 min)", notes:""},
+    {text:"Focus — Content deadlines (everything for the pre-break sends is due to Tiffany by Dec 11 at 5 PM — realistic for every area?), the standing sign-off wording, and anyone still missing from the table. (16 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); next session starts the award inventory work. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 5 · Communication Calendar",
+    intro:"Coordinated communications for the year. Edit any field; check off once confirmed.",
+    widgets:[
+      {type:"table", key:"comms", cols:["Message","When","Who sends it"], check:true, rows:[
+        ["Ceremony save-the-date (Bulletin)","Once the date is confirmed","Caroline Bartmess"],
+        ["Chair heads-up: season overview + confirm your awards","Mid-September 2026","Tiffany / Jason"],
+        ["Nomination push for service awards (per Session 4 plan)","Fall 2026","Sheila / Ashley"],
+        ["Pre-break chair emails (each dept's selections due)","Week of Dec 14, 2026","Coordinators"],
+        ["Pre-break student preview","Week of Dec 14, 2026","Coordinators"],
+        ["Launch day — applications open, deadlines named","Monday, Jan 4, 2027","All areas together"],
+        ["Mid-cycle reminder","Week of Jan 25, 2027","Coordinators"],
+        ["Final-week push before applications close","February 8–12, 2027","Coordinators"],
+        ["Selections reminder to chairs","February 15, 2027","Tiffany"],
+        ["Recipient & ceremony invitations","Week of March 25, 2027","Coordinators"],
+        ["Post-ceremony recap & thank-yous","Within a week after","Tiffany / Caroline"]
+      ]},
+      {type:"prompt", label:"Standing sign-off wording for coordinated messages:", key:"signoff",
+       value:"Student Achievement Awards Coordinators — Sheila Lyons (CELTS), Kelly Fox / Collis Robinson (Labor), Tiffany Lindsey (Academic Affairs)"},
+      {type:"prompt", label:"Additional stakeholders to include (people or offices not yet represented):", key:"missing", value:""}
+    ]
+  }
+},
+
+/* ============ PART III · BUILD THE FOUNDATION ============ */
+{
+  part:"Part III · Build the Foundation", n:6,
+  resources:[{"label":"Project Dashboard — Award Inventory","url":"index.html#inventory"},{"label":"Finance’s fund list (attach or link)","url":""},{"label":"Fund agreements folder","url":""}],
+  title:"Know Every Award",
+  timing:"Late October 2026 · 60 minutes · working session",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Connie Murray, Barry Poynter, Candis Arthur, Jason Proctor, Mindy Townsend, Eric Shyaka, Heather Schill, Kayse Cornett, Rashmi (med/dental)",
+  goal:"One trustworthy list: every award matched to a fund, an agreement, an owner, and a cycle — with an owner for every gap.",
+  tip:"<strong>You can't coordinate what you can't see.</strong> This is the database-and-transparency half of the project plan Tiffany shared on July 31. Award details currently live in filing cabinets across four departments — today compares everything we know against Finance's fund list and assigns someone to close each gap.",
+  prep:[
+    "Connie: bring Finance's full fund list with balances.",
+    "Jason P. / Mindy: bring the fund agreements gathered so far.",
+    "Kayse / Rashmi: bring the medical and dental scholarship details if they're joining the unified cycle.",
+    "Tiffany: circulate the reconciliation spreadsheet 2–3 days ahead."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — The match-up: catalog, CELTS, Labor, and (if included) medical/dental awards against Finance's fund list — what matches, what doesn't. (18 min)", notes:""},
+    {text:"Focus — Award reconciliation (Worksheet 6): every orphan award with no agreement on file, every duplicate, and every off-cycle award (Christensen, Wood), each with an assigned owner. (20 min)", notes:""},
+    {text:"Focus — Honor societies: which still need a confirmed contact and induction date? (8 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); next session designs the awards webpage from this list. (6 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 6 · Award Reconciliation",
+    intro:"Document each unresolved award or fund gap and assign an owner to resolve it.",
+    widgets:[
+      {type:"table", key:"gaps", cols:["Award / fund","What's missing","Who will resolve it"], check:true, rows:[
+        ["Christensen Scholarship","Off-cycle — align or document its own cycle",""],
+        ["Wood Award","Off-cycle — align or document its own cycle",""],
+        ["","",""], ["","",""], ["","",""]
+      ]},
+      {type:"prompt", label:"Honor societies still needing a contact or induction date:", key:"societies", value:""}
+    ]
+  }
+},
+{
+  part:"Part III · Build the Foundation", n:7,
+  resources:[{"label":"Project Dashboard — Honor Societies & Clubs","url":"index.html#societies"},{"label":"Honor society advisor contact list","url":""}],
+  title:"Honor Societies & Induction Planning",
+  timing:"Early November 2026 · 60 minutes · working session",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Ashley Cochrane, Sheila Lyons, Caroline Bartmess; society advisors as needed",
+  goal:"Every honor society with a confirmed advisor contact, induction date, and a plan for how they show up in the ceremony and on the webpage.",
+  tip:"<strong>Honor societies keep surfacing as a loose thread.</strong> The project plan calls for confirmed timing by early October, but that deadline is easy to miss because societies report to different departments and advisors change. This session exists to run that list down deliberately instead of letting it trail into spring.",
+  prep:[
+    "Tiffany: bring the honor societies directory from the dashboard and the gap list from Session 6.",
+    "Everyone: bring contact info for any society advisor you know isn't yet confirmed."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — Walk the honor societies list (Worksheet 7): confirm advisor contact and induction timing for each; flag any with no confirmed advisor at all. (28 min)", notes:""},
+    {text:"Focus — How societies show up: recognition during the ceremony, and their section of the awards webpage. (16 min)", notes:""},
+    {text:"Close — Commitments read back (who / what / by when); outstanding contacts get a named chaser and a date. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 7 · Honor Societies Directory",
+    intro:"One row per society. Check off once the advisor and induction date are both confirmed in writing.",
+    widgets:[
+      {type:"table", key:"societies", cols:["Society","Advisor contact","Induction timing"], check:true, rows:[
+        ["","",""], ["","",""], ["","",""], ["","",""], ["","",""], ["","",""]
+      ]},
+      {type:"prompt", label:"Societies with no confirmed advisor at all — who chases each one, and by when:", key:"nocontact", value:""}
+    ]
+  }
+},
+{
+  part:"Part III · Build the Foundation", n:8,
+  resources:[{"label":"Project Dashboard — Award Inventory","url":"index.html#inventory"},{"label":"Draft webpage (once live)","url":""},{"label":"Catalog / faculty maintenance team contact","url":""}],
+  title:"The Awards Webpage",
+  timing:"Mid-November 2026 · 60 minutes",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Sheila Lyons, Ashley Cochrane, Kelly Fox, Caroline Bartmess, Heather Schill, Kayse Cornett; catalog/faculty maintenance contact if available",
+  goal:"An agreed structure for the centralized awards webpage, with an owner for every section — ready for Tiffany to take to the catalog team.",
+  tip:"<strong>One accurate place to look.</strong> Tiffany proposed this at the kickoff: a single, clearly organized page listing every award, deadline, and link — separate from (or feeding into) the college catalog, which isn't always current. The goal is that anyone searching “academic awards” or “service awards” lands on one accurate source.",
+  prep:[
+    "Everyone: think about what your area's award listings must include for a student to actually understand and apply.",
+    "Tiffany: bring the reconciled award list and honor societies directory as the page's source content."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — What every award listing contains, and how the page is organized (Worksheet 8). (25 min)", notes:""},
+    {text:"Focus — How the page stays current: who owns updates for each section, how often they're reviewed, and how the page and the catalog stay consistent instead of contradicting each other. (19 min)", notes:""},
+    {text:"Close — Commitments read back; confirm Tiffany takes the recommendation to the catalog/faculty maintenance team. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 8 · Awards Webpage Structure",
+    intro:"",
+    widgets:[
+      {type:"table", key:"fields", cols:["What each award listing shows","Who supplies it"], check:true, rows:[
+        ["Award name",""], ["Short description / purpose",""], ["Eligibility (class year, major, other criteria)",""],
+        ["Amount",""], ["Nomination or application?",""], ["How to apply or nominate (which system)",""],
+        ["Deadline",""], ["Contact person",""], ["Link to the form or system",""], ["Past recipients (optional)",""]
+      ]},
+      {type:"table", key:"sections", cols:["Page section","Who owns updates","Reviewed how often"], check:true, rows:[
+        ["Academic awards","",""], ["Service awards","",""], ["Labor awards","",""],
+        ["Medical & dental scholarships","",""], ["Honor societies & inductions","",""], ["How awards work / FAQ","",""]
+      ]},
+      {type:"prompt", label:"How the page and the college catalog stay consistent (who updates which, and in what order):", key:"catalog", value:""}
+    ]
+  }
+},
+{
+  part:"Part III · Build the Foundation", n:9,
+  resources:[{"label":"Project Dashboard — Workstream 1: Award Database","url":"index.html#database"},{"label":"AwardSpring","url":"https://berea.awardspring.com"},{"label":"Repository platform link (once chosen)","url":""}],
+  title:"Where Everything Lives & Pre-Launch Readiness",
+  timing:"Early December 2026 · 60 minutes",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Heather Schill, Eric Shyaka, Connie Murray, Caroline Bartmess, Sheila Lyons, Kelly Fox, Ashley Cochrane",
+  goal:"A chosen home for the award repository, and every pre-break message ready to send.",
+  tip:"<strong>December is won in November.</strong> If content is already drafted, the pre-break sends are a calm checklist rather than a scramble — and students return in January already knowing what's coming.",
+  prep:[
+    "Heather / Eric: bring a one-page comparison of the repository options (Box/SharePoint vs. tied to AwardSpring or Banner), with any costs.",
+    "Tiffany: circulate draft chair email and student preview ahead of time — the meeting is for edits, not writing."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups, then any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — Decide where the award repository lives: who can see fund agreements and balances, and confirm it can feed the public webpage. (20 min)", notes:""},
+    {text:"Focus — Pre-launch readiness checklist (Worksheet 9): edit, assign, check off. (24 min)", notes:""},
+    {text:"Close — Commitments read back; confirm every area can send on Monday, January 4. (8 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 9 · Repository Decision & Pre-Launch Checklist",
+    intro:"",
+    widgets:[
+      {type:"prompt", label:"Repository platform selected, and why:", key:"platform", value:""},
+      {type:"prompt", label:"Who can see what (access by role):", key:"access", value:""},
+      {type:"table", key:"ready", cols:["Item","Due","Owner"], check:true, rows:[
+        ["Award information webpage live","October 30","AA + all areas"],
+        ["Webpage recommendation delivered to catalog/faculty maintenance team","November","Tiffany"],
+        ["AwardSpring amounts updated from Finance figures","Mid-November","Tiffany / Jason"],
+        ["Application window verified (opens Jan 4, closes Feb 13, 5 PM)","Mid-November","Tiffany / Jason"],
+        ["Service-award nomination process confirmed for this cycle","Mid-November","Sheila / Ashley"],
+        ["Chair email drafts final","December 4","Coordinators"],
+        ["Student preview draft final","December 4","Coordinators"],
+        ["Bulletin save-the-date text to Caroline","December 11, 5 PM","All areas"],
+        ["Repository build plan set","December","Heather / Tiffany"]
+      ]}
+    ]
+  }
+},
+
+/* ============ PART IV · RUN THE CYCLE ============ */
+{
+  part:"Part IV · Run the Cycle", n:10,
+  resources:[{"label":"AwardSpring","url":"https://berea.awardspring.com"},{"label":"Project Dashboard — Workstream 2: Awards Cycle","url":"index.html#cycle"}],
+  title:"Launch Together",
+  timing:"Week before January 4, 2027 · 45 minutes · can be virtual",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Ashley Cochrane, Sheila Lyons, Desirae Baayen, Caroline Bartmess",
+  goal:"Every area launches the awards season the same morning — same deadlines, same links, one campus moment.",
+  tip:"<strong>The launch is the promise.</strong> If January 4 lands as one coordinated moment, students believe the rest of the cycle will be organized too. This is final verification only — nothing new gets decided.",
+  prep:["Every area: have your sender, send time, and final text ready before the meeting."],
+  agenda:[
+    {text:"Standing — Anything still open from the fall, plus any current or urgent needs. (5 min)", notes:""},
+    {text:"Focus — Launch verification (Worksheet 10): every area confirms its sender, send time, and final text for January 4. (15 min)", notes:""},
+    {text:"Focus — Deadline and link audit: every deadline appears correctly in every message, every link tested, and the right contact named for each area. (12 min)", notes:""},
+    {text:"Focus — Confirm the mid-cycle reminder for the week of Jan 25 and its owner, and agree who watches application numbers and reports back. (8 min)", notes:""},
+    {text:"Close — Commitments read back; confirm the next checkpoint. (5 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 10 · Launch Verification",
+    intro:"Confirm each area's message is written, scheduled, and linked before checking off.",
+    widgets:[
+      {type:"table", key:"launch", cols:["Area","Who sends","Send time Jan 4"], check:true, rows:[
+        ["Academic Affairs","Tiffany / Jason",""],
+        ["Labor Program","Kelly / Collis",""],
+        ["CELTS / Service","Sheila / Ashley",""],
+        ["Athletics","Desirae",""],
+        ["Medical & dental scholarships","Kayse / Rashmi",""],
+        ["President's Office / Bulletin","Caroline",""]
+      ]}
+    ]
+  }
+},
+{
+  part:"Part IV · Run the Cycle", n:11,
+  resources:[{"label":"AwardSpring","url":"https://berea.awardspring.com"},{"label":"Project Dashboard — Budget","url":"index.html#budget"},{"label":"Certificate template file","url":""},{"label":"Printing Services request form","url":""}],
+  title:"Selections & the Program",
+  timing:"Week of March 1, 2027 · 60 minutes",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Collis Robinson, Ashley Cochrane, Sheila Lyons, Desirae Baayen, Connie Murray, Kayse Cornett; Andy McKinney for the last item",
+  goal:"Every selection accounted for, every gap chased, and program production launched toward the print deadline.",
+  tip:"<strong>Ask the honest questions:</strong> how many applications and nominations came in versus last year, and how many selections arrived on time? The answers tell us where to push this week and what to fix next year.",
+  prep:[
+    "Every area: submit selections through the agreed platform before the meeting — the meeting is for exceptions, not collection.",
+    "Connie: bring final fund amounts for the program."
+  ],
+  agenda:[
+    {text:"Standing — Follow-ups and any current or urgent needs from any area. (8 min)", notes:""},
+    {text:"Focus — The numbers: applications and nominations vs. last year (did the outreach plan work?), selections in vs. expected, on time vs. late. (12 min)", notes:""},
+    {text:"Focus — Selections tracker (Worksheet 11): chase every gap with a name and a hard cutoff date. (16 min)", notes:""},
+    {text:"Focus — Honor societies and medical/dental: inductee lists and committee selections — in hand or firmly dated. (10 min)", notes:""},
+    {text:"Focus — Production kickoff: final amounts, certificate template, packet contents, draft to Printing Services, President's signature plan. (10 min)", notes:""},
+    {text:"Close — Commitments read back; confirm the ceremony logistics meeting. (4 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 11 · Selections Tracker",
+    intro:"Check off when that area's selections are complete and submitted in the agreed place.",
+    widgets:[
+      {type:"table", key:"selections", cols:["Area","Due","Notes / follow-up"], check:true, rows:[
+        ["Academic Awards (Tiffany)","Feb 27  ⚠ Sat","",],
+        ["Service Awards (Sheila)","Feb 27  ⚠ Sat",""],
+        ["Labor Awards (Kelly / Collis)","Feb 27  ⚠ Sat",""],
+        ["Athletics (Desirae)","Feb 27  ⚠ Sat",""],
+        ["Medical & dental (Kayse / Rashmi)","Feb 27  ⚠ Sat",""],
+        ["Honor society inductee lists","Per Session 3 schedule",""]
+      ]},
+      {type:"prompt", label:"Observations for next year's process:", key:"lessons", value:""}
+    ]
+  }
+},
+{
+  part:"Part IV · Run the Cycle", n:12,
+  resources:[{"label":"Project Dashboard — Budget","url":"index.html#budget"},{"label":"Venue booking confirmation","url":""},{"label":"Catering order","url":""},{"label":"Run-of-show script (once drafted)","url":""}],
+  title:"The Ceremony",
+  timing:"Thursday, April 15, 2027 · Ceremony 3:00–6:00 PM, reception 6:00–8:00 PM",
+  who:"Tiffany Lindsey (lead), Kelly Fox, Ashley Cochrane, Desirae Baayen, Caroline Bartmess, Lindsey Bruner, Kayse Cornett; venue & catering contacts as needed",
+  goal:"A complete run of show, every day-of task owned, and invitations on their way to recipients and families.",
+  tip:"<strong>Students and families remember the feeling, not the logistics.</strong> Every detail below serves one seamless celebration where Labor, Academic, Service, and medical/dental recognition finally share a stage.",
+  prep:["Tiffany: bring the budget tracker with current committed and paid amounts.","Caroline: invitation text ready to send."],
+  agenda:[
+    {text:"Standing — Follow-ups, current needs, and a budget check: actuals vs. estimates. (10 min)", notes:""},
+    {text:"Focus — Build the run of show (Worksheet 12): order of award categories, presenters, honor society recognition, timing. (20 min)", notes:""},
+    {text:"Focus — Venue and reception: setup, seating, A/V, catering counts. (10 min)", notes:""},
+    {text:"Focus — Invitations and promotion: recipients, families, campus. (10 min)", notes:""},
+    {text:"Close — Assign every day-of task; commitments read back; confirm the debrief date. (10 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 12 · Ceremony Run of Show",
+    intro:"",
+    widgets:[
+      {type:"prompt", label:"Run of show (welcome → award categories in order → honor societies → closing → reception):", key:"runofshow", value:""},
+      {type:"table", key:"dayof", cols:["Day-of task","Who owns it"], check:true, rows:[
+        ["Check-in table & programs",""], ["Certificates & packets staged in order",""], ["A/V and microphones",""],
+        ["Reception & catering",""], ["Photos",""], ["Family seating & ushers",""]
+      ]}
+    ]
+  }
+},
+
+/* ============ PART V · CELEBRATE & LEARN ============ */
+{
+  part:"Part V · Celebrate & Learn", n:13,
+  resources:[{"label":"Project Dashboard — Improvements","url":"index.html#improvements"},{"label":"Project Dashboard — Project Timeline","url":"index.html#gantt"},{"label":"Pulse survey results","url":""}],
+  title:"Did We Get There?",
+  timing:"Mid-May 2027 · 60 minutes · everyone",
+  who: FULL_GROUP + ", plus Barry Poynter, Eric Shyaka, Heather Schill, Rashmi",
+  goal:"An honest look at the goal we set in September, a decision on the award repository, and next year's date set before summer.",
+  tip:"<strong>End where you started.</strong> Pull up Session 1 and 2: the goal statement and the success indicators the group settled on. Today we answer plainly — did we get there? — and bank what we learned so next year starts easier.",
+  prep:[
+    "Tiffany: bring the goal statement and success indicators, plus the year's numbers (applications, nominations, on-time selections, communications sent, budget).",
+    "Everyone: come with your top two “keep” items and top two “change” items."
+  ],
+  agenda:[
+    {text:"Standing — Quick round: anything still open that needs an owner before summer. (5 min)", notes:""},
+    {text:"Focus — Read the goal statement aloud, then walk each success indicator: did we hit it? Celebrate what turned around; be honest about what didn't. (18 min)", notes:""},
+    {text:"Focus — Keep / Change (Worksheet 13), including the questions we carried all year: did the webpage work, did medical/dental integration go smoothly, did nomination volume recover, and did the nomination systems cause problems? (15 min)", notes:""},
+    {text:"Focus — Award repository: go-live decision based on the pilot, and the training plan. (8 min)", notes:""},
+    {text:"Focus — Set next year: the 2027–28 ceremony date to the Academic Calendar before summer, plus next fall's meeting cadence. (10 min)", notes:""},
+    {text:"Close — Thank-yous and commitments read back. (4 min)", notes:""}
+  ],
+  exercise:{
+    heading:"Worksheet 13 · Results Review",
+    intro:"",
+    widgets:[
+      {type:"prompt", label:"Goal statement we set at the start of the year:", key:"wesaid", value:""},
+      {type:"prompt", label:"Actual outcome — against each success indicator:", key:"happened", value:""},
+      {type:"prompt", label:"Recommended to continue:", key:"keep", value:""},
+      {type:"prompt", label:"Recommended to change:", key:"change", value:""},
+      {type:"prompt", label:"2027–28 ceremony date, and who places it on the Academic Calendar:", key:"nextdate", value:""}
+    ]
+  }
+}
+];
+
+/* ================================================================
+   Check-in template — used for the "+ Add a check-in meeting"
+   feature, so every bi-weekly meeting has a real agenda even when
+   it doesn't carry one of the thirteen substantive topics above.
+   ================================================================ */
+function checkinTemplate(dateLabel){
+  return {
+    part:"Check-in", n:null, isCheckin:true,
+    title:"Check-In Meeting",
+    timing:(dateLabel||"Date TBD") + " · 60 minutes",
+    who: FULL_GROUP,
+    resources:[{label:"Project Dashboard — Overview", url:"index.html#overview"}],
+    goal:"Open items closed out, current needs addressed, nothing falls through the cracks between the bigger sessions.",
+    tip:"<strong>Not every meeting needs a big topic.</strong> This one exists to keep momentum: clear open action items, handle whatever's urgent right now, and confirm everyone still agrees on what's next.",
+    prep:["Everyone: bring anything that's come up since the last meeting that the group needs to know about."],
+    commitments:[{who:"",what:"",when:""}],
+    agenda:[
+      {text:"Standing — Review open commitments from the last few sessions: what's done, what's slipping. (15 min)", notes:""},
+      {text:"Focus — Current or urgent needs from any area (fill in during the meeting). (30 min)", notes:""},
+      {text:"Close — Commitments read back (who / what / by when); confirm the next meeting's date and topic. (15 min)", notes:""}
+    ],
+    exerciseDef:{
+      heading:"Worksheet · Open Items",
+      intro:"Track what's carried over and what's new.",
+      widgets:[
+        {type:"table", key:"carried", cols:["Open item","Owner","Status"], check:true, rows:[["","",""],["","",""],["","",""]]},
+        {type:"prompt", label:"New items raised today:", key:"newitems", value:""}
+      ]
+    }
+  };
+}
+
+/* ================================================================
+   State & storage
+   ================================================================ */
+const KEY = "bereaAwardsPlaybook.v2"; // v2 — new architecture, does not read v1 data
+var state = null;
+var checkinSeq = 1;
+
+function freshState(){
+  return {
+    view:"path",
+    open:{type:"fixed", index:0},
+    sessions: SESSIONS.map(s=>({
+      status: s.status || "Not started",
+      timing: s.timing,
+      who: s.who,
+      resources: s.resources ? s.resources.map(r=>({...r})) : [],
+      agenda: s.agenda.map(t => typeof t==="string" ? {text:t, notes:""} : {text:t.text, notes:t.notes||""}),
+      commitments: s.commitments ? s.commitments.map(c=>({...c})) : [{who:"",what:"",when:""}],
+      ex: s.exercise.widgets.map(w=>{
+        if(w.type==="prompt") return {v:w.value||""};
+        if(w.type==="picklist") return {opts:w.options.map(o=>({text:o.text,on:o.on}))};
+        if(w.type==="table") return {rows:w.rows.map(r=>({cells:[...r],done:false}))};
+        return {};
+      })
+    })),
+    checkins: [] // user-added ad hoc meetings; each is a fully self-contained object
+  };
+}
+
+function load(){
+  // Local copy loads instantly so the page never looks empty while Firebase connects.
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(raw){
+      const s = JSON.parse(raw);
+      if(s && s.sessions && s.sessions.length===SESSIONS.length && Array.isArray(s.checkins)){
+        state = s;
+      }
+    }
+  }catch(e){}
+  if(!state) state = freshState();
+}
+
+var saveTimer=null;
+var _fbApp=null, _fbDb=null, _fbAuth=null, _currentUser=null, _dbListener=null, _myLastSave='', _demoMode=false;
+const FB_PATH = "berea_awards_playbook_v1"; // separate from the dashboard's "berea_awards_v2" — same project, same accounts
+
+function save(){
+  // Always mirror locally first — instant, and a safety net if the network drops.
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  const el=document.getElementById("saveStatus");
+  if(_demoMode || !_fbDb || !_currentUser){
+    if(el){ el.textContent="💾 Saved locally only — sign in to save to the shared database"; }
+    return;
+  }
+  if(el) el.textContent="⟳ Saving…";
+  const payload = Object.assign({}, state, { lastSaved: new Date().toISOString() });
+  _myLastSave = payload.lastSaved;
+  _fbDb.ref(FB_PATH).set(payload).then(()=>{
+    if(el) el.textContent="☁️ Saved to shared database";
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(()=>{ if(el) el.textContent="☁️ Connected to shared database"; },2500);
+  }).catch(e=>{
+    if(el) el.textContent="⚠ Save failed — kept locally, will retry when reconnected";
+  });
+}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");}
+
+// Navigating (which screen is open) is personal, not shared content —
+// mirror it locally only, so switching screens never triggers a database
+// write or overwrites the "Connected"/"Updated by a teammate" status.
+function saveNavLocal(){
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+}
+
+/* ================================================================
+   Firebase — shared storage, same login as the Project Dashboard.
+   Same Firebase project & accounts; a different database path so
+   playbook data and dashboard data never collide.
+   ================================================================ */
+const _FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBxvjk5AOaV64T8xQEcFQkeml2-a2dRmHM",
+  authDomain: "bc-achievement-awards.firebaseapp.com",
+  databaseURL: "https://bc-achievement-awards-default-rtdb.firebaseio.com",
+  projectId: "bc-achievement-awards",
+  storageBucket: "bc-achievement-awards.firebasestorage.app",
+  messagingSenderId: "523634563107",
+  appId: "1:523634563107:web:871e4576bcfab0c51e7996"
+};
+
+function initFirebaseApp(){
+  if(_fbApp) return true;
+  try{
+    _fbApp  = firebase.initializeApp(_FIREBASE_CONFIG);
+    _fbDb   = firebase.database();
+    _fbAuth = firebase.auth();
+    _fbAuth.onAuthStateChanged(onAuthStateChanged);
+    return true;
+  }catch(e){ console.error("Firebase init failed:", e); return false; }
+}
+
+function onAuthStateChanged(user){
+  _currentUser = user;
+  const authScreen = document.getElementById("authScreen");
+  const userBar = document.getElementById("userBar");
+  if(user){
+    if(authScreen) authScreen.style.display="none";
+    if(userBar){
+      userBar.style.display="flex";
+      const nameEl=document.getElementById("userDisplayName");
+      if(nameEl) nameEl.textContent = user.displayName || user.email;
+    }
+    loadAndListen();
+  } else if(!_demoMode){
+    if(authScreen){ authScreen.style.display="flex"; authScreen.style.flexDirection="column"; }
+    if(userBar) userBar.style.display="none";
+    if(_dbListener && _fbDb){ _fbDb.ref(FB_PATH).off("value",_dbListener); _dbListener=null; }
+  }
+}
+
+function doEmailSignIn(){
+  if(!_fbAuth) return;
+  const email=(document.getElementById("auth-email")||{}).value||"";
+  const pass =(document.getElementById("auth-password")||{}).value||"";
+  const errEl=document.getElementById("auth-error");
+  const btn=document.getElementById("signInBtn");
+  if(!email||!pass){ if(errEl) errEl.textContent="Please enter your email and password."; return; }
+  if(errEl) errEl.textContent="";
+  if(btn){ btn.textContent="Signing in…"; btn.disabled=true; }
+  _fbAuth.signInWithEmailAndPassword(email,pass).catch(e=>{
+    if(errEl){
+      if(["auth/wrong-password","auth/user-not-found","auth/invalid-credential"].includes(e.code))
+        errEl.textContent="Incorrect email or password. Try again.";
+      else if(e.code==="auth/invalid-email") errEl.textContent="Please enter a valid email address.";
+      else if(e.code==="auth/too-many-requests") errEl.textContent="Too many attempts. Please wait a few minutes.";
+      else errEl.textContent="Sign-in failed: "+e.message;
+    }
+    if(btn){ btn.textContent="Sign In"; btn.disabled=false; }
+  });
+}
+function doSignOut(){ if(_fbAuth && confirm("Sign out of the shared playbook?")) _fbAuth.signOut(); }
+
+function enterDemoMode(){
+  _demoMode=true;
+  const authScreen=document.getElementById("authScreen");
+  if(authScreen) authScreen.style.display="none";
+  const banner=document.getElementById("demoBanner");
+  if(banner) banner.style.display="block";
+  renderPath();
+}
+function exitDemoMode(){
+  _demoMode=false;
+  const banner=document.getElementById("demoBanner");
+  if(banner) banner.style.display="none";
+  const authScreen=document.getElementById("authScreen");
+  if(authScreen){ authScreen.style.display="flex"; authScreen.style.flexDirection="column"; }
+}
+
+function loadAndListen(){
+  if(!_fbDb) return;
+  const el=document.getElementById("saveStatus");
+  if(el) el.textContent="⟳ Loading shared data…";
+  const ref=_fbDb.ref(FB_PATH);
+  ref.once("value").then(snapshot=>{
+    const data=snapshot.val();
+    if(data && data.sessions){ state=data; _myLastSave=data.lastSaved||""; }
+    else { save(); } // nothing in the shared database yet — push our local/fresh copy
+    (state.view==="session")?renderSession():renderPath();
+    if(el) el.textContent="☁️ Connected to shared database";
+    if(_dbListener) ref.off("value",_dbListener);
+    _dbListener = ref.on("value", snapshot=>{
+      const d=snapshot.val();
+      if(d && d.lastSaved && d.lastSaved!==_myLastSave){
+        state=d; _myLastSave=d.lastSaved;
+        (state.view==="session")?renderSession():renderPath();
+        if(el) el.textContent="↻ Updated by a teammate";
+        setTimeout(()=>{ if(el) el.textContent="☁️ Connected to shared database"; },2500);
+      }
+    });
+  }).catch(e=>{
+    console.warn("Firebase load failed:",e);
+    if(el) el.textContent="⚠ Could not load shared data — showing your local copy";
+    (state.view==="session")?renderSession():renderPath();
+  });
+}
+
+/* ================================================================
+   Resolve "current" session — works for both fixed sessions and
+   user-added check-ins through one shared interface.
+   ================================================================ */
+function cur(){
+  if(state.open.type==="checkin"){
+    const c = state.checkins[state.open.index];
+    return { def:c, ss:c, isCheckin:true, readonly:false };
+  }
+  const i = state.open.index;
+  return { def:SESSIONS[i], ss:state.sessions[i], isCheckin:false, readonly:!!SESSIONS[i].readonly };
+}
+function exerciseDefOf(c){ return c.isCheckin ? c.def.exerciseDef : c.def.exercise; }
+
+/* ================================================================
+   Path view (home page)
+   ================================================================ */
+function renderPath(){
+  document.getElementById("sessionView").style.display="none";
+  const v=document.getElementById("pathView");
+  v.style.display="block";
+  state.view="path"; saveNavLocal();
+
+  let html=`
+  <div class="card howbox">
+    <h2>How this playbook works</h2>
+    <p>This is part project plan, part step-by-step course. Thirteen one-hour working sessions carry the awards project from a shared goal through the ceremony in May — and everything on this page is editable: agendas, dates, names, notes. Your changes save automatically in this browser.</p>
+    <p style="margin-bottom:6px">The method underneath is called <strong>Results-Based Accountability</strong>. You don't need to have heard of it — it comes down to three habits:</p>
+    <ol>
+      <li><strong>Begin with the end in mind.</strong> Agree on the destination first, then plan backward from it.</li>
+      <li><strong>Ask honest questions along the way.</strong> How much did we do? How well did we do it? Is anyone better off?</li>
+      <li><strong>End every meeting with who / what / by when.</strong> Talk becomes action before anyone leaves the room.</li>
+    </ol>
+    <p style="margin-bottom:6px"><strong>Every meeting is one hour and has the same shape:</strong></p>
+    <ol>
+      <li><strong>Standing items</strong> — follow-ups on open action items, plus time for any current or urgent needs. (5–15 min)</li>
+      <li><strong>Focus</strong> — one substantial topic per meeting.</li>
+      <li><strong>Close</strong> — commitments read back aloud, and the next meeting's focus confirmed.</li>
+    </ol>
+    <p class="muted" style="margin-bottom:10px">The group meets bi-weekly, one hour each. The thirteen sessions below carry the year's substantial topics — use <strong>“＋ Add a check-in meeting”</strong> below for any bi-weekly slot that doesn't need a big topic, so every single meeting still gets a real agenda.</p>
+    <p style="margin-bottom:6px"><strong>Where things live</strong> — so nothing gets recorded in two places:</p>
+    <ul style="margin:0 0 10px;padding-left:22px">
+      <li><strong>Teams channel</strong> — the official record: meeting notes, recordings, files, and the running action list.</li>
+      <li><strong>Project Dashboard</strong> — the project data: award inventory, funds, budget, timeline, honor societies.</li>
+      <li><strong>This playbook</strong> — how each meeting runs: agendas, who needs to be there, worksheets.</li>
+    </ul>
+    <p class="muted" style="margin-bottom:0">Use <strong>📋 Copy for Teams</strong> at the top of any session to turn it into text you can paste into the channel after the meeting. Use <strong>💾 Download my notes</strong> to save a copy — if your OneDrive folder is synced to this computer, choose that folder in the save dialog and your notes are backed up to Microsoft 365 automatically.</p>
+  </div>`;
+
+  let lastPart="";
+  state.sessions.forEach((ss,i)=>{
+    const def=SESSIONS[i];
+    if(def.part!==lastPart){
+      lastPart=def.part;
+      const notes={
+        "Part I · Set the Destination":"July–September · full group · confirm the goal, lock the ceremony date, then work backward to every other deadline.",
+        "Part II · Plan the Communication":"October · the award areas · solve the two-system nomination problem, then build the campus communication calendar.",
+        "Part III · Build the Foundation":"Late October–December · working sessions · one trustworthy award list, honor societies confirmed, one accurate webpage, one place everything lives.",
+        "Part IV · Run the Cycle":"January–April · key checkpoints · launch, select, produce, celebrate.",
+        "Part V · Celebrate & Learn":"May · everyone · close the loop and set up next year."
+      };
+      html+=`<div class="partlabel">${def.part}</div><p class="partnote">${notes[def.part]||""}</p>`;
+    }
+    const st=ss.status;
+    const roPill = def.readonly ? `<span class="ro-pill" style="margin-right:6px">🔒 Read-only record</span>` : "";
+    html+=`
+    <div class="sesscard ${st==="Done"?"done":""}" onclick="openFixed(${i})" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openFixed(${i})">
+      <div class="sessnum">${st==="Done"?"✓":def.n}</div>
+      <div style="flex:1">
+        <h4>${def.title}</h4>
+        <div class="meta">🗓 ${esc(ss.timing)}</div>
+        <div class="goalline">🎯 ${def.goal}</div>
+      </div>
+      <div class="statuswrap" onclick="event.stopPropagation()">
+        ${roPill}
+        ${def.readonly ? "" : `<select class="status-${st.replace(' ','\\ ')}" onchange="setStatus(${i},this.value)" aria-label="Session status">
+          <option ${st==="Not started"?"selected":""}>Not started</option>
+          <option ${st==="Scheduled"?"selected":""}>Scheduled</option>
+          <option ${st==="Done"?"selected":""}>Done</option>
+        </select>`}
+      </div>
+    </div>`;
+  });
+
+  // check-ins section
+  html+=`<div class="partlabel">Check-In Meetings</div><p class="partnote">Ad hoc bi-weekly meetings that don't carry one of the thirteen substantive topics. Each still gets a full agenda.</p>`;
+  if(state.checkins.length===0){
+    html+=`<p class="muted" style="margin-bottom:14px">No check-in meetings added yet.</p>`;
+  }
+  state.checkins.forEach((c,i)=>{
+    html+=`
+    <div class="sesscard checkin" onclick="openCheckin(${i})" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openCheckin(${i})">
+      <div class="sessnum">＋</div>
+      <div style="flex:1">
+        <h4>${esc(c.title)}</h4>
+        <div class="meta">🗓 ${esc(c.timing)}</div>
+      </div>
+      <div class="statuswrap" onclick="event.stopPropagation()">
+        <span class="checkin-pill">Check-in</span>
+        <select onchange="setCheckinStatus(${i},this.value)" aria-label="Status">
+          <option ${c.status==="Not started"?"selected":""}>Not started</option>
+          <option ${c.status==="Scheduled"?"selected":""}>Scheduled</option>
+          <option ${c.status==="Done"?"selected":""}>Done</option>
+        </select>
+        <button class="x no-print" title="Delete this check-in" onclick="event.stopPropagation();deleteCheckin(${i})">✕</button>
+      </div>
+    </div>`;
+  });
+  html+=`<p class="no-print" style="margin-top:6px"><button class="btn blue" onclick="addCheckin()">＋ Add a check-in meeting</button></p>`;
+
+  html+=`<p class="footer-note">Berea College · Office of the Provost & Academic Affairs · Awards Modernization Initiative · Colors and type follow the Berea College Brand & Graphics Standards (Berea Blue, Open Sans). Questions: Tiffany Lindsey, lindseyt@berea.edu.</p>`;
+  v.innerHTML=html;
+}
+function setStatus(i,val){ state.sessions[i].status=val; save(); renderPath(); }
+function setCheckinStatus(i,val){ state.checkins[i].status=val; save(); renderPath(); }
+
+/* ================================================================
+   Check-in creation / deletion
+   ================================================================ */
+function addCheckin(){
+  const label = window.prompt("Date for this check-in meeting (e.g. \"Week of Oct 20, 2026\"):","");
+  const c = checkinTemplate(label);
+  c.status="Not started";
+  c._id = "chk"+(checkinSeq++);
+  // materialize ex state to match the template widgets, same pattern as fixed sessions
+  c.ex = c.exerciseDef.widgets.map(w=>{
+    if(w.type==="prompt") return {v:w.value||""};
+    if(w.type==="picklist") return {opts:w.options.map(o=>({text:o.text,on:o.on}))};
+    if(w.type==="table") return {rows:w.rows.map(r=>({cells:[...r],done:false}))};
+    return {};
+  });
+  state.checkins.push(c);
+  save();
+  renderPath();
+}
+function deleteCheckin(i){
+  if(!confirm("Delete this check-in meeting? This can't be undone.")) return;
+  state.checkins.splice(i,1);
+  save();
+  renderPath();
+}
+
+/* ================================================================
+   Open a session (fixed or check-in)
+   ================================================================ */
+function openFixed(i){ state.open={type:"fixed",index:i}; state.view="session"; saveNavLocal(); renderSession(); window.scrollTo({top:0}); }
+function openCheckin(i){ state.open={type:"checkin",index:i}; state.view="session"; saveNavLocal(); renderSession(); window.scrollTo({top:0}); }
+
+/* ================================================================
+   Session view
+   ================================================================ */
+function renderSession(){
+  const c = cur();
+  const def = c.def, ss = c.ss, ro = c.readonly;
+  document.getElementById("pathView").style.display="none";
+  const v=document.getElementById("sessionView");
+  v.style.display="block";
+
+  const chips=ss.who.split(",").map(x=>x.trim()).filter(Boolean)
+    .map(n=>`<span class="chip ${/\(lead\)/i.test(n)?"lead":""}">${esc(n.replace(/\s*\(lead\)/i,""))}${/\(lead\)/i.test(n)?" ★":""}</span>`).join("");
+
+  const kicker = c.isCheckin ? "Check-In Meeting" : `${def.part} · Session ${def.n} of ${SESSIONS.length}`;
+  const navButtons = c.isCheckin ? "" : `
+      ${state.open.index>0?`<button class="btn ghost" onclick="openFixed(${state.open.index-1})">← Session ${state.open.index}</button>`:""}
+      ${state.open.index<SESSIONS.length-1?`<button class="btn blue" onclick="openFixed(${state.open.index+1})">Session ${state.open.index+2} →</button>`:""}`;
+
+  let html=`
+  <div class="crumbs no-print">
+    <button class="btn ghost" onclick="renderPath()">← Back to the path</button>
+    <div class="nav">
+      <button class="btn ghost" onclick="copyForTeams()" title="Copies this whole session as text you can paste into your Teams channel">📋 Copy for Teams</button>
+      ${navButtons}
+    </div>
+  </div>
+
+  <div class="card sesshead">
+    <div class="kicker">${kicker}</div>
+    <h2>${esc(def.title)}</h2>`;
+
+  if(ro){
+    html+=`
+    <div class="readonly-banner">🔒 <strong>Read-only record.</strong> This session already happened and is preserved exactly as discussed. Nothing on this page can be edited.</div>
+    <div class="timing"><span>🗓</span> <strong>${esc(ss.timing)}</strong></div>`;
+  } else {
+    html+=`
+    <div class="timing"><span>🗓</span><input type="text" value="${esc(ss.timing)}" onchange="ses().timing=this.value;save()" aria-label="Meeting date and time">
+      <select onchange="state.sessions[${state.open.index}].status=this.value;save()" aria-label="Status">
+        <option ${ss.status==="Not started"?"selected":""}>Not started</option>
+        <option ${ss.status==="Scheduled"?"selected":""}>Scheduled</option>
+        <option ${ss.status==="Done"?"selected":""}>Done</option>
+      </select>
+    </div>`;
+  }
+
+  html+=`
+    <div class="goal">🎯 <strong>What we'll walk out with:</strong> ${def.goal}</div>
+  </div>
+
+  <div class="card whobox">
+    <h3>👥 Who needs to <span class="em">be there</span></h3>
+    <div class="chips">${chips}</div>`;
+  if(!ro){
+    html+=`
+    <details class="editwho no-print"><summary class="muted" style="cursor:pointer;font-size:.85rem">Edit this list</summary>
+      <textarea onchange="ses().who=this.value;save();renderSession()" aria-label="Attendee list">${esc(ss.who)}</textarea>
+    </details>`;
+  }
+  html+=`</div>`;
+
+  if(def.tip){
+    html+=`<div class="tip">💡 <strong>The idea behind today:</strong> ${def.tip}</div>`;
+  }
+
+  html+=`
+  <div class="card" id="resCard">
+    <div class="cardhead" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h3>📎 <span class="em">Resources</span> for this session</h3>
+    </div>
+    <div id="resList"></div>
+    ${ro?"":`<button class="btn ghost small no-print" onclick="addResource()">＋ Add a link</button>`}
+  </div>
+
+  <div class="card no-print" style="padding:12px 22px">
+    <a href="#exCard" style="color:var(--blue);font-weight:600;text-decoration:none;margin-right:20px">↓ Jump to this session's Worksheet</a>
+    <a href="#commitCard" style="color:var(--blue);font-weight:600;text-decoration:none">↓ Jump to Commitments</a>
+  </div>`;
+
+  if(def.prep && def.prep.length){
+    html+=`
+    <div class="card" id="prepCard">
+      <h3>📌 Before the <span class="em">meeting</span></h3>
+      <ul class="preplist">${def.prep.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+    </div>`;
+  }
+
+  html+=`
+  <div class="card" id="agCard">
+    <div class="cardhead" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h3>📋 Agenda ${ro?"":`<span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">— edit anything; capture as you go</span>`}</h3>
+      ${ro?"":`<button class="btn ghost small no-print" onclick="printSection('p-agenda')">🖨️ Print agenda only</button>`}
+    </div>
+    <div id="agList"></div>
+    ${ro?"":`<button class="btn ghost small no-print" onclick="addAgenda()">＋ Add an agenda item</button>`}
+  </div>
+
+  <div class="card" id="exCard">
+    <div class="cardhead" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h3>${exerciseDefOf(c).heading.replace(/^([^·]+·)/,'<span class="em">$1</span>')}</h3>
+      ${ro?"":`<button class="btn ghost small no-print" onclick="printSection('p-exercise')">🖨️ Print worksheet only</button>`}
+    </div>
+    ${exerciseDefOf(c).intro?`<p class="muted" style="margin-top:0">${exerciseDefOf(c).intro}</p>`:""}
+    <div id="exArea"></div>
+  </div>`;
+
+  if(ro){
+    html+=`
+    <div class="card" id="commitCard">
+      <h3>✅ From talk to <span class="em">action</span> — commitments made that day</h3>
+      <div id="commitBody-ro"></div>
+    </div>`;
+  } else {
+    html+=`
+    <div class="card" id="commitCard">
+      <h3>✅ From talk to <span class="em">action</span> — who / what / by when</h3>
+      <p class="muted" style="margin-top:0">Fill this in during the last ten minutes and read it back aloud before anyone leaves. Afterward, use <strong>📋 Copy for Teams</strong> at the top to post these into the channel.</p>
+      <table class="x-table commit-table">
+        <thead><tr><th style="width:24%">Who</th><th style="width:48%">Will do what</th><th style="width:20%">By when</th><th></th></tr></thead>
+        <tbody id="commitBody"></tbody>
+      </table>
+      <button class="btn ghost small no-print" style="margin-top:10px" onclick="addCommit()">＋ Add a commitment</button>
+    </div>`;
+  }
+
+  v.innerHTML=html;
+  renderResources(); renderAgenda(); renderExercise();
+  if(ro) renderCommitsReadonly(); else renderCommits();
+}
+function ses(){ return state.sessions[state.open.index]; }
+
+/* ---- resources ---- */
+function renderResources(){
+  const c=cur(), ro=c.readonly;
+  const list=document.getElementById("resList");
+  const rows=c.ss.resources||[];
+  if(!rows.length){
+    list.innerHTML = ro ? `<p class="muted">No resources were attached to this session.</p>`
+                         : `<p class="muted">No links yet — add one below, or click a worksheet/commitments jump link above.</p>`;
+    return;
+  }
+  list.innerHTML="";
+  rows.forEach((r,j)=>{
+    const row=document.createElement("div");
+    row.style.cssText="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap";
+    if(ro){
+      row.innerHTML = r.url
+        ? `<a href="${esc(r.url)}" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:none">🔗 ${esc(r.label)}</a>`
+        : `<span class="muted">${esc(r.label)} — no link attached</span>`;
+    } else {
+      row.innerHTML = `
+        <input type="text" value="${esc(r.label)}" placeholder="Link name" style="flex:1 1 220px" oninput="resourceField(${j},'label',this.value)" aria-label="Resource name">
+        <input type="text" value="${esc(r.url)}" placeholder="Paste a URL here" style="flex:2 1 260px" oninput="resourceField(${j},'url',this.value)" aria-label="Resource URL">
+        ${r.url?`<a href="${esc(r.url)}" target="_blank" class="btn ghost small no-print" style="text-decoration:none">Open ↗</a>`:""}
+        <button class="x no-print" title="Remove" onclick="removeResource(${j})">✕</button>`;
+    }
+    list.appendChild(row);
+  });
+}
+function resourceField(j,f,v){ cur().ss.resources[j][f]=v; save(); }
+function addResource(){ cur().ss.resources.push({label:"",url:""}); save(); renderResources(); }
+function removeResource(j){ cur().ss.resources.splice(j,1); save(); renderResources(); }
+
+/* ---- agenda ---- */
+function renderAgenda(){
+  const c=cur(), ro=c.readonly;
+  const list=document.getElementById("agList");
+  list.innerHTML="";
+  c.ss.agenda.forEach((a,j)=>{
+    const d=document.createElement("div");
+    d.className="agitem";
+    if(ro){
+      d.innerHTML=`
+        <div class="top"><div class="n">${j+1}</div><div style="flex:1;font-weight:600">${esc(a.text)}</div></div>
+        ${a.notes?`<div class="ro-note">${esc(a.notes)}</div>`:""}`;
+    } else {
+      d.innerHTML=`
+        <div class="top">
+          <div class="n">${j+1}</div>
+          <input type="text" value="${esc(a.text)}" oninput="agendaText(${j},this.value)" aria-label="Agenda item ${j+1}">
+          <button class="x no-print" title="Remove item" onclick="removeAgenda(${j})">✕</button>
+        </div>
+        <textarea placeholder="Live capture — type what the group says; each line appears in the Teams copy…" oninput="agendaNotes(${j},this.value)" aria-label="Live capture for item ${j+1}">${esc(a.notes)}</textarea>`;
+    }
+    list.appendChild(d);
+  });
+}
+function agendaText(j,v){ cur().ss.agenda[j].text=v; save(); }
+function agendaNotes(j,v){ cur().ss.agenda[j].notes=v; save(); }
+function addAgenda(){ cur().ss.agenda.push({text:"",notes:""}); save(); renderAgenda(); }
+function removeAgenda(j){ if(confirm("Remove this agenda item?")){ cur().ss.agenda.splice(j,1); save(); renderAgenda(); } }
+
+/* ---- exercise ---- */
+function renderExercise(){
+  const c=cur(), ro=c.readonly, exDef=exerciseDefOf(c), ex=c.ss.ex;
+  const area=document.getElementById("exArea");
+  area.innerHTML="";
+  exDef.widgets.forEach((w,k)=>{
+    const box=document.createElement("div");
+    box.style.marginBottom="18px";
+    if(w.type==="prompt"){
+      if(ro){
+        box.innerHTML=`<label style="font-weight:600;display:block;margin-bottom:6px">${esc(w.label)}</label>
+          <div class="ro-text">${esc(ex[k].v)||"—"}</div>`;
+      } else {
+        box.innerHTML=`<label style="font-weight:600;display:block;margin-bottom:6px">${esc(w.label)}</label>
+          <textarea oninput="exPromptInput(${k},this.value)">${esc(ex[k].v)}</textarea>`;
+      }
+    }
+    if(w.type==="picklist"){
+      let inner=`<div style="font-weight:600;margin-bottom:8px">${esc(w.label)}</div><div class="picklist">`;
+      ex[k].opts.forEach((o,m)=>{
+        if(ro){
+          inner+=`<label style="cursor:default"><span style="width:18px;text-align:center">${o.on?"✓":"○"}</span><span>${esc(o.text)}</span></label>`;
+        } else {
+          inner+=`<label><input type="checkbox" ${o.on?"checked":""} onchange="picklistToggle(${k},${m},this.checked)"><span>${esc(o.text)}</span></label>`;
+        }
+      });
+      inner+=`</div>`;
+      box.innerHTML=inner;
+    }
+    if(w.type==="table"){
+      let inner=`<table class="x-table"><thead><tr>${w.cols.map(cc=>`<th>${esc(cc)}</th>`).join("")}${w.check?`<th style="width:44px">✓</th>`:""}${ro?"":`<th style="width:36px"></th>`}</tr></thead><tbody>`;
+      ex[k].rows.forEach((r,m)=>{
+        if(ro){
+          inner+=`<tr>${r.cells.map(cc=>`<td>${esc(cc)||"—"}</td>`).join("")}${w.check?`<td style="text-align:center">${r.done?"✓":""}</td>`:""}</tr>`;
+        } else {
+          inner+=`<tr>${r.cells.map((cc,ci)=>`<td><input type="text" value="${esc(cc)}" oninput="tableCell(${k},${m},${ci},this.value)"></td>`).join("")}`;
+          if(w.check) inner+=`<td style="text-align:center"><input type="checkbox" ${r.done?"checked":""} onchange="tableCheck(${k},${m},this.checked)" aria-label="Confirmed"></td>`;
+          inner+=`<td><button class="x no-print" title="Remove row" onclick="removeExRow(${k},${m})">✕</button></td></tr>`;
+        }
+      });
+      inner+=`</tbody></table>`;
+      if(!ro) inner+=`<button class="btn ghost small no-print" style="margin-top:10px" onclick="addExRow(${k},${w.cols.length})">＋ Add a row</button>`;
+      box.innerHTML=inner;
+    }
+    area.appendChild(box);
+  });
+}
+function exPromptInput(k,v){ cur().ss.ex[k].v=v; save(); }
+function picklistToggle(k,m,val){ cur().ss.ex[k].opts[m].on=val; save(); }
+function tableCell(k,m,ci,v){ cur().ss.ex[k].rows[m].cells[ci]=v; save(); }
+function tableCheck(k,m,val){ cur().ss.ex[k].rows[m].done=val; save(); }
+function addExRow(k,ncols){ cur().ss.ex[k].rows.push({cells:Array(ncols).fill(""),done:false}); save(); renderExercise(); }
+function removeExRow(k,m){ if(confirm("Remove this row?")){ cur().ss.ex[k].rows.splice(m,1); save(); renderExercise(); } }
+
+/* ---- commitments ---- */
+function renderCommits(){
+  const body=document.getElementById("commitBody");
+  body.innerHTML="";
+  cur().ss.commitments.forEach((cm,j)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td><input type="text" value="${esc(cm.who)}" oninput="commitField(${j},'who',this.value)" aria-label="Who"></td>
+      <td><input type="text" value="${esc(cm.what)}" oninput="commitField(${j},'what',this.value)" aria-label="What"></td>
+      <td><input type="text" value="${esc(cm.when)}" oninput="commitField(${j},'when',this.value)" aria-label="By when"></td>
+      <td><button class="x no-print" title="Remove" onclick="removeCommit(${j})">✕</button></td>`;
+    body.appendChild(tr);
+  });
+}
+function renderCommitsReadonly(){
+  const el=document.getElementById("commitBody-ro");
+  const rows=cur().ss.commitments.filter(cm=>(cm.who+cm.what+cm.when).trim()!=="");
+  if(!rows.length){ el.innerHTML=`<p class="muted">No commitments recorded.</p>`; return; }
+  el.innerHTML=`<table class="x-table"><thead><tr><th style="width:26%">Who</th><th style="width:52%">Committed to</th><th style="width:22%">By when</th></tr></thead><tbody>`+
+    rows.map(cm=>`<tr><td>${esc(cm.who)}</td><td>${esc(cm.what)}</td><td>${esc(cm.when)}</td></tr>`).join("")+
+    `</tbody></table>`;
+}
+function commitField(j,f,v){ cur().ss.commitments[j][f]=v; save(); }
+function addCommit(){ cur().ss.commitments.push({who:"",what:"",when:""}); save(); renderCommits(); }
+function removeCommit(j){ cur().ss.commitments.splice(j,1); save(); renderCommits(); }
+
+/* ================================================================
+   Copy for Teams
+   ================================================================ */
+function copyForTeams(){
+  const c=cur(), def=c.def, ss=c.ss, exDef=exerciseDefOf(c);
+  const L=[];
+  L.push(c.isCheckin ? "Student Achievement Awards — "+def.title : "Student Achievement Awards — Session "+def.n+": "+def.title);
+  L.push(ss.timing);
+  if(!c.isCheckin) L.push("Status: "+ss.status);
+  L.push("");
+  L.push("WHO WAS THERE");
+  L.push(ss.who);
+  L.push("");
+  if(ss.resources && ss.resources.length){
+    L.push("RESOURCES");
+    ss.resources.forEach(r=>L.push("  - "+(r.label||"(untitled)")+(r.url?": "+r.url:" (no link attached)")));
+    L.push("");
+  }
+  L.push("AGENDA & DISCUSSION");
+  ss.agenda.forEach((a,j)=>{
+    L.push((j+1)+". "+a.text);
+    String(a.notes||"").split("\n").map(s=>s.replace(/^\s*[-•*]\s*/,"").trim()).filter(Boolean)
+      .forEach(n=>L.push("     - "+n));
+  });
+  L.push("");
+  L.push(exDef.heading.toUpperCase());
+  exDef.widgets.forEach((w,k)=>{
+    const st=ss.ex[k];
+    if(w.type==="prompt"){
+      L.push(w.label);
+      const v=String(st.v||"").trim();
+      L.push(v||"(blank)");
+      L.push("");
+    }
+    if(w.type==="picklist"){
+      L.push(w.label);
+      st.opts.forEach(o=>L.push((o.on?"  [x] ":"  [ ] ")+o.text));
+      L.push("");
+    }
+    if(w.type==="table"){
+      L.push(w.cols.join("  |  ")+(w.check?"  |  confirmed":""));
+      st.rows.forEach(r=>{
+        if(r.cells.some(cc=>String(cc).trim()!=="")){
+          L.push("  "+r.cells.join("  |  ")+(w.check?("  |  "+(r.done?"YES":"not yet")):""));
+        }
+      });
+      L.push("");
+    }
+  });
+  L.push("COMMITMENTS (who / what / by when)");
+  const cs=ss.commitments.filter(cm=>(cm.who+cm.what+cm.when).trim()!=="");
+  if(cs.length) cs.forEach(cm=>L.push("  - "+cm.who+" — "+cm.what+" — "+cm.when));
+  else L.push("  (none recorded)");
+  copyText(L.join("\n"));
+}
+function copyText(text){
+  const flash=(msg)=>{
+    const el=document.getElementById("saveStatus");
+    el.textContent=msg;
+    clearTimeout(saveTimer); saveTimer=setTimeout(()=>{el.textContent="✓ Everything you type saves in this browser";},3000);
+  };
+  const done=()=>flash("✓ Copied — paste it into your Teams channel");
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  } else { fallbackCopy(text,done); }
+}
+function fallbackCopy(text,done){
+  const ta=document.createElement("textarea");
+  ta.value=text;
+  ta.style.position="fixed"; ta.style.left="-9999px"; ta.style.top="0";
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  let ok=false;
+  try{ ok=document.execCommand("copy"); }catch(e){}
+  document.body.removeChild(ta);
+  if(ok){ done(); }
+  else { window.prompt("Press Ctrl+C to copy, then paste into Teams:", text); }
+}
+
+/* ================================================================
+   Print sections
+   ================================================================ */
+function printSection(cls){
+  document.body.classList.add(cls);
+  const clean=()=>document.body.classList.remove("p-agenda","p-exercise");
+  window.addEventListener("afterprint", clean, {once:true});
+  setTimeout(clean, 2000);
+  window.print();
+}
+
+/* ================================================================
+   Download / load / reset
+   ================================================================ */
+function downloadNotes(){
+  const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="awards-playbook-notes-"+new Date().toISOString().slice(0,10)+".json";
+  a.click(); URL.revokeObjectURL(a.href);
+}
+function loadNotes(ev){
+  const f=ev.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const s=JSON.parse(r.result);
+      if(!s.sessions||!Array.isArray(s.checkins)){ alert("That file doesn't look like playbook notes for this version."); return; }
+      state=s; save();
+      state.view==="session"?renderSession():renderPath();
+    }catch(e){ alert("Couldn't read that file."); }
+  };
+  r.readAsText(f); ev.target.value="";
+}
+function resetAll(){
+  const sharedConnected = _fbDb && _currentUser && !_demoMode;
+  if(sharedConnected){
+    const typed = window.prompt(
+      "You're signed in to the SHARED database. This will erase all notes, worksheets, and check-ins for EVERY teammate, on every device — not just this one. This cannot be undone.\n\nType RESET (in capital letters) to confirm, or press Cancel to back out safely."
+    );
+    if(typed !== "RESET"){ return; }
+  } else {
+    if(!confirm("Start fresh? This clears all notes, check-ins, dates, and checkmarks on this device. Download your notes first if you want to keep them.")) return;
+  }
+  checkinSeq=1;
+  state=freshState();
+  save();
+  renderPath();
+}
+
+/* ================================================================
+   Print CSS hooks for agenda/exercise-only printing
+   ================================================================ */
+(function injectPrintRules(){
+  const style=document.createElement("style");
+  style.textContent=`
+    @media print{
+      body.p-agenda .whobox, body.p-agenda .tip, body.p-agenda #prepCard, body.p-agenda #exCard, body.p-agenda #commitCard{display:none!important}
+      body.p-exercise .whobox, body.p-exercise .tip, body.p-exercise #prepCard, body.p-exercise #agCard, body.p-exercise #commitCard{display:none!important}
+    }`;
+  document.head.appendChild(style);
+})();
+
+/* ---- boot ---- */
+load();
+if(state.view==="session"){
+  const okFixed = state.open.type==="fixed" && state.open.index<SESSIONS.length;
+  const okCheckin = state.open.type==="checkin" && state.open.index<state.checkins.length;
+  if(okFixed||okCheckin) renderSession(); else renderPath();
+} else {
+  renderPath();
+}
+// Render the local copy immediately (above) so the page is never blank,
+// then connect to the shared database — onAuthStateChanged takes over from there.
+if(typeof firebase!=="undefined"){
+  initFirebaseApp();
+} else {
+  const el=document.getElementById("saveStatus");
+  if(el) el.textContent="⚠ Couldn't reach the shared database — showing your local copy";
+}
+// Safety net: if sign-in status hasn't resolved within a few seconds
+// (slow connection, or the Firebase script was blocked), fall back to
+// the sign-in screen so Demo Mode is always reachable.
+setTimeout(()=>{
+  if(!_currentUser && !_demoMode){
+    const authScreen=document.getElementById("authScreen");
+    if(authScreen && authScreen.style.display==="none"){
+      // already signed in — leave it alone
+    } else if(authScreen){
+      authScreen.style.display="flex"; authScreen.style.flexDirection="column";
+    }
+  }
+},4000);
+
+</script>
+</body>
+</html>
