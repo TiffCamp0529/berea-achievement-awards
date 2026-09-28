@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Achievement Awards · Berea College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#005A8B; --blue-dark:#00466C; --orange:#C75B12; --lightblue:#BFDBEC; --teal:#3095B4; --green:#4f7a00;
+  --ink:#1F2A33; --gray:#5B6770; --line:#D8E2EA; --wash:#F2F7FA; --paper:#FFFFFF; --amber:#9a5b00; --amber-bg:#FFF7EC; --red:#b3261e; --red-bg:#fdecea; --green-bg:#eef6e0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Open Sans",Verdana,sans-serif;font-size:15px;color:var(--ink);background:var(--wash);line-height:1.5}
+a{color:var(--blue)}
+header.top{background:var(--blue);color:#fff;border-bottom:5px solid var(--orange)}
+header.top .wrap{max-width:1180px;margin:0 auto;padding:16px 16px 12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header.top h1{font-family:"EB Garamond",Garamond,serif;font-weight:600;font-size:1.7rem;margin:0;line-height:1.1}
+header.top .sub{font-size:.85rem;color:var(--lightblue)}
+header.top .right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.85rem}
+.countchip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 12px;font-weight:600;white-space:nowrap}
+.hbtn{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:6px;padding:4px 10px;font:inherit;font-size:.82rem;cursor:pointer}
+.hbtn:hover{background:rgba(255,255,255,.12)}
+nav.tabs{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+nav.tabs .wrap{max-width:1180px;margin:0 auto;padding:0 10px;display:flex;overflow-x:auto;gap:2px;scrollbar-width:thin}
+nav.tabs a{padding:11px 12px;text-decoration:none;color:var(--gray);font-weight:600;font-size:.88rem;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a.on{color:var(--blue);border-bottom-color:var(--orange)}
+nav.tabs a:hover{color:var(--blue)}
+.statusbar{max-width:1180px;margin:0 auto;padding:6px 16px;font-size:.8rem;color:var(--gray);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.statusbar .st{font-weight:600;color:var(--green)}
+.statusbar .st.warn{color:var(--amber)}
+.statusbar .st.err{color:var(--red)}
+.banner{max-width:1180px;margin:10px auto 0;padding:10px 14px;border-radius:8px;background:var(--amber-bg);border:1px solid #f0d3a8;color:#5d3b00;font-size:.88rem}
+main{max-width:1180px;margin:0 auto;padding:14px 16px 80px}
+h2{font-family:"EB Garamond",Garamond,serif;font-weight:600;color:var(--blue);font-size:1.6rem;margin:6px 0 6px}
+h3{color:var(--blue);font-size:.95rem;margin:22px 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.muted{color:var(--gray)} .small{font-size:.85rem}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat .v{font-size:1.6rem;font-weight:700;color:var(--blue);line-height:1.1}
+.stat .l{font-size:.8rem;color:var(--gray)}
+.hero{background:linear-gradient(135deg,#005A8B,#00466C);color:#fff;border-radius:12px;padding:20px 22px;margin-bottom:14px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.hero .big{font-family:"EB Garamond",serif;font-size:3rem;line-height:1;font-weight:600}
+.hero .lbl{color:var(--lightblue);font-size:.9rem}
+.hero textarea,.hero input{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.3)}
+input[type=text],input[type=email],input[type=password],input[type=date],input[type=number],input[type=url],textarea,select{width:100%;border:1.5px solid var(--line);border-radius:7px;padding:6px 9px;font:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+textarea{resize:vertical;min-height:38px;overflow:hidden}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,90,139,.15)}
+.bare{border-color:transparent !important;background:transparent !important;padding-left:4px}
+.bare:hover{border-color:var(--line) !important}
+.bare:focus{border-color:var(--blue) !important;background:#fff !important}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--green);cursor:pointer;vertical-align:middle}
+button{font:inherit;cursor:pointer}
+.btn{border:none;border-radius:7px;padding:7px 14px;font-weight:700;font-size:.88rem;background:var(--blue);color:#fff}
+.btn:hover{background:var(--blue-dark)}
+.btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--blue)}
+.btn.ghost:hover{border-color:var(--blue)}
+.btn.orange{background:var(--orange)}
+.btn.danger{background:#fff;border:1.5px solid #e6b8b4;color:var(--red)}
+.btn.sm{padding:4px 10px;font-size:.8rem;font-weight:600}
+.x{background:none;border:none;color:#a0aab2;font-size:1rem;padding:2px 6px;border-radius:5px}
+.x:hover{color:var(--red);background:var(--red-bg)}
+.mv{background:none;border:none;color:#a0aab2;padding:0 4px;font-size:.8rem}
+.mv:hover{color:var(--blue)}
+.addrow{margin-top:8px}
+table.t{width:100%;border-collapse:collapse;font-size:.88rem}
+.tablewrap table.t{min-width:640px}
+table.t th{text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--gray);border-bottom:2px solid var(--line);padding:6px 6px}
+table.t td{border-bottom:1px solid var(--line);padding:4px 6px;vertical-align:top}
+table.t tr.done td{background:#f6faef}
+table.t tr.past td{opacity:.75}
+.tablewrap{overflow-x:auto}
+.pill{display:inline-block;border-radius:999px;padding:1px 9px;font-size:.74rem;font-weight:700;white-space:nowrap}
+.p-green{background:var(--green-bg);color:var(--green)} .p-amber{background:var(--amber-bg);color:var(--amber)} .p-red{background:var(--red-bg);color:var(--red)} .p-blue{background:#e5f0f7;color:var(--blue)} .p-gray{background:#eef1f3;color:var(--gray)}
+.warn{color:var(--amber);font-weight:700;font-size:.78rem;white-space:nowrap}
+/* meetings */
+.partlabel{font-family:"EB Garamond",serif;color:var(--orange);font-size:1.25rem;font-weight:600;margin:22px 0 2px}
+.partnote{color:var(--gray);font-size:.88rem;margin:0 0 10px}
+.sesscard{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:10px;padding:12px 14px;margin-bottom:10px;cursor:pointer}
+.sesscard:hover{border-color:var(--blue)}
+.sesscard.done{border-left-color:var(--green);opacity:.85}
+.sesscard.next{border-left-color:var(--orange);box-shadow:0 0 0 2px rgba(199,91,18,.25)}
+.sesscard.checkin{border-left-color:var(--teal);border-left-style:dashed}
+.sessnum{flex:0 0 38px;height:38px;border-radius:50%;background:var(--wash);color:var(--blue);font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--lightblue)}
+.sesscard.done .sessnum{background:var(--green);color:#fff;border-color:var(--green)}
+.sesscard h4{margin:0 0 2px;font-size:1rem;color:var(--ink)}
+.sesscard .meta{font-size:.84rem;color:var(--gray)}
+.sesscard .statuswrap{margin-left:auto;flex:0 0 auto}
+.sesscard select{width:auto;font-size:.8rem;padding:3px 6px}
+.tip{background:#eef6fb;border-left:4px solid var(--teal);border-radius:6px;padding:10px 14px;font-size:.92rem}
+.agrow{display:grid;grid-template-columns:26px 1fr 64px 52px;gap:8px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--line)}
+.agrow .num{font-weight:700;color:var(--orange);padding-top:6px}
+.agrow .notes{grid-column:2 / 5}
+.agrow .notes textarea{background:#fffdf6;border-style:dashed}
+.minbox{display:flex;align-items:center;gap:3px;font-size:.78rem;color:var(--gray)}
+.minbox input{padding:5px 4px;text-align:center}
+.listrow{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.widget{margin:12px 0 18px}
+.widget > label, .flabel{display:block;font-weight:600;font-size:.88rem;margin-bottom:4px}
+.opt{display:flex;gap:8px;align-items:center;margin:4px 0}
+.embed{border:1px dashed var(--lightblue);border-radius:8px;padding:10px;background:#fbfdff}
+.sessnav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+.headgrid{display:grid;grid-template-columns:1fr 170px 1fr 150px;gap:10px;align-items:end}
+@media (max-width:760px){ .headgrid{grid-template-columns:1fr 1fr} .agrow{grid-template-columns:22px 1fr 58px 40px} }
+/* awards */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filters input,.filters select{width:auto;min-width:150px}
+.awrow{cursor:pointer}
+.awrow:hover td{background:#f6fafd}
+.awedit td{background:#fbfdff}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;padding:8px 2px}
+.formgrid .wide{grid-column:1 / -1}
+/* societies */
+.soc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.soc.ok{border-left:5px solid var(--green)} .soc.inactive{opacity:.6}
+.soc .nm{font-weight:700;font-size:1rem}
+.soc .row2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+/* gantt */
+.gantt{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px 10px;overflow-x:auto}
+.ginner{min-width:760px;position:relative}
+.gmonths{display:flex;margin-left:230px;border-bottom:1px solid var(--line);font-size:.72rem;color:var(--gray);font-weight:700}
+.gmonths div{flex:1;padding:2px 4px;border-left:1px solid var(--line)}
+.grow{display:flex;align-items:center;height:22px}
+.grow .gl{width:230px;flex:0 0 230px;font-size:.76rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:8px}
+.grow .gt{position:relative;flex:1;height:100%}
+.gbar{position:absolute;top:5px;height:12px;border-radius:4px;min-width:4px}
+.gdia{position:absolute;top:4px;width:13px;height:13px;transform:translateX(-6px) rotate(45deg);border-radius:2px}
+.gtoday{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:3}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.78rem;margin:8px 0}
+.legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;background:var(--c);vertical-align:-1px}
+/* auth */
+.authwrap{max-width:420px;margin:50px auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px}
+.authwrap h2{margin-top:0}
+.authwrap label{display:block;font-weight:600;font-size:.85rem;margin:10px 0 3px}
+.err{color:var(--red);font-size:.85rem;min-height:1.2em;margin-top:6px}
+.ok{color:var(--green)}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1f2a33;color:#fff;padding:9px 16px;border-radius:8px;font-size:.88rem;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+details.how summary{cursor:pointer;font-weight:700;color:var(--blue)}
+.tmpl textarea{font-size:.88rem}
+@media print{
+  header.top .right, nav.tabs, .statusbar, .banner, .noprint, .x, .mv, .addrow, .btn{display:none !important}
+  body{background:#fff} .card{border:none;padding:4px 0}
+  input,textarea,select{border:none !important;padding:0 !important;box-shadow:none !important}
+  textarea{height:auto !important}
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div>
+    <h1>Student Achievement Awards</h1>
+    <div class="sub">Berea College · Team Playbook &amp; Project Hub · AY 2026–27</div>
+  </div>
+  <div class="right">
+    <span class="countchip" id="countchip"></span>
+    <span id="userbox"></span>
+    <button class="hbtn noprint" onclick="exportBackup()" title="Download everything as a backup file">💾 Backup</button>
+    <button class="hbtn noprint" onclick="document.getElementById('importFile').click()" title="Load a backup file">📂 Import</button>
+    <button class="hbtn noprint" onclick="window.print()">🖨️ Print</button>
+    <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importBackup(this)">
+  </div>
+</div></header>
+<nav class="tabs"><div class="wrap" id="tabs"></div></nav>
+<div id="banner"></div>
+<div class="statusbar"><span class="st" id="saveStatus">Loading…</span><span id="lastEdit"></span></div>
+<main id="main"></main>
+<div class="toast" id="toast"></div>
+<script>
+/* ================================================================
+   ★ STEP 4 OF THE SETUP GUIDE: PASTE YOUR FIREBASE SETTINGS HERE ★
+   Replace everything between the { } below with the firebaseConfig
+   block Firebase shows you. Until you do, the site runs in
+   "preview mode" (saves only in your own browser).
+   ================================================================ */
+const FIREBASE_CONFIG = {
+  apiKey: "PASTE-YOUR-API-KEY-HERE",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+};
+const DB_ROOT = "awardsSite";   // folder name inside your database — leave as is
+</script>
+<script>
+/* ================================================================
+   STARTING DATA — MEETINGS (the curriculum)
+   Only used the very first time the site loads into an empty database
+   (or when someone chooses "Reset to starting data"). After that, all
+   changes live in the database and are edited on the site itself.
+   ================================================================ */
+const FULL_GROUP = "Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Collis Robinson, Ashley Cochrane, Sheila Lyons, Caroline Bartmess, Lindsey Bruner, Connie Murray, Jason Proctor, Mindy Townsend, Desirae Baayen, Andy McKinney, Kayse Cornett, Candis Arthur, Kristin Dalessio";
+
+const SEED_SESSIONS = [
+/* ============ PART I · SET THE DESTINATION ============ */
+{ id:"s01", n:1, part:"Part I · Set the Destination", title:"Kickoff: Begin with the End in Mind",
+  date:"2026-07-31", time:"44 minutes", status:"Done",
+  who:"Tiffany Lindsey (lead), Kelly Fox, Desirae Baayen, Mindy Townsend, Jason Proctor, Sheila Lyons, Kayse Cornett, Candis Arthur, Kristin Dalessio, Ashley Cochrane",
+  goal:"A shared understanding of the two-workstream project plan and this year's scope.",
+  tip:"This playbook borrows one habit from Results-Based Accountability: <strong>decide where you're going before you plan the trip.</strong> The July 31 kickoff covered the destination in broad strokes — the two workstreams and this year's scope. This page is the record of that meeting.",
+  resources:[{label:"AwardSpring", url:"https://berea.awardspring.com"}],
+  prep:["Everyone: come prepared to describe what a successful 2026–27 cycle looks like.","Tiffany: have the project plan open to share for context."],
+  agenda:[
+    {t:"Project plan overview — Tiffany shared the draft plan (in the shared Teams channel), built around two goals: database & transparency, and cycle & ceremony coordination.", min:10, notes:"The plan is a starting draft, not final — the group is welcome to revise it heavily."},
+    {t:"New group member: medical & dental scholarships — Kayse Cornett has joined; she and Rashmi oversee these scholarships, which have historically run outside this process.", min:5, notes:"Discussed whether to fold this process into the unified ceremony and communication plan — no decision yet. Revisit."},
+    {t:"AwardSpring & service award nominations — service awards can't move onto AwardSpring yet; it only supports self-nomination, and the service process depends on third-party nomination. Nominations were down last year, likely due to outreach restrictions, though nominee quality stayed strong.", min:10, notes:"Tiffany will check whether AwardSpring's recent updates added support for non-self-nominations. Until then, the current service-award nomination process continues as-is."},
+    {t:"Ceremony date — lock this first, since it drives every other deadline. April 2 is out (Empty Bowls is March 31). Discussed combining with All People's Day.", min:10, notes:"Kristin to check feasibility with Ellie and Caroline (President's Office). If not combined, prefer a Thursday without an afternoon convocation or General Assembly. → RESOLVED AFTER THE MEETING: Thursday, April 15, 2027."},
+    {t:"Communication planning — Ashley requested dedicated agenda time for the campus-wide communication plan, since service awards run on a different system than AwardSpring.", min:3, notes:"Group agreed this deserves its own discussion once the ceremony date is set."},
+    {t:"Centralized awards information page — Tiffany proposed one clearly organized webpage listing all awards, deadlines, and links, separate from (or feeding into) the college catalog.", min:3, notes:"Once the group has a recommended structure, Tiffany will bring it to the catalog/faculty maintenance team."},
+    {t:"Shared workspace access — Candis and Kayse asked for access to the Teams channel.", min:2, notes:"Tiffany added Candis, Kayse, and Rashmi to the channel."},
+    {t:"Meeting cadence — meet regularly through the fall, moving to bi-weekly once underway. Every meeting is one hour.", min:3, notes:"August was packed, so the next meeting moved to the fall."}
+  ],
+  commitments:[
+    {who:"Tiffany", what:"Follow up with the AwardSpring vendor about support for third-party (non-self) nomination", when:"Before next meeting", done:false},
+    {who:"Kristin", what:"Check with Ellie and Caroline (President's Office) on combining the ceremony with All People's Day", when:"Before next meeting", done:false},
+    {who:"Tiffany, Kristin, Caroline (Sarah as needed)", what:"Identify a short list of candidate ceremony dates → April 15, 2027 selected", when:"Before next meeting", done:true},
+    {who:"Tiffany", what:"Draft intentional agendas for upcoming meetings and share with the group for feedback", when:"Before next meeting", done:false}
+  ],
+  ws:{ heading:"Worksheet 1 · Vision & Success Criteria",
+    intro:"Not completed live on July 31 — these draft answers were pulled from the kickoff discussion and get confirmed at the September 28 meeting.",
+    widgets:[
+      {type:"prompt", label:"Describe the successful outcome you want to see at the end of the 2026–27 cycle:", value:"Previously separate award ceremonies and cycles (academic, service, labor, and medical/dental scholarships) are unified into one coordinated process, backed by a shared information repository and clearer campus communication — building on last year's success combining service, learning, and labor into a single ceremony."},
+      {type:"prompt", label:"Draft goal statement for the year:", value:"Every Berea student who earns recognition receives it — through one coordinated awards cycle (academic, service, labor, and medical/dental) with a shared information repository, clear deadlines, and a single celebration on April 15, 2027."},
+      {type:"picklist", label:"Candidate success indicators (check the ones the group adopts):", options:[
+        {text:"Every department submits its selections on time, all in one place", on:true},
+        {text:"All planned campus communications go out on schedule, together", on:true},
+        {text:"Every award is matched to a fund, an owner, and a cycle in one shared list", on:true},
+        {text:"Chairs and coordinators say this year was clearer than last (quick May survey)", on:true},
+        {text:"Nomination and application volume recovers over last year", on:false},
+        {text:"All honor societies confirm their induction timing by the end of October", on:false},
+        {text:"The ceremony and packets come in on budget", on:false}
+      ]}
+    ]}
+},
+{ id:"s02", n:2, part:"Part I · Set the Destination", title:"Confirm the Destination & Build the Master Schedule",
+  date:"2026-09-28", time:"60 minutes · this afternoon", status:"Scheduled",
+  who:FULL_GROUP,
+  goal:"The group owns one goal statement, the April 15 ceremony is locked on the Academic Calendar, the medical/dental question is decided, and every key date for the year has a named owner.",
+  tip:"<strong>The date is set — now plan backward from it.</strong> This meeting combines what were originally two sessions (\"Lock the Date\" and \"Work Backward\"). The ceremony is <strong>Thursday, April 15, 2027</strong> (3:00–6:00 PM, reception 6:00–8:00 PM). Two summer-draft deadlines have already passed (Sep 11, Sep 25) and two land on Saturdays (Feb 13, Feb 27). The Master Schedule below is a <strong>proposed</strong> re-work from today forward — the group's job is to confirm or adjust each row and put a name beside it.",
+  resources:[{label:"2026–27 Academic Year Key Dates (PDF)", url:"https://bereafaust.wpengine.com/wp-content/uploads/2026/08/2026-2027-Academic-Year-Key-Dates-Final.pdf"},{label:"AwardSpring", url:"https://berea.awardspring.com"}],
+  prep:[
+    "Everyone: skim the Master Schedule (Timeline tab) and flag any date that doesn't work for your area.",
+    "Tiffany: bring the AwardSpring vendor's answer on third-party nomination, if it has arrived.",
+    "Kayse / Rashmi: come ready to say whether the medical/dental committee can hit a late-February selection deadline.",
+    "Whoever owns the ceremony booking: report whether April 15 is on the Academic Calendar and the venue is held."
+  ],
+  agenda:[
+    {t:"Standing — Follow-ups from July 31: AwardSpring vendor answer; Kristin's check on All People's Day; Academic Calendar entry and venue for April 15. Any urgent needs from any area.", min:8, notes:""},
+    {t:"Focus — Confirm the goal statement and success indicators (Worksheet 1 on the Kickoff page, repeated below). Read the goal aloud; adopt or edit.", min:10, notes:""},
+    {t:"Focus — Decision: do the medical and dental scholarships join the unified cycle and the April 15 ceremony this year? Every downstream deadline depends on the answer.", min:10, notes:""},
+    {t:"Focus — Walk the Master Schedule backward from April 15: confirm or change each date, name an owner, check the box. Decide the Saturday deadlines (proposed: applications close Fri Feb 12; selections due Fri Feb 26).", min:22, notes:""},
+    {t:"Focus — Launch honor-society outreach now so every induction date is confirmed by Fri Oct 30.", min:4, notes:""},
+    {t:"Close — Commitments read back (who / what / by when). Next meeting (Mon Oct 12): the two nomination systems.", min:6, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 2 · Destination & Master Schedule", intro:"The Master Schedule below is the same live list as the Timeline tab — edit it here or there.",
+    widgets:[
+      {type:"prompt", label:"Goal statement — as adopted today:", value:"Every Berea student who earns recognition receives it — through one coordinated awards cycle (academic, service, labor, and medical/dental) with a shared information repository, clear deadlines, and a single celebration on April 15, 2027."},
+      {type:"prompt", label:"Ceremony confirmed — Academic Calendar entry, venue, and who owns each:", value:"Thursday, April 15, 2027 · Ceremony 3:00–6:00 PM · Reception 6:00–8:00 PM. Academic Calendar entry: ___ (owner: ___). Venue: ___ (owner: ___)."},
+      {type:"prompt", label:"Decision — do medical and dental scholarships join the unified cycle and ceremony this year? Record the decision and any conditions:", value:""},
+      {type:"embed", what:"timeline", label:"Master Schedule (live)"}
+    ]}
+},
+
+/* ============ PART II · BUILD THE FOUNDATION ============ */
+{ id:"s03", n:3, part:"Part II · Build the Foundation", title:"Two Nomination Systems, One Message",
+  date:"2026-10-12", time:"60 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Sheila Lyons, Ashley Cochrane, Kelly Fox, Collis Robinson, Desirae Baayen, Caroline Bartmess, Kayse Cornett",
+  goal:"A decision on whether service awards move to AwardSpring this cycle, and a concrete plan to rebuild nomination volume within current outreach rules.",
+  tip:"<strong>This is the problem Ashley flagged at the kickoff.</strong> Service awards depend on third-party nomination, which AwardSpring didn't support — so two systems, two sets of instructions, and confusing messaging. Nominations also dropped last year once direct email outreach was restricted. Both get solved here before the communication calendar is built.",
+  resources:[{label:"AwardSpring", url:"https://berea.awardspring.com"},{label:"Current service-award nomination form", url:""}],
+  prep:["Tiffany: bring the AwardSpring vendor's answer on third-party nomination.","Sheila and Ashley: bring how the service-award nomination process works today and what outreach is currently permitted.","Everyone: think about which outreach channels your area can actually use."],
+  agenda:[
+    {t:"Standing — Follow-ups, then any current or urgent needs from any area. Check: Finance balances due Fri Oct 9 — in hand?", min:8, notes:""},
+    {t:"Focus — The vendor answer: if AwardSpring now supports third-party nomination, plan the migration for service awards; if not, decide how the two systems coexist without confusing students.", min:20, notes:""},
+    {t:"Focus — Rebuilding nomination volume: what outreach is permitted, which channels each area can use, and a realistic target.", min:24, notes:""},
+    {t:"Close — Commitments read back. Reminder: departments confirm awards & criteria by Fri Oct 16.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 3 · Nomination Systems & Outreach", intro:"",
+    widgets:[
+      {type:"prompt", label:"AwardSpring vendor answer on third-party nomination:", value:""},
+      {type:"prompt", label:"Decision for this cycle — migrate service awards to AwardSpring, or run both systems? What students will be told either way:", value:""},
+      {type:"table", cols:["Outreach channel","Permitted?","Who uses it","Notes"], rows:[
+        ["Campus Bulletin","","",""],["Targeted email to faculty & staff lists","","",""],["Department chair outreach","","",""],["Convocation or class announcements","","",""],["Posters & physical signage","","",""],["Social media","","",""],["Direct mass email to students","Restricted — confirm current rule","",""]]},
+      {type:"prompt", label:"Nomination target for this cycle, and who tracks progress toward it:", value:""}
+    ]}
+},
+{ id:"s04", n:4, part:"Part II · Build the Foundation", title:"Know Every Award & Every Honor Society",
+  date:"2026-10-26", time:"60 minutes · working session", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Connie Murray, Barry Poynter, Candis Arthur, Jason Proctor, Mindy Townsend, Eric Shyaka, Heather Schill, Kayse Cornett, Rashmi; society advisors as needed",
+  goal:"One trustworthy list — every award matched to a fund, an agreement, an owner, and a cycle — and every honor society with a confirmed advisor and induction date.",
+  tip:"<strong>You can't coordinate what you can't see.</strong> Award details live in filing cabinets across four departments. Today compares everything we know against Finance's fund list (due Oct 9) and department confirmations (due Oct 16), and assigns someone to close each gap. The honor-society roll call runs the loose thread down before the Oct 30 deadline.",
+  resources:[{label:"Finance's fund list (attach or link)", url:""},{label:"Fund agreements folder", url:""}],
+  prep:["Connie: bring Finance's full fund list with balances.","Jason P. / Mindy: bring the fund agreements gathered so far.","Kayse / Rashmi: bring medical & dental scholarship details if joining the cycle.","Tiffany: filter the Awards tab to anything marked 'Unknown' and circulate 2–3 days ahead."],
+  agenda:[
+    {t:"Standing — Follow-ups, then any current or urgent needs.", min:6, notes:""},
+    {t:"Focus — The match-up: catalog, CELTS, Labor, and medical/dental awards against Finance's fund list. Update the Awards tab columns (Fund matched · Agreement on file · Cycle · Owner) live.", min:20, notes:""},
+    {t:"Focus — Orphans, duplicates, and off-cycle awards (Christensen, Wood) — each gets an owner in the gap column.", min:12, notes:""},
+    {t:"Focus — Honor society roll call: which still need an advisor or induction date? Assign a chaser for each.", min:14, notes:""},
+    {t:"Close — Commitments read back; next meeting designs the awards webpage from this list.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 4 · Award Reconciliation & Societies", intro:"Both lists below are live — changes here show up on the Awards and Honor Societies tabs.",
+    widgets:[
+      {type:"embed", what:"awardGaps", label:"Awards still needing a fund match, agreement, or owner"},
+      {type:"embed", what:"societies", label:"Honor societies (live)"}
+    ]}
+},
+{ id:"s05", n:5, part:"Part II · Build the Foundation", title:"The Awards Webpage",
+  date:"2026-11-09", time:"60 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Sheila Lyons, Ashley Cochrane, Kelly Fox, Caroline Bartmess, Heather Schill, Kayse Cornett; catalog/faculty maintenance contact if available",
+  goal:"An agreed structure for the centralized awards webpage, with an owner for every section — so the page can be live by Fri Dec 4, before pre-break emails go out.",
+  tip:"<strong>One accurate place to look.</strong> A single, clearly organized page listing every award, deadline, and link — separate from (or feeding into) the catalog. The pre-break emails and the January launch will both point here, so it has to be live first.",
+  resources:[{label:"Draft webpage (once live)", url:""},{label:"Catalog / faculty maintenance team contact", url:""}],
+  prep:["Everyone: think about what your area's award listings must include for a student to understand and apply.","Tiffany: bring the reconciled award list and the honor societies directory."],
+  agenda:[
+    {t:"Standing — Follow-ups, then any current or urgent needs.", min:8, notes:""},
+    {t:"Focus — What every award listing contains, and how the page is organized (Worksheet 5).", min:25, notes:""},
+    {t:"Focus — Keeping it current: who owns each section, how often it's reviewed, how the page and the catalog stay consistent.", min:19, notes:""},
+    {t:"Close — Commitments read back; content due to the page owner by Fri Nov 20; page live Fri Dec 4.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 5 · Awards Webpage Structure", intro:"",
+    widgets:[
+      {type:"table", cols:["What each award listing shows","Who supplies it"], rows:[["Award name",""],["Short description / purpose",""],["Eligibility (class year, major, other)",""],["Amount",""],["Nomination or application?",""],["How to apply or nominate (which system)",""],["Deadline",""],["Contact person",""],["Link to the form or system",""],["Past recipients (optional)",""]]},
+      {type:"table", cols:["Page section","Who owns updates","Reviewed how often"], rows:[["Academic awards","",""],["Service awards","",""],["Labor awards","",""],["Medical & dental scholarships","",""],["Honor societies & inductions","",""],["How awards work / FAQ","",""]]},
+      {type:"prompt", label:"How the page and the college catalog stay consistent (who updates which, and in what order):", value:""}
+    ]}
+},
+
+/* ============ PART III · PLAN THE COMMUNICATION ============ */
+{ id:"s06", n:6, part:"Part III · Plan the Communication", title:"The Communication Calendar",
+  date:"2026-11-23", time:"60 minutes · Thanksgiving week — confirm attendance", status:"Not started",
+  who:FULL_GROUP,
+  goal:"A campus communication calendar with a named sender and a content deadline for every message, and pre-break drafts assigned.",
+  tip:"<strong>One campus, one message.</strong> No area announces awards news on its own — key messages go out together, on the same day, saying the same things. Everything for the pre-break sends is due to Tiffany by Fri Dec 11 at 5 PM.",
+  resources:[{label:"Last cycle's chair email (attach or link)", url:""},{label:"Bulletin submission portal", url:""}],
+  prep:["Everyone: know who in your area will actually hit “send,” and your realistic lead time for drafting.","Tiffany: bring last cycle's chair email and Bulletin text as starting points."],
+  agenda:[
+    {t:"Standing — Follow-ups, then any current or urgent needs. Webpage content status (due Nov 20).", min:8, notes:""},
+    {t:"Focus — Walk the Communication Calendar: confirm each message, its timing, and who sends it.", min:28, notes:""},
+    {t:"Focus — Content deadlines, the standing sign-off wording, and anyone still missing.", min:16, notes:""},
+    {t:"Close — Commitments read back; drafts of chair email and student preview due Fri Dec 4.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 6 · Communication Calendar", intro:"This is the same live list as the Communications tab.",
+    widgets:[
+      {type:"embed", what:"comms", label:"Communication calendar (live)"},
+      {type:"prompt", label:"Standing sign-off wording for coordinated messages:", value:"Student Achievement Awards Coordinators — Sheila Lyons (CELTS), Kelly Fox / Collis Robinson (Labor), Tiffany Lindsey (Academic Affairs)"},
+      {type:"prompt", label:"Additional stakeholders to include (people or offices not yet represented):", value:""}
+    ]}
+},
+{ id:"s07", n:7, part:"Part III · Plan the Communication", title:"Where Everything Lives & Pre-Launch Readiness",
+  date:"2026-12-07", time:"60 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Heather Schill, Eric Shyaka, Connie Murray, Caroline Bartmess, Sheila Lyons, Kelly Fox, Ashley Cochrane",
+  goal:"A chosen home for the award repository, and every pre-break message ready to send.",
+  tip:"<strong>December is won in November.</strong> If content is already drafted, the pre-break sends are a calm checklist rather than a scramble — and students return in January already knowing what's coming.",
+  resources:[{label:"Repository platform link (once chosen)", url:""}],
+  prep:["Heather / Eric: bring a one-page comparison of repository options (Box/SharePoint vs. tied to AwardSpring or Banner), with any costs.","Tiffany: circulate draft chair email and student preview ahead of time — the meeting is for edits, not writing."],
+  agenda:[
+    {t:"Standing — Follow-ups, then any current or urgent needs. Is the webpage live (Dec 4)?", min:8, notes:""},
+    {t:"Focus — Decide where the award repository lives: who can see fund agreements and balances; can it feed the public webpage?", min:20, notes:""},
+    {t:"Focus — Pre-launch readiness checklist (Worksheet 7): edit, assign, check off.", min:24, notes:""},
+    {t:"Close — Commitments read back; all pre-break content to Tiffany by Fri Dec 11, 5 PM.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 7 · Repository Decision & Pre-Launch Checklist", intro:"",
+    widgets:[
+      {type:"prompt", label:"Repository platform selected, and why:", value:""},
+      {type:"prompt", label:"Who can see what (access by role):", value:""},
+      {type:"table", cols:["Item","Due","Owner"], rows:[
+        ["Award information webpage live","Fri Dec 4","AA + all areas"],
+        ["Webpage recommendation delivered to catalog/faculty maintenance team","Fri Dec 4","Tiffany"],
+        ["AwardSpring amounts updated from Finance figures","Fri Nov 20","Tiffany / Jason"],
+        ["Application window verified (opens Mon Jan 4, closes Fri Feb 12, 5 PM)","Fri Dec 4","Tiffany / Jason"],
+        ["Service-award nomination process confirmed for this cycle","Fri Nov 20","Sheila / Ashley"],
+        ["Chair email drafts final","Fri Dec 4","Coordinators"],
+        ["Student preview draft final","Fri Dec 4","Coordinators"],
+        ["Bulletin save-the-date text to Caroline","Fri Dec 11, 5 PM","All areas"],
+        ["Repository build plan set","Fri Dec 18","Heather / Tiffany"]]}
+    ]}
+},
+{ id:"s08", n:8, part:"Part III · Plan the Communication", title:"Launch Together",
+  date:"2026-12-14", time:"45 minutes · can be virtual", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Ashley Cochrane, Sheila Lyons, Desirae Baayen, Caroline Bartmess, Kayse Cornett",
+  goal:"Pre-break emails go out this week, and every area's January 4 launch message is written, scheduled, and linked before anyone leaves for break.",
+  tip:"<strong>The launch is the promise.</strong> If January 4 lands as one coordinated moment, students believe the rest of the cycle will be organized too. Schedule January sends now so nobody has to remember over the holidays. Final verification only — nothing new gets decided.",
+  resources:[{label:"AwardSpring", url:"https://berea.awardspring.com"}],
+  prep:["Every area: have your sender, send time, and final text ready before the meeting."],
+  agenda:[
+    {t:"Standing — Anything still open from the fall. (5 min)", min:5, notes:""},
+    {t:"Focus — Pre-break sends this week: chair emails, student preview, Bulletin save-the-date. Confirm each is going.", min:12, notes:""},
+    {t:"Focus — Launch verification (Worksheet 8): each area confirms sender, send time, and final text for Monday, January 4; schedule-send set.", min:15, notes:""},
+    {t:"Focus — Deadline and link audit: every deadline correct in every message, every link tested.", min:8, notes:""},
+    {t:"Close — Commitments read back; next meeting Mon Jan 11.", min:5, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 8 · Launch Verification", intro:"Check off once that area's message is written, scheduled, and linked.",
+    widgets:[
+      {type:"table", cols:["Area","Who sends","Send time Mon Jan 4"], rows:[["Academic Affairs","Tiffany / Jason",""],["Labor Program","Kelly / Collis",""],["CELTS / Service","Sheila / Ashley",""],["Athletics","Desirae",""],["Medical & dental scholarships","Kayse / Rashmi",""],["President's Office / Bulletin","Caroline",""]]}
+    ]}
+},
+
+/* ============ PART IV · RUN THE CYCLE ============ */
+{ id:"s09", n:9, part:"Part IV · Run the Cycle", title:"Mid-Cycle Pulse",
+  date:"2027-01-25", time:"60 minutes", status:"Not started",
+  who:FULL_GROUP,
+  goal:"An honest read on application and nomination volume three weeks in, and a targeted push for the final stretch before applications close Fri Feb 12.",
+  tip:"<strong>Ask the honest question early:</strong> are applications and nominations coming in at the rate we need? Three weeks out there's still time to change the outreach plan — after Feb 12 there isn't.",
+  resources:[{label:"AwardSpring", url:"https://berea.awardspring.com"}],
+  prep:["Tiffany / Jason: pull application counts from AwardSpring, compared with the same point last year.","Sheila / Ashley: bring service-nomination counts."],
+  agenda:[
+    {t:"Standing — Follow-ups, current needs. How did launch day land?", min:8, notes:""},
+    {t:"Focus — The numbers: applications, nominations, and recommendation letters vs. the target set in October.", min:15, notes:""},
+    {t:"Focus — Mid-cycle reminder (this week) and the final-week push Feb 8–12: who sends what.", min:15, notes:""},
+    {t:"Focus — Remind chairs: selections due Fri Feb 26. Confirm medical/dental and honor-society deadlines (Feb 26 / Mar 5).", min:14, notes:""},
+    {t:"Close — Commitments read back.", min:8, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 9 · Mid-Cycle Numbers", intro:"",
+    widgets:[
+      {type:"table", cols:["Measure","This year (to date)","Same point last year","Notes"], rows:[["AwardSpring general applications","","",""],["Award-specific applications","","",""],["Service-award nominations","","",""],["Recommendation letters outstanding","","",""]]},
+      {type:"prompt", label:"What we'll change for the final push:", value:""}
+    ]}
+},
+{ id:"s10", n:10, part:"Part IV · Run the Cycle", title:"Selections & the Program",
+  date:"2027-03-08", time:"60 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Jason Peavler, Kelly Fox, Collis Robinson, Ashley Cochrane, Sheila Lyons, Desirae Baayen, Connie Murray, Kayse Cornett, Caroline Bartmess; Andy McKinney for the last item",
+  goal:"Every selection accounted for, program draft on track for Printing Services by Fri Mar 19, and invitation text approved to send Mon Mar 22.",
+  tip:"<strong>Ask the honest questions:</strong> how many applications came in versus last year, and how many selections arrived on time? The answers tell us where to push this week and what to fix next year.",
+  resources:[{label:"Certificate template file", url:""},{label:"Printing Services request form", url:""}],
+  prep:["Every area: selections submitted through the agreed platform (due Fri Feb 26) — the meeting is for exceptions, not collection.","Connie: bring final fund amounts for the program.","Caroline: draft invitation text."],
+  agenda:[
+    {t:"Standing — Follow-ups and any current or urgent needs.", min:6, notes:""},
+    {t:"Focus — The numbers: applications and nominations vs. last year; selections in vs. expected, on time vs. late.", min:10, notes:""},
+    {t:"Focus — Selections tracker (Worksheet 10): chase every gap with a name and a hard cutoff.", min:14, notes:""},
+    {t:"Focus — Honor-society inductee lists (due Fri Mar 5) and medical/dental selections — in hand or firmly dated.", min:8, notes:""},
+    {t:"Focus — Production: final amounts, certificate template, packet contents, draft to Printing Services Fri Mar 19, President's signature plan (certificates signed by Fri Apr 2). Approve invitation text.", min:16, notes:""},
+    {t:"Close — Commitments read back.", min:6, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 10 · Selections Tracker", intro:"Check off when that area's selections are complete and submitted in the agreed place.",
+    widgets:[
+      {type:"table", cols:["Area","Due","Notes / follow-up"], rows:[["Academic Awards (Tiffany)","Fri Feb 26",""],["Service Awards (Sheila)","Fri Feb 26",""],["Labor Awards (Kelly / Collis)","Fri Feb 26",""],["Athletics (Desirae)","Fri Feb 26",""],["Medical & dental (Kayse / Rashmi)","Fri Feb 26",""],["Honor society inductee lists","Fri Mar 5",""]]},
+      {type:"prompt", label:"Observations for next year's process:", value:""}
+    ]}
+},
+{ id:"s11", n:11, part:"Part IV · Run the Cycle", title:"The Ceremony: Run of Show",
+  date:"2027-03-22", time:"60 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Kelly Fox, Ashley Cochrane, Desirae Baayen, Caroline Bartmess, Lindsey Bruner, Kayse Cornett; venue & catering contacts as needed",
+  goal:"A complete run of show, every day-of task owned, and invitations on their way to recipients and families (sending today).",
+  tip:"<strong>Students and families remember the feeling, not the logistics.</strong> Every detail below serves one seamless celebration where Labor, Academic, Service, and medical/dental recognition share a stage on April 15.",
+  resources:[{label:"Venue booking confirmation", url:""},{label:"Catering order", url:""},{label:"Run-of-show script (once drafted)", url:""}],
+  prep:["Tiffany: bring the budget with current committed and paid amounts.","Caroline: invitations ready to send today."],
+  agenda:[
+    {t:"Standing — Follow-ups, current needs, and a budget check: actuals vs. estimates.", min:10, notes:""},
+    {t:"Focus — Build the run of show (Worksheet 11): order of categories, presenters, honor-society recognition, timing within 3:00–6:00 PM.", min:20, notes:""},
+    {t:"Focus — Venue and reception (6:00–8:00 PM): setup, seating, A/V, catering counts.", min:10, notes:""},
+    {t:"Focus — Invitations and promotion: recipients, families, campus.", min:10, notes:""},
+    {t:"Close — Assign every day-of task; commitments read back.", min:10, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 11 · Ceremony Run of Show", intro:"",
+    widgets:[
+      {type:"prompt", label:"Run of show (welcome → award categories in order → honor societies → closing → reception):", value:""},
+      {type:"table", cols:["Day-of task","Who owns it"], rows:[["Check-in table & programs",""],["Certificates & packets staged in order",""],["A/V and microphones",""],["Reception & catering",""],["Photos",""],["Family seating & ushers",""]]}
+    ]}
+},
+{ id:"s12", n:12, part:"Part IV · Run the Cycle", title:"Final Walk-Through",
+  date:"2027-04-05", time:"45 minutes", status:"Not started",
+  who:"Tiffany Lindsey (lead), Kelly Fox, Ashley Cochrane, Sheila Lyons, Desirae Baayen, Caroline Bartmess, Lindsey Bruner, Kayse Cornett",
+  goal:"Ten days out: programs printed, certificates signed, RSVPs counted, and every day-of role confirmed by name.",
+  tip:"<strong>No surprises on the day.</strong> This is a checklist meeting — anything not green today gets an owner and a deadline before Monday, April 12.",
+  resources:[{label:"Run-of-show script", url:""}],
+  prep:["Everyone: confirm your day-of role and arrival time."],
+  agenda:[
+    {t:"Standing — Anything urgent.", min:5, notes:""},
+    {t:"Focus — Readiness checklist (Worksheet 12).", min:25, notes:""},
+    {t:"Focus — Script read-through and timing.", min:10, notes:""},
+    {t:"Close — Commitments read back; debrief date confirmed.", min:5, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 12 · Ceremony Readiness", intro:"",
+    widgets:[
+      {type:"table", cols:["Item","Owner","Status"], rows:[["Programs printed & delivered","",""],["Certificates signed (due Fri Apr 2)","",""],["Packets assembled in ceremony order","",""],["RSVP count to catering","",""],["Venue setup confirmed","",""],["A/V test scheduled","",""],["Presenters confirmed & briefed","",""]]}
+    ]}
+},
+
+/* ============ PART V · CELEBRATE & LEARN ============ */
+{ id:"s13", n:13, part:"Part V · Celebrate & Learn", title:"Did We Get There?",
+  date:"2027-05-10", time:"60 minutes · everyone", status:"Not started",
+  who:FULL_GROUP + ", plus Barry Poynter, Eric Shyaka, Heather Schill",
+  goal:"An honest look at the goal we set in September, a decision on the award repository, and next year's date set before summer.",
+  tip:"<strong>End where you started.</strong> Pull up the goal statement and success indicators from September 28. Today we answer plainly — did we get there? — and bank what we learned so next year starts easier.",
+  resources:[{label:"Pulse survey results", url:""}],
+  prep:["Tiffany: bring the goal statement, success indicators, and the year's numbers (applications, nominations, on-time selections, communications sent, budget).","Everyone: bring your top two “keep” and top two “change” items."],
+  agenda:[
+    {t:"Standing — Anything still open that needs an owner before summer.", min:5, notes:""},
+    {t:"Focus — Read the goal statement aloud, then walk each success indicator: did we hit it?", min:18, notes:""},
+    {t:"Focus — Keep / Change, including the questions carried all year: the webpage, medical/dental integration, nomination volume, the two nomination systems.", min:15, notes:""},
+    {t:"Focus — Award repository go-live decision and training plan; review the Improvements tab.", min:8, notes:""},
+    {t:"Focus — Set next year: the 2027–28 ceremony date to the Academic Calendar before summer, plus next fall's cadence.", min:10, notes:""},
+    {t:"Close — Thank-yous and commitments read back.", min:4, notes:""}
+  ],
+  commitments:[{who:"",what:"",when:"",done:false}],
+  ws:{ heading:"Worksheet 13 · Results Review", intro:"",
+    widgets:[
+      {type:"prompt", label:"Goal statement we set on September 28:", value:""},
+      {type:"prompt", label:"Actual outcome — against each success indicator:", value:""},
+      {type:"prompt", label:"Recommended to continue:", value:""},
+      {type:"prompt", label:"Recommended to change:", value:""},
+      {type:"prompt", label:"2027–28 ceremony date, and who places it on the Academic Calendar:", value:""}
+    ]}
+}
+];
+
+/* Bi-weekly check-ins that fill the gaps between the 13 topic sessions */
+const SEED_CHECKINS = [
+  {id:"c01", date:"2027-01-11", focus:"First week back — how did the January 4 launch land? Any broken links or confused students? Confirm the mid-cycle reminder for the week of Jan 25."},
+  {id:"c02", date:"2027-02-08", focus:"Final-week push before applications close Fri Feb 12 at 5 PM. Remind chairs that selections are due Fri Feb 26."},
+  {id:"c03", date:"2027-02-22", focus:"Selections due Friday (Feb 26) — who's at risk? Honor-society inductee lists due Fri Mar 5. Program assembly plan."}
+];
+
+/* ================================================================
+   STARTING DATA — TIMELINE, SOCIETIES, COMMS, BUDGET, ETC.
+   Re-worked Sept 28, 2026 backward from the confirmed ceremony date.
+   ================================================================ */
+const CEREMONY_DATE = "2027-04-15";
+
+const SEED_SETTINGS = {
+  ceremonyDate: CEREMONY_DATE,
+  ceremonyText: "Thursday, April 15, 2027 · Ceremony 3:00–6:00 PM · Reception 6:00–8:00 PM",
+  goal: "Every Berea student who earns recognition receives it — through one coordinated awards cycle (academic, service, labor, and medical/dental) with a shared information repository, clear deadlines, and a single celebration on April 15, 2027.",
+  purpose: "Awards at Berea are siloed across departments, fund agreements and stipulations aren't centrally accessible, and the annual cycle lacks one coordinated process. This year's work has two connected workstreams: (1) an award database & transparency platform, and (2) a unified awards cycle, communication plan, and ceremony.",
+  teamsLink: ""
+};
+
+const GCATS = {
+  prep:     { label:"Preparation",            color:"#005A8B" },
+  db:       { label:"Workstream 1 · Database", color:"#3095B4" },
+  notify:   { label:"Communications",         color:"#2e7d32" },
+  apps:     { label:"Applications",           color:"#00695c" },
+  review:   { label:"Review / Selection",     color:"#C75B12" },
+  prod:     { label:"Production",             color:"#6a1b9a" },
+  ceremony: { label:"Ceremony",               color:"#9c1f4a" }
+};
+
+// [name, cat, start, end, owner, notes, confirmed]   (end blank = one-day milestone)
+const SEED_TIMELINE = [
+  ["Kickoff meeting","prep","2026-07-31","","Tiffany","Completed.",true],
+  ["Ceremony on the Academic Calendar & venue held","prep","2026-10-02","","","New, proposed date. Ceremony date is set (Thu Apr 15, 2027); confirm the calendar entry and venue, and name an owner.",false],
+  ["AwardSpring 2026–27 clone & configuration","prep","2026-09-28","2026-10-30","Tiffany / Jason Peavler","Summer draft said Aug 2026 / early fall.",false],
+  ["Finance delivers fund balances & suggested amounts","prep","2026-10-09","","Connie Murray / Barry Poynter","Moved from Sep 11 (passed).",false],
+  ["Departments confirm awards & criteria","prep","2026-10-16","","All award areas","Moved from Sep 25 (passed).",false],
+  ["Venue, A/V & reception catering booked","ceremony","2026-10-16","","","New, proposed date and no owner yet. Ceremony 3–6 PM, reception 6–8 PM.",false],
+  ["Honor society induction timing confirmed","prep","2026-09-28","2026-10-30","Tiffany / society advisors","Moved from Oct 9 (proposed).",false],
+  ["WS1: Gather fund agreements & award data","db","2026-09-28","2026-10-23","Jason Proctor / Mindy Townsend / Connie Murray","Summer draft: Aug 1 – Sep 30. New dates proposed.",false],
+  ["WS1: Reconcile & audit award list","db","2026-10-09","2026-11-06","Tiffany / Jason Peavler / Connie Murray","Summer draft: Sep 1 – Oct 31. Proposed: worked live at the Oct 26 meeting.",false],
+  ["Awards webpage content due to page owner","notify","2026-11-20","","All areas","New, proposed.",false],
+  ["AwardSpring amounts updated from Finance figures","prep","2026-11-20","","Tiffany / Jason Peavler","Summer draft: mid-November.",false],
+  ["Award information webpage live","notify","2026-12-04","","AA + all areas","Summer draft: Oct 30. Proposed Dec 4 so it is live before pre-break emails.",false],
+  ["Pre-break email & student preview drafts final","notify","2026-12-04","","Coordinators","From the summer draft.",false],
+  ["All pre-break content due to Tiffany (5 PM)","notify","2026-12-11","","All areas","",false],
+  ["Pre-break sends: chair emails, student preview, Bulletin save-the-date","notify","2026-12-14","2026-12-18","Coordinators / Caroline Bartmess","",false],
+  ["WS1: Repository platform decision","db","2026-12-07","","Heather Schill / Eric Shyaka / Tiffany","Summer draft: December. Proposed: decided at the Dec 7 meeting.",false],
+  ["WS1: Build the award repository","db","2026-12-07","2027-02-26","Heather Schill / Tiffany","Summer draft: Oct 1 – Feb 28. Proposed.",false],
+  ["Campus-wide launch — applications open","notify","2027-01-04","","All areas together","One coordinated send, same morning.",false],
+  ["Student application period","apps","2027-01-04","2027-02-12","Students / AA","",false],
+  ["Mid-cycle reminder","notify","2027-01-25","2027-01-29","Coordinators","",false],
+  ["Final-week push","notify","2027-02-08","2027-02-12","Coordinators","",false],
+  ["Applications close (5 PM)","apps","2027-02-12","","AwardSpring / AA","Summer draft: Sat Feb 13. Proposed: Friday Feb 12 — group to decide.",false],
+  ["Selection committee review","review","2027-02-15","2027-02-26","All selection committees","Proposed.",false],
+  ["All selections due","review","2027-02-26","","All committees","Summer draft: Sat Feb 27. Proposed: Friday Feb 26 — group to decide.",false],
+  ["Medical/dental selections due","review","2027-02-26","","Kayse Cornett / Rashmi","Summer draft had both Feb 27 and Mar 1–14. Proposed Feb 26, if joining the unified cycle.",false],
+  ["Honor society inductee lists due","review","2027-03-05","","Society advisors","Summer draft had Feb 25 and Mar 12. Proposed Mar 5.",false],
+  ["Program assembly","prod","2027-03-01","2027-03-19","Tiffany / Jason Peavler","Proposed.",false],
+  ["Program draft to Printing Services","prod","2027-03-19","","Tiffany / Andy McKinney","From the summer draft (Mar 19; one table said Mar 4). Confirm with Andy McKinney and check against spring break.",false],
+  ["Recipient & family invitations sent","notify","2027-03-22","","Caroline Bartmess / coordinators","Summer draft had week of Mar 25 and week of Apr 12. Proposed Mar 22 (~3.5 weeks' notice).",false],
+  ["Certificates & award packets","prod","2027-03-08","2027-04-09","AA / President's Office / all areas","Proposed.",false],
+  ["Certificates signed by the President","prod","2027-04-02","","President's Office","Summer draft had Apr 9 and week of Mar 25. Proposed Apr 2.",false],
+  ["WS1: Pilot, train & go live","db","2027-03-01","2027-05-10","Tiffany / Barry Poynter / Heather Schill","Summer draft: Feb 1 – Apr 30. Proposed.",false],
+  ["Recognition Ceremony & Reception","ceremony","2027-04-15","","AA, Labor, CELTS, Athletics, President's Office","CONFIRMED · 3:00–6:00 PM ceremony · 6:00–8:00 PM reception.",true],
+  ["Thank-yous & recap","notify","2027-04-16","2027-04-23","Tiffany / Caroline Bartmess","Summer draft: within a week after.",false],
+  ["Debrief: Did we get there?","prep","2027-05-10","","Full group","Summer draft: mid-May. Proposed May 10.",false],
+  ["2027–28 ceremony date on the Academic Calendar","prep","2027-05-28","","Tiffany / Caroline Bartmess","Summer draft: before summer. Proposed May 28.",false]
+];
+
+// [name, discipline, purpose, eligibility, sponsor, timing, inProgram2025]
+const SEED_SOCIETIES = [
+  ["Epsilon Alpha Sigma","East Asian Studies","Honor society for academic achievement in East Asian studies.","","Jeff Richey","",true],
+  ["Epsilon Pi Tau","Technology","International honor society for technology; recognizes academic excellence in technology fields.","","Wei Wu","",true],
+  ["Kappa Omicron Nu","Human Sciences","Promotes leaders through excellence in scholarship, leadership, and research in the human sciences.","","Katrina Rivers Thompson","",true],
+  ["Lambda Pi Eta","Communication (Omicron Sigma Chapter)","Official honor society of the National Communication Association; Berea's chapter founded 2003.","","Verlaine McDonald","",true],
+  ["Pi Mu Epsilon","Mathematics","Promotes scholarly activity in mathematics.","","Kristen Barnard","",true],
+  ["Pi Sigma Alpha","Political Science","Recognizes academic excellence in political science and related fields.","","Lauren McKee","",true],
+  ["Psi Chi","Psychology","National honor society recognizing excellence in psychology.","","Alison Heck","",true],
+  ["Sigma Pi Sigma","Physics","Physics honor society; founded 1921.","Students with high scholarship and promise in physics.","Troy Messina","",true],
+  ["Sigma Theta Tau","Nursing","Partnership with UK's Delta Psi Chapter of STTI.","Junior and senior nursing students in the top 35% of their cohort with 3.0+ GPA.","Monica Kennison","Spring semester — invitation letters go out to eligible students",true],
+  ["Vincit Qui Patitur","Junior Honor Society","Recognizes superior scholastic achievement. Founded 1984 at Berea.","Cumulative 3.5+ GPA by second semester of sophomore year.","","",false],
+  ["Alpha Sigma Lambda","All disciplines (non-traditional students)","Recognizes academically outstanding adult/non-traditional students.","Non-traditional students with outstanding achievement.","","",false],
+  ["Phi Kappa Phi","All disciplines","Recognizes high scholarship and character across all disciplines. Chartered 1953.","Top 7.5% of juniors, top 10% of seniors.","","",false],
+  ["Kappa Delta Pi","Education","International honor society in education.","Education students meeting scholarship and character criteria.","","",false],
+  ["Sigma Delta Pi","Spanish","National Collegiate Hispanic Honor Society.","Outstanding students in Spanish language and literature.","","",false],
+  ["Sigma Tau Delta","English","International English Honor Society.","B average or above in English courses.","","",false],
+  ["Alpha Psi Omega","Theatre","National theatre honor society.","Students with excellence in theatre productions.","","",false],
+  ["Tau Delta Tau","To be confirmed","Campus honor society — focus to be confirmed.","","","",false],
+  ["Delta Tau Alpha","Agriculture & Natural Resources","Referenced in award documentation — confirm whether an active chapter exists.","","","",false]
+];
+
+// [message, audience, date, whenText, sender, notes]
+const SEED_COMMS = [
+  ["Chair heads-up: season overview + confirm your awards by Oct 16","Department chairs","2026-09-30","Proposed: Wed Sep 30 (summer draft: mid-Sept)","Tiffany / Jason Peavler","Include the Apr 15 date and whatever deadlines the group confirms today."],
+  ["Honor society advisors: confirm induction timing by Oct 30","Society advisors","2026-09-30","Proposed: Wed Sep 30","Tiffany","New row."],
+  ["Ceremony save-the-date (Bulletin)","Whole campus","2026-10-05","Proposed: week of Oct 5 (summer draft: once the date is confirmed)","Caroline Bartmess",""],
+  ["Service-award nomination push (per Oct 12 plan)","Faculty & staff","2026-10-19","Fall 2026 (from summer draft)","Sheila Lyons / Ashley Cochrane",""],
+  ["Pre-break chair emails (each dept's selections due)","Department chairs","2026-12-14","Week of Dec 14","Coordinators","Content due to Tiffany Fri Dec 11, 5 PM."],
+  ["Pre-break student preview","Students","2026-12-14","Week of Dec 14","Coordinators","Points to the awards webpage."],
+  ["Bulletin: save-the-date & preliminary details","Whole campus","2026-12-14","Week of Dec 14","Caroline Bartmess","From the 2025–26 template: sent the week before winter break."],
+  ["Launch day — applications open, deadlines named","Students, faculty & staff","2027-01-04","Mon Jan 4","All areas together","Schedule-send before break."],
+  ["Mid-cycle reminder","Students, chairs","2027-01-25","Week of Jan 25","Coordinators",""],
+  ["Final-week push before applications close","Students","2027-02-08","Feb 8–12","Coordinators","Proposed close: Fri Feb 12, 5 PM."],
+  ["Selections reminder to chairs","Department chairs","2027-02-22","Proposed: Mon Feb 22 (summer draft: Feb 15)","Tiffany","Proposed due date: Fri Feb 26."],
+  ["Recipient & family invitations","Recipients & families","2027-03-22","Proposed: Mon Mar 22","Coordinators","Summer draft: week of Mar 25."],
+  ["Ceremony promotion to campus","Whole campus","2027-04-05","Proposed: week of Apr 5","","New row — name a sender."],
+  ["Post-ceremony recap & thank-yous","Campus, donors, committees","2027-04-19","Within a week after (from summer draft)","Tiffany / Caroline Bartmess",""]
+];
+
+const SEED_TEMPLATES = [
+  {title:"Pre-Break Email to Department Chairs", when:"Week of Dec 14 · ⚠ confirm deadlines before sending", owners:"Tiffany Lindsey, Sheila Lyons, Labor contact",
+   body:"Lists each department's specific award selections due + any additional nomination-only awards. Include: type of award, total value, review group, who informs recipients, who completes the check request, and special notes. Selections due [confirm date — proposed Friday, February 26, 2027]. Sign-off: \"Student Achievement Awards Coordinators — Sheila Lyons (CELTS), [Labor contact], Tiffany Lindsey (AA).\""},
+  {title:"Bulletin Announcement — Awards Season Opening", when:"Mon Jan 4 · ⚠ confirm deadlines before sending", owners:"Tiffany Lindsey, Sheila Lyons, Caroline Bartmess",
+   body:"Separate messages to: Students (apply at berea.awardspring.com by [confirm — proposed Friday, February 12] at 5 PM; complete the general application first), Department Chairs (selections due [confirm — proposed Friday, February 26]), Supervisors (review Labor newsletter), Faculty & Staff (watch for recommendation requests from AwardSpring). Contacts: Academic — Tiffany Lindsey; Service — Sheila Lyons; Labor — Labor Office. CELTS service award link: berea.edu/centers/celts/student-service-awards. Ceremony: Thursday, April 15, 3:00 PM."},
+  {title:"Save-the-Date / Preliminary Information", when:"Week before winter break (proposed: also week of Oct 5)", owners:"Caroline Bartmess, Tiffany Lindsey",
+   body:"Student Achievement Awards Ceremony — Thursday, April 15, 2027, 3:00–6:00 PM, with a reception to follow 6:00–8:00 PM. All content for pre-break communications due to Tiffany by 5 PM Friday, December 11, 2026."}
+];
+
+// [desc, cat, dept, est, notes]
+const SEED_BUDGET = [
+  ["Awards cycle administration & printing","Printing","Academic Affairs",5000,"Primary AA allocation for awards booklet, printing, and administration."],
+  ["Labor Program award support","Labor/Staffing","Labor Program",2500,"Labor Program allocation for ceremony and award support."],
+  ["CELTS / Service award expenses","Other","CELTS / Service",null,"TBD — confirm with Ashley Cochrane / Sheila Lyons."],
+  ["President's Office reception (6–8 PM)","Catering/Reception","President's Office",null,"TBD — confirm with Caroline Bartmess / Lindsey Bruner."],
+  ["Award booklet design & layout","Printing","Academic Affairs",null,"Print-ready draft due Fri Mar 19. Coordinate with Andy McKinney."],
+  ["Postage — award notifications","Postage","Academic Affairs",null,"Outgoing letters to recipients."]
+];
+
+// [icon, title, challenge, recommendation]
+const SEED_IMPROVEMENTS = [
+  ["🗂️","Comprehensive Award Database","Fund agreements, stipulations, and spending data are siloed across Philanthropy, Finance, and departments.","Build a centralized platform where stakeholders can access fund documents, balances, and recipient history. Finance's fund list is the starting point."],
+  ["🌐","Award Information Webpage","No single place for students and faculty to learn about all awards.","One campus-wide Awards & Recognition page listing every award with description, eligibility, amount, and how to apply. Live by Dec 4."],
+  ["📢","Coordinated Communication Plan","Departments notify campus at different times in different formats.","One shared communication calendar; joint announcements at pre-break, launch, mid-cycle, and results."],
+  ["📥","Centralized Selection Submission","Committees submit winners to different places (email, spreadsheets, AwardSpring).","ONE platform or form for all selections — AwardSpring admin, a Qualtrics form, or SharePoint."],
+  ["📦","Unified Certificate / Award Packet","Each department makes its own certificates; the President signs each one.","One consistent certificate template; consider a pre-printed signature."],
+  ["📅","Early Ceremony Date Confirmation","The ceremony date was selected too late in past years.","2026–27 date chosen: April 15, 2027 — confirm it is on the Academic Calendar. Next: set 2027–28 before summer."],
+  ["🔄","Outlier Award Cycle Alignment","Some awards (Christensen, Wood) run on different cycles.","Bring them onto the main cycle, or run a clearly communicated sub-cycle."],
+  ["💰","Centralized Ceremony Budget","No shared budget for venue, reception, printing, and packets.","A shared budget line with an agreed cost-sharing model each cycle."],
+  ["🙋","Third-Party Nominations (added from July 31 notes)","Service awards need third-party nomination; AwardSpring only supported self-nomination, and outreach limits cut nomination volume.","Get the vendor's answer; decide migrate vs. run both systems (Oct 12), and rebuild nomination outreach within current rules."]
+];
+
+// [name, area, workstreams, email]
+const SEED_PEOPLE = [
+  ["Tiffany Lindsey","Academic Affairs (lead)","1, 2","lindseyt@berea.edu"],
+  ["Jason Peavler","Academic Affairs","1, 2",""],
+  ["Kelly Fox","Labor Program","2",""],
+  ["Collis Robinson","Labor Program","2",""],
+  ["Ashley Cochrane","CELTS","2",""],
+  ["Sheila Lyons","CELTS / Service Awards","2","lyonss@berea.edu"],
+  ["Caroline Bartmess","President's Office","2",""],
+  ["Lindsey Bruner","President's Office","2",""],
+  ["Connie Murray","Finance","1, 2",""],
+  ["Barry Poynter","Finance","1",""],
+  ["Candis Arthur","Philanthropy","1",""],
+  ["Jason Proctor","Philanthropy","1, 2",""],
+  ["Mindy Townsend","Philanthropy","1, 2",""],
+  ["Eric Shyaka","Strategic Planning","1",""],
+  ["Heather Schill","OCI / Operations","1",""],
+  ["Desirae Baayen","Athletics","2",""],
+  ["Andy McKinney","Printing Services","2",""],
+  ["Kayse Cornett","Medical/Dental Scholarships","2",""],
+  ["Rashmi","Medical/Dental Scholarships","",""],
+  ["Kristin Dalessio","","",""],
+  ["Amanda Leger","Registrar (contact)","",""],
+  ["Emily Parrish","Printing Services (contact)","",""]
+];
+
+const SEED_AWARDS = [
+{
+"name": "Henry W. and Edna Austin Awards",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Sophomores, Juniors, Seniors",
+"type": "Scholarship",
+"desc": "Honors fine academic performance. Austin Scholarship recipients chosen from sophomore class; Austin Scholars are juniors/seniors. A student may be selected only once as an Austin Scholar.",
+"stipulations": "Austin Scholars: juniors and seniors only; a student may be selected only once. Austin Scholarship recipients: sophomore class only."
+},
+{
+"name": "Lyle and Dorothy Ferer Cary Award for Excellence in Writing",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Juniors and Seniors",
+"type": "Award",
+"desc": "Presented to students who have achieved excellence in writing—scholarly or creative, from class assignments or independently conceived.",
+"stipulations": "Open to juniors and seniors. Writing may be scholarly or creative, from a class assignment or independently conceived. Categories include poetry, prose, and scholarly."
+},
+{
+"name": "Helen Dingman Book Awards",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Students or groups (up to 5)",
+"type": "Award",
+"desc": "Recognizes achievements reflecting effective synthesis of any two of: learning, labor, and service. Named for Helen Dingman, professor of sociology who established the Opportunity School Program."
+},
+{
+"name": "Jerome W. Hughes Humanities Enrichment Award",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "All students",
+"type": "Award",
+"desc": "Supports a variety of experiences in the arts to enrich students' appreciation of the humanities. Established by family, friends, and former students of Dr. Jerome W. Hughes."
+},
+{
+"name": "Phi Kappa Phi Scholar",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "All majors",
+"type": "Honor",
+"desc": "Recognizes high scholarship and character. The Berea chapter was chartered in 1953."
+},
+{
+"name": "Doris and Harold Rosenbaum Scholarship",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Students accepted to/eligible for leading graduate programs",
+"type": "Scholarship",
+"desc": "Established 1994 to assist students who have been accepted by or are eligible candidates for enrollment in the nation's leading graduate and professional programs."
+},
+{
+"name": "Olive Ruth Russell Fellowship",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Women with outstanding academic records",
+"type": "Fellowship",
+"desc": "Presented to women with outstanding academic records who present a defined plan to pursue graduate study in any academic discipline.",
+"stipulations": "Women with outstanding academic records who present a defined plan to pursue graduate study in any academic discipline."
+},
+{
+"name": "Seabury Award",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Graduating Seniors (1 male, 1 female)",
+"type": "Award",
+"desc": "Given to one male and one female graduating senior demonstrating outstanding scholarship and community leadership. Aids graduate study or travel."
+},
+{
+"name": "Frances Finnell Vandivier Scholarship",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Graduating seniors — child development/CFS field",
+"type": "Scholarship",
+"desc": "Assists graduating seniors with continuing education in child development, childcare, and/or advocacy for children, youth and families. Established 1988.",
+"stipulations": "Graduating senior continuing education in child development, childcare, or advocacy for children, youth, and families."
+},
+{
+"name": "Wood Achievement Award",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Graduating Seniors (1 woman, 1 man)",
+"type": "Award",
+"desc": "Awarded annually at commencement to one graduating senior woman and one man who have demonstrated excellence in contributions to the life and work of Berea College."
+},
+{
+"name": "Katherine C. Christensen Scholarship Fund",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "All students in good standing (incl. F-1, DACA)",
+"type": "Scholarship",
+"desc": "Supports students interested in history, medieval studies, calligraphy, libraries, or canon law. Funds special learning opportunities: study abroad, residency, internships, graduate study. Up to $10,000. Awarded once in fall and once in spring. Application deadline: Feb 5."
+},
+{
+"name": "Kathleen & Frederick Crawford Award for Excellence",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "ANR & Natural Sciences students",
+"type": "Award",
+"desc": "Excellence in scholarship, preferably in natural history, forestry, conservation or preservation of wildlife."
+},
+{
+"name": "Delta Tau Alpha Awards",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "ANR majors",
+"type": "Award",
+"desc": "Certificates to graduating ANR major with highest cumulative GPA and to a sophomore for outstanding freshman performance."
+},
+{
+"name": "Edd C. Hogg Memorial Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Second-term juniors in ANR or Nursing",
+"type": "Scholarship",
+"desc": "Recognizes Christian faith, economic need, and academic achievement. One recipient in ANR and one in Nursing.",
+"stipulations": "Second-semester juniors majoring in Agriculture and Natural Resources OR Nursing at Berea College. Two awards given — one to each major. Must demonstrate Christian faith, economic need, and academic achievement."
+},
+{
+"name": "David F. Kinder Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior ANR student",
+"type": "Award",
+"desc": "Exceptional productivity, initiative, and leadership in the labor program, combined with a successful academic program.",
+"stipulations": "Senior Agriculture and Natural Resources student who has shown exceptional productivity, initiative, and leadership in his or her labor program and demonstrates a successful academic program."
+},
+{
+"name": "Joe Van Pelt Agricultural Leadership Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior ANR major",
+"type": "Award",
+"desc": "Active interest in scholarship and sincere concern for social problems beyond the department, with effort above and beyond the Labor Program.",
+"stipulations": "Junior student majoring in Agriculture and Natural Resources. Based on active interest in scholarship and sincere concern for social problems beyond the program, with efforts above and beyond the Labor Program."
+},
+{
+"name": "Martin Aaron Wilson Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "ANR/dairy students",
+"type": "Award",
+"desc": "Excellence in labor, service, and academic skills with a strong interest in dairy production."
+},
+{
+"name": "Art Major Award: A Design for a Summer",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Art majors",
+"type": "Award",
+"desc": "Annual award for art majors for continuing study, museum visits, travel, books, and materials during summer."
+},
+{
+"name": "James R. Bobbitt Art Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding graduating senior/recent graduate",
+"type": "Scholarship",
+"desc": "Assists outstanding seniors or recent graduates in continuing fine or applied arts study within the Appalachian Studies Program."
+},
+{
+"name": "Helen and Jean Barkley Memorial Scholarship (CFS)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "CFS majors",
+"type": "Scholarship",
+"desc": "For CFS majors who show promise of becoming worthy citizens of their communities after graduation.",
+"stipulations": "Child and Family Studies majors who show promise that they will become worthy citizens of their communities after graduation from Berea College."
+},
+{
+"name": "Jacqueline Hensley Combs Memorial Award (CFS)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior CFS major",
+"type": "Award",
+"desc": "Given to CFS major showing high degree of character, scholarship, and professional maturity.",
+"stipulations": "Junior or senior Child and Family Studies major who has shown high degree of character, scholarship, and professional maturity."
+},
+{
+"name": "Ann Grant Memorial Award (CFS)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding CFS major",
+"type": "Award",
+"desc": "Awarded annually based on scholarship, character, and need."
+},
+{
+"name": "Opal Stamm Huskey Scholarship (CFS)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "CFS with Teacher Certification majors",
+"type": "Scholarship",
+"desc": "Fosters excellence in CFS with Teacher Certification. Honors former Professor of Home Economics Eunice True."
+},
+{
+"name": "Virginia Palmer Widener Memorial CFS Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding CFS major (preference: Lee, KY / Washington, VA)",
+"type": "Award",
+"desc": "Commemorates Mrs. Widener's contributions to home economics. Preference for students from Lee County, KY and Washington County, VA."
+},
+{
+"name": "Florence Prize for Essays",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "All students",
+"type": "Prize",
+"desc": "Endowed 1919. Prizes for best essays on a subject of public interest. Administered by English and social science chairs."
+},
+{
+"name": "Francis S. Hutchins Awards",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Juniors and Seniors",
+"type": "Award",
+"desc": "Honors creative work in the humanities. For meritorious, creative, or critical works."
+},
+{
+"name": "Paul Vernon Kreider Jr. Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior",
+"type": "Award",
+"desc": "Presented to the student who has developed a personal library of good quality and writes the best essay about it."
+},
+{
+"name": "Mary Macauley Smith Memorial Scholarship in the Humanities",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Graduating Senior, humanities",
+"type": "Scholarship",
+"desc": "Commitment to chosen field and liberal arts through academic excellence in major and general education."
+},
+{
+"name": "Hugh O. Porter Memorial Forensics Award (Communication)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Upperclass students",
+"type": "Award",
+"desc": "Excellence in speech and debate."
+},
+{
+"name": "Chin-Wang Prize (Economics & Business)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Seniors in ECON/BA",
+"type": "Prize",
+"desc": "For seniors of character who have excelled in Economics and Business Administration."
+},
+{
+"name": "Joel Dean Scholarship in Economics",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Graduating senior economics major",
+"type": "Scholarship",
+"desc": "Annual scholarship for academic performance. Recipient known as the Joel Dean Scholar."
+},
+{
+"name": "Beldon Graduate School Fellowship (Education)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Graduating seniors with teacher certification / recent grads",
+"type": "Fellowship",
+"desc": "Outstanding seniors/recent grads with teacher certification who plan graduate school enrollment."
+},
+{
+"name": "George and Elgetha Bell Scholarship in Education",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding junior, pre-teaching",
+"type": "Scholarship",
+"desc": "Outstanding junior student preparing for the teaching profession.",
+"stipulations": "Outstanding junior student preparing for the teaching profession."
+},
+{
+"name": "Mildred A. Bolt Award (Education)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Education Studies student",
+"type": "Award",
+"desc": "Outstanding scholarship and teaching potential, as judged by the Education Studies Department."
+},
+{
+"name": "Lucille Bush Duncan Award in Education",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior members of Kappa Delta Pi",
+"type": "Award",
+"desc": "Outstanding scholarship and potential service to society, judged by Education Studies faculty.",
+"stipulations": "Junior members of Kappa Delta Pi judged by Education Studies faculty to be outstanding in scholarship and potential service to society."
+},
+{
+"name": "May Harrison Lambert Memorial Award in Elementary Education",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Graduating senior, elementary education track",
+"type": "Award",
+"desc": "Outstanding graduating senior showing great promise as an elementary teacher.",
+"stipulations": "Outstanding graduating seniors who show great promise as elementary school teachers."
+},
+{
+"name": "Dr. Lee E. Wickline Scholarship (Education)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior, Education major/minor",
+"type": "Scholarship",
+"desc": "Must be well-rounded, demonstrate enthusiastic interest in school and community activities, and have awareness of universal human values."
+},
+{
+"name": "Emily Ann Smith Scholarship (English)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior English major",
+"type": "Scholarship",
+"desc": "Excellence in the study of the English language."
+},
+{
+"name": "May B. Smith English Composition Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Students in English courses",
+"type": "Award",
+"desc": "Unusual skill in writing non-fiction prose."
+},
+{
+"name": "Health and Human Performance Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior HHP major",
+"type": "Award",
+"desc": "Highest overall GPA in HHP career at Berea."
+},
+{
+"name": "Blanton Prize in History and Political Science",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior History and/or Political Science major",
+"type": "Prize",
+"desc": "Most outstanding senior with strong writing skills in History and/or Political Science. Selected by chairs of both programs.",
+"stipulations": "Senior History and/or Political Science major — the most outstanding senior in one or both subjects with strong writing skills. Selected by recommendation/agreement of chairs of History and Political Science Programs."
+},
+{
+"name": "E. Taylor Parks Award (History/Political Science)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "History or Political Science student",
+"type": "Award",
+"desc": "Excellence in History or Political Science. Established by E.R. Brann in memory of former Department Chair."
+},
+{
+"name": "Robert B. Street Prize in American History",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "History students",
+"type": "Prize",
+"desc": "Prizes for oratorical and essay contests on American history and democracy."
+},
+{
+"name": "Walter Morris Gay Memorial Award (Law/Pre-Law)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior pre-law student",
+"type": "Award",
+"desc": "High academic achievement, excellence of character, and patriotism."
+},
+{
+"name": "Elizabeth D. Gilbert Fellowship in Library Science",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Seniors or recent graduates",
+"type": "Fellowship",
+"desc": "Graduate studies in Library Science. Established 1973 in honor of Berea's Head Librarian."
+},
+{
+"name": "Ballard-McConnell-Willis Mathematics Scholarships",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Mathematics students",
+"type": "Scholarship",
+"desc": "Excellence in mathematics, moral character, potential for accomplishment, and inspiring others toward mathematics."
+},
+{
+"name": "Pugsley Freshman Scholarship (Math)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Freshmen",
+"type": "Scholarship",
+"desc": "Excellence in mathematics for freshmen."
+},
+{
+"name": "Steve Boyce Senior Mathematics Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior mathematics major",
+"type": "Award",
+"desc": "Greatest degree of excellence and maturity in mathematics study."
+},
+{
+"name": "Elsie Drukker Memorial Music Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding Music majors",
+"type": "Scholarship",
+"desc": "Scholarships and financial aid to outstanding Music majors."
+},
+{
+"name": "Marjory J. Flint Scholarship (Music)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Piano or woodwind students",
+"type": "Scholarship",
+"desc": "Annual scholarships for piano or woodwind students for study at Berea or in graduate school. Excellence and potential."
+},
+{
+"name": "Irene Ziegler Hill Memorial Scholarship (Music)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Music students, preference for future educators",
+"type": "Scholarship",
+"desc": "Academic excellence and musicianship, with preference for students showing outstanding potential as future music educators."
+},
+{
+"name": "Rolf E. Hovey Memorial Scholarship (Music)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Seniors or highly qualified undergrads, Music majors",
+"type": "Scholarship",
+"desc": "Music majors who intend to teach and perform. Named for founder of the Berea College Chapel Choir.",
+"stipulations": "Berea College Seniors or alumni with an undergraduate major in Music. Used for graduate study in choral music."
+},
+{
+"name": "Sherwood-Hill Award (Music)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Music majors",
+"type": "Award",
+"desc": "Academic excellence and high potential in the field of music."
+},
+{
+"name": "Underwood-Alger Music Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Declared Music majors with financial need",
+"type": "Scholarship",
+"desc": "Excellence in scholarship and financial need.",
+"stipulations": "Students who have declared a major in Music and exhibited excellence in scholarship, as well as financial need."
+},
+{
+"name": "John S. Bangson Biological Science Awards",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Sophomore (top Biology grades) and Senior Biology major",
+"type": "Award",
+"desc": "Two annual awards: sophomore with highest biology grades and senior Biology major for grades and leadership."
+},
+{
+"name": "Guenther O.R. Brann Memorial Scholarship in Biology",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Biology major",
+"type": "Scholarship",
+"desc": "Outstanding scholarship, superior character, and financial need.",
+"stipulations": "Biology majors for outstanding scholarship, superior character, and financial need."
+},
+{
+"name": "Lilli Brann Scholarship in Physical Sciences",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Physical Sciences students",
+"type": "Scholarship",
+"desc": "Outstanding scholarship, superior character, and financial need.",
+"stipulations": "Students with outstanding scholarship in their chosen field, superior character, and financial need."
+},
+{
+"name": "J. Stanton King Science Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior, Biology/Chemistry/Physics major",
+"type": "Award",
+"desc": "Excellence in both academic and personal life. Established by AACC."
+},
+{
+"name": "Waldemar Noll Prize in Physics",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior Physics major",
+"type": "Prize",
+"desc": "Highest scholastic standing in the Physics major."
+},
+{
+"name": "Underwood-Alger Biology Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Declared Biology majors with financial need",
+"type": "Scholarship",
+"desc": "Excellence in scholarship and financial need.",
+"stipulations": "Students who have declared a major in Biology and exhibited excellence in scholarship, as well as financial need."
+},
+{
+"name": "W.H. & Mabel Simmons Dean Scholarship (Nursing)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Sophomore, nursing/pre-med/pre-dental, B average, financial need",
+"type": "Scholarship",
+"desc": "At least B average, financial need, and Christian leadership."
+},
+{
+"name": "Julia Braden Thompson Award (Nursing/Pre-Med)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Pre-med or Nursing students",
+"type": "Award",
+"desc": "Outstanding academic record, professional promise, and excellent moral character.",
+"stipulations": "Pre-medical or Nursing students at Berea College who have achieved an outstanding academic record, manifest professional promise, and exemplify excellent moral character."
+},
+{
+"name": "Norman C. & Rose B. Wheeler Scholarship (Pre-Med)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Pre-med student with financial need",
+"type": "Scholarship",
+"desc": "Financial need and high scholastic achievement."
+},
+{
+"name": "Martha E. Wylie Award (Nursing)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior Nursing student",
+"type": "Award",
+"desc": "Superior achievement in nursing.",
+"stipulations": "Junior Nursing student — superior achievement in nursing."
+},
+{
+"name": "Millicent Bate Miller Scholarship (Phil/Religion)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Philosophy or Religion major",
+"type": "Scholarship",
+"desc": "Exceptional academic ability, character, and leadership."
+},
+{
+"name": "Fred Oscanyan Scholarship in Philosophy",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior Philosophy major/minor",
+"type": "Scholarship",
+"desc": "Academic excellence, selected by Philosophy faculty."
+},
+{
+"name": "C. Louis Smith Scholarship (Political Science)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior Political Science student",
+"type": "Scholarship",
+"desc": "Outstanding qualities of scholarship and citizenship.",
+"stipulations": "Senior student in Political Science who has demonstrated outstanding qualities of citizenship and scholarship."
+},
+{
+"name": "Bishop Yu Yue Tsu Scholarship (Religion)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Junior or Senior Religion major",
+"type": "Scholarship",
+"desc": "Achievement in the Religion major.",
+"stipulations": "Junior or senior Religion major who demonstrates achievement."
+},
+{
+"name": "Fu Liang and Louise Chang Award (Sociology)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Senior Sociology major",
+"type": "Award",
+"desc": "Greatest promise in sociology or social work. Excellence in scholarship and promise for service."
+},
+{
+"name": "Dallas and Betty Johnson Sociology Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding graduating senior in Sociology, grad school plans",
+"type": "Scholarship",
+"desc": "Plans for graduate study and future goals for work and service."
+},
+{
+"name": "Albert G. Weidler Memorial Scholarship (Social Studies/Business)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Social studies or business administration students",
+"type": "Scholarship",
+"desc": "Excellence in social studies or business administration.",
+"stipulations": "Excellence in social studies or business administration."
+},
+{
+"name": "John F. White Memorial Scholarship in Gerontology",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Students pursuing graduate study in gerontology",
+"type": "Scholarship",
+"desc": "Graduate study in research or service in gerontology field."
+},
+{
+"name": "Peterson Spring Award (Technology & Applied Design)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Juniors and Seniors, TAD major, GPA 3.25+",
+"type": "Award",
+"desc": "High level of scholarship, character, and professional involvement."
+},
+{
+"name": "Thomas M. & Janet C. Kreider Theatre Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Full-time students interested in professional theatre",
+"type": "Award",
+"desc": "Enables students to visit a major theatre-drama center to see professionally produced performances."
+},
+{
+"name": "Paul Nelson Power Scholarship Award (Theatre)",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Theatre students",
+"type": "Scholarship",
+"desc": "Funds to pursue learning in performing arts: travel, study, apprenticeships, producing/attending performances."
+},
+{
+"name": "Eva Nell Whitaker Alley Memorial Award in Community Leadership",
+"cat": "Citizenship/Leadership",
+"dept": "CELTS",
+"eligible": "Female students",
+"type": "Award",
+"desc": "Excellence in academics, leadership, and service to the on-going life of Berea College."
+},
+{
+"name": "E.R. Brann Good Citizenship Award",
+"cat": "Citizenship/Leadership",
+"dept": "CELTS",
+"eligible": "Students nominated by peers",
+"type": "Award",
+"desc": "Character and life making outstanding contribution to the Christian character of Berea College."
+},
+{
+"name": "Emily C. Graham / Ernest & Emily G. Graham Volunteer Service Award",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Two students demonstrating exceptional volunteer service",
+"type": "Award",
+"desc": "Recognizes two students for exceptional volunteer service during the academic year. Memorial to Mrs. Emily G. Graham."
+},
+{
+"name": "Jane A. Kendrick Community Service Award",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Student with outstanding community service record",
+"type": "Award",
+"desc": "Recognizing volunteer service to community that has enriched the lives of others."
+},
+{
+"name": "Layman Memorial Award in International Relations",
+"cat": "Citizenship/Leadership",
+"dept": "CELTS",
+"eligible": "Student most likely to contribute to international relations",
+"type": "Award",
+"desc": "Established by daughters of Rev. & Mrs. Henry L. Layman, missionaries in Japan."
+},
+{
+"name": "Navy V-12/V-5 Memorial Scholarship",
+"cat": "Citizenship/Leadership",
+"dept": "Academic Affairs",
+"eligible": "One international + one American student (juniors)",
+"type": "Scholarship",
+"desc": "Outstanding contributions to human kinship and international understanding. Students known as Navy V-12/V-5 Memorial Scholars in senior year.",
+"stipulations": "Two awards: one international student and one American student, recognized for outstanding contributions to human kinship and international understanding on campus. Students are chosen in their junior year."
+},
+{
+"name": "Homer A. Porter, Jr. Citizen-Servant Emerging Leader Awards",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "4 students who have not yet reached junior year",
+"type": "Award",
+"desc": "Service programs and service learning contributions exemplifying selflessness of servant leaders."
+},
+{
+"name": "Service Scholarship Fund",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Student proactive in social concern for others",
+"type": "Scholarship",
+"desc": "Proactive, non-self-serving expressions of social concern for others and qualities of a lifetime of service."
+},
+{
+"name": "Student Service Learning Award",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Students with significant community contributions",
+"type": "Award",
+"desc": "Significant contributions to Berea and Madison County community through service-learning. Nominated by community partners."
+},
+{
+"name": "Louise Veltin Memorial Award for Good Citizenship",
+"cat": "Citizenship/Leadership",
+"dept": "CELTS",
+"eligible": "Sophomore, Junior, or Senior",
+"type": "Award",
+"desc": "All-around good citizenship. Established 1936 by the Veltin Association of New York City."
+},
+{
+"name": "DeWitt Wallace Reader's Digest Scholarship",
+"cat": "Citizenship/Leadership",
+"dept": "Academic Affairs",
+"eligible": "Prospective freshmen with need and outstanding Christian leadership",
+"type": "Scholarship",
+"desc": "Need-based with demonstrated outstanding Christian leadership."
+},
+{
+"name": "Homer E. Williams Awards for Campus Leadership in Interracial Understanding",
+"cat": "Citizenship/Leadership",
+"dept": "Academic Affairs",
+"eligible": "Two students (one African-American, one other)",
+"type": "Award",
+"desc": "Leadership in all campus aspects, particularly promotion of racial understanding."
+},
+{
+"name": "George & Lucille C. McKinney Service Award",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Students with outstanding service",
+"type": "Award",
+"desc": "Recognizes outstanding service contributions to the surrounding community and Berea College."
+},
+{
+"name": "Martin Luther and Coretta Scott King Award",
+"cat": "Citizenship/Leadership",
+"dept": "CELTS",
+"eligible": "Students demonstrating commitment to justice",
+"type": "Award",
+"desc": "Honors students whose work reflects the values and legacy of Martin Luther and Coretta Scott King."
+},
+{
+"name": "Hap and Cay Porter Scholarship Fund",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Students with service record",
+"type": "Scholarship",
+"desc": "Service to the Berea community and surrounding area."
+},
+{
+"name": "Algernon Sydney Sullivan Award, William E. Bardusch, Jr. Graduate Scholarship",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Students with exceptional service and character",
+"type": "Award/Scholarship",
+"desc": "Recognizes extraordinary service and good character. Graduate scholarship component for continuing education."
+},
+{
+"name": "Algernon Sydney Sullivan Annual Scholarship",
+"cat": "Service",
+"dept": "CELTS",
+"eligible": "Nominated students",
+"type": "Scholarship",
+"desc": "Annual scholarship from the Algernon Sydney Sullivan Foundation for service and character."
+},
+{
+"name": "Anna Mae and Phyllis Shumaker Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Student office workers",
+"type": "Award",
+"desc": "Celebrates office work within the Student Labor Program. Honors the service of the Shumaker sisters."
+},
+{
+"name": "Berea College Outstanding Student Worker of the Year Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "All student workers (nominated)",
+"type": "Award",
+"desc": "Evaluated on reliability, quality, initiative, professionalism, and uniqueness of contribution. Eligible for MASEA state/regional/national awards."
+},
+{
+"name": "Building Care Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Building (selected by Housekeeping Division)",
+"type": "Award",
+"desc": "Recognizes a building symbolizing high level of cleanliness and quality of work."
+},
+{
+"name": "Clara Bell Hall Crafts Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Student in Crafts Program",
+"type": "Award",
+"desc": "Exceptional academic and artistic talent while contributing to the Student Crafts Program."
+},
+{
+"name": "Danforth Creative Effort Awards (1st, 2nd, 3rd)",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "All students",
+"type": "Award",
+"desc": "Cash awards for students whose products of imagination and effort have lasting legacy beyond college career."
+},
+{
+"name": "Food Service Special Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Food service student worker",
+"type": "Award",
+"desc": "Recognizes a student who finds fulfillment in service to fellow students."
+},
+{
+"name": "Gladys Jameson Accompanist Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Most valuable student accompanist",
+"type": "Award",
+"desc": "Memory of Gladys Jameson, Music Faculty 1916–1954. Most valuable student accompanist of the year."
+},
+{
+"name": "Margaret G. Rogers Nursing Award (Labor)",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Nursing student in labor assignment",
+"type": "Award",
+"desc": "Excellence in nursing labor assignment. Honors Margaret G. Rogers."
+},
+{
+"name": "Photo Awards (1st, 2nd, 3rd)",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "All students",
+"type": "Award",
+"desc": "Encourages students to visually represent the work students do at Berea."
+},
+{
+"name": "Raymond B. Drukker Memorial Award for Library Service",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Outstanding student worker in College library",
+"type": "Award",
+"desc": "Cash award for outstanding library student worker."
+},
+{
+"name": "Richard T. Hougen Hotel Management Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Outstanding student contributors to Boone Tavern",
+"type": "Award",
+"desc": "Recognizes outstanding student contributors to the operation of the hotel."
+},
+{
+"name": "Dr. Russell I. Todd Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Student with constructive leisure use",
+"type": "Award",
+"desc": "Most constructive use of leisure time."
+},
+{
+"name": "Sarah Fuller Smith Loom Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Outstanding weaver, Fireside Industries",
+"type": "Award",
+"desc": "Outstanding weaver of Fireside Industries. Recipient receives a loom to build upon their weaving skills. Awarded since 1929."
+},
+{
+"name": "William R. Ramsay Horizon Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "First-year students",
+"type": "Award",
+"desc": "Enthusiastically embraces the Labor Program as part of Berea's mission. Great potential for the future."
+},
+{
+"name": "Evans, Wilson and Ellen Best 'Above and Beyond' Award",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Two graduating seniors",
+"type": "Award",
+"desc": "Performed above and beyond the requirements of labor positions."
+},
+{
+"name": "Departmental Labor Award ($25)",
+"cat": "Labor",
+"dept": "Labor",
+"eligible": "Top contributing student per department",
+"type": "Award",
+"desc": "Each department allocates awards based on number of student workers. Student(s) who contributed most to work environment. $25 cash award. Coordinated by the Labor Program Office."
+},
+{
+"name": "Vincit Qui Patitur",
+"cat": "Honor Society",
+"dept": "Academic Affairs",
+"eligible": "Students with 3.5+ GPA by end of sophomore year",
+"type": "Honor Society",
+"desc": "Berea's own Junior Honor Society, formed 1984. Members must have achieved a 3.5 cumulative GPA by the second semester of their sophomore year and will be active during their junior year. Purpose: to promote high standards for living and recognize superior scholastic achievement among Berea students."
+},
+{
+"name": "Alpha Sigma Lambda",
+"cat": "Honor Society",
+"dept": "Academic Affairs",
+"eligible": "Non-traditional (adult) students with outstanding academic achievement",
+"type": "Honor Society",
+"desc": "National Honor Society chapter at Berea College. Provides association and recognition for academically outstanding non-traditional students. Non-profit organization devoted to the advancement of scholarship."
+},
+{
+"name": "Sigma Pi Sigma",
+"cat": "Honor Society",
+"dept": "Dept/Faculty",
+"eligible": "Students with high scholarship in Physics",
+"type": "Honor Society",
+"desc": "Physics Honorary Society founded at Davidson College in 1921. Purposes: (1) award distinction to students with high scholarship and promise in physics; (2) promote student interest in research and advanced study of physics; (3) encourage professional spirit and friendship; (4) popularize interest in physics."
+},
+{
+"name": "Sigma Delta Pi",
+"cat": "Honor Society",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding students in Spanish language/literature",
+"type": "Honor Society",
+"desc": "National Collegiate Hispanic Honor Society. Recognizes outstanding students in Spanish language and literature studies at Berea College."
+},
+{
+"name": "Sigma Tau Delta",
+"cat": "Honor Society",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding English students (B average or above)",
+"type": "Honor Society",
+"desc": "International English Honor Society. Recognizes high achievement in English language and literature studies. Confers distinction upon students of English language and literature in undergraduate and graduate studies."
+},
+{
+"name": "Alpha Psi Omega",
+"cat": "Honor Society",
+"dept": "Dept/Faculty",
+"eligible": "Students who have participated in theatre productions",
+"type": "Honor Society",
+"desc": "National theatre honor society. Recognizes outstanding achievement in collegiate theatre and dramatic arts. Members are chosen based on participation and excellence in theatre productions."
+},
+{
+"name": "Alfred C. Lutz Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "American History major with financial need and good character",
+"type": "Scholarship",
+"desc": "Given by Mrs. Alfred C. Lutz in honor of her husband. The recipient should be of good moral character, have acceptable intellectual qualities, have financial need, and major in American History. Established 1981."
+},
+{
+"name": "Thomas A. Boyd Scholarship",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Sociology students with commitment to service",
+"type": "Scholarship",
+"desc": "Named for Professor Tom Boyd, who taught Sociology at Berea 1977–2006. Prior to teaching, Boyd served with the Peace Corps in Peru, Colombia, Ghana, and China. He was also a volunteer with the Berea fire department and Habitat for Humanity. Award honors service, humility, and commitment to Berea's Great Commitments and the student labor program."
+},
+{
+"name": "Thomas Beebe Organic Chemistry Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding students in Organic Chemistry",
+"type": "Award",
+"desc": "Annual award recognizing outstanding performance in Organic Chemistry. Multiple recipients per year. Award has been given since at least 2003.",
+"stipulations": "Top two students who completed introductory Chemistry courses. Selection based on standing in CHM 222 (Organic Chemistry II) and ACS Standardized Examination score. Open to any major."
+},
+{
+"name": "The Estwing Pick",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Outstanding graduating Geology student",
+"type": "Award",
+"desc": "Annual award from the Department of Geology & Geography for the outstanding graduating geology student. The Estwing geopick (a geologist's rock hammer) is the actual award. Given since 1973."
+},
+{
+"name": "Wilbur G. Burroughs Memorial Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "One senior and one junior in Geology or Geography",
+"type": "Award",
+"desc": "Given annually to two students (a graduating senior and a junior) who have completed a large number of courses in Geology or Geography. Named for Wilbur G. Burroughs, former Professor of Geology and Sociology and Department Chairman at Berea College."
+},
+{
+"name": "William Hart Award",
+"cat": "Disciplinary",
+"dept": "Dept/Faculty",
+"eligible": "Student with superior academic and labor performance",
+"type": "Award",
+"desc": "Mr. William Hart was an early Berea College Trustee and former Treasurer of the College. The Lumpkin Foundation established this scholarship in his memory in December 1981. The recipient is a student who has demonstrated superior academic and labor performance. Selected by a faculty/staff committee."
+},
+{
+"name": "Weatherford-Hammond Prize",
+"cat": "Appalachia",
+"dept": "Dept/Faculty",
+"eligible": "Students submitting creative essays on Appalachia",
+"type": "Prize",
+"desc": "Prize in Appalachian Literature established by Dr. W.D. Weatherford Sr. and Mr. William A. Hammond to encourage students to read books on Appalachia. Three prizes awarded for creative essays: 1st ($50), 2nd ($35), and 3rd ($15). Given since 1970."
+},
+{
+"name": "Timberlake International Scholarship",
+"cat": "International",
+"dept": "Academic Affairs",
+"eligible": "Students interested in world history and cultures",
+"type": "Scholarship",
+"desc": "Established February 7, 2006 by Dr. and Mrs. Charles E. Timberlake with a $10,000 gift. Purpose: to expand opportunities for Berea College students to learn about world history and cultures. Provides funds for international activities including study abroad, international courses, and related materials."
+},
+{
+"name": "Thomas J. Watson Fellowship",
+"cat": "External",
+"dept": "Academic Affairs",
+"eligible": "Outstanding graduating seniors",
+"type": "External Fellowship",
+"desc": "Prestigious national fellowship for graduating seniors to pursue independent study outside the United States for one year. Supports individual, post-graduate projects in areas of genuine interest and personal significance. Berea nominates candidates from its graduating class."
+},
+{
+"name": "Truman Scholarship",
+"cat": "External",
+"dept": "Academic Affairs",
+"eligible": "Juniors with financial need committed to public service careers",
+"type": "External Scholarship",
+"desc": "Administered by the Harry S. Truman Scholarship Foundation. Merit-based scholarship totaling $30,000 for graduate or professional study in preparation for careers in government, the non-profit sector, or elsewhere in public service. One scholarship per state; Berea nominates candidates."
+},
+{
+"name": "Healen H. and Eugene H.B. Watson Scholarship",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Students demonstrating academic excellence",
+"type": "Scholarship",
+"desc": "Internal scholarship established to recognize academic excellence. Two recipients selected annually. Given since at least 1985. Named for Healen H. and Eugene H.B. Watson."
+},
+{
+"name": "University Coal Research Internship Program",
+"cat": "External",
+"dept": "Dept/Faculty",
+"eligible": "Juniors in science or engineering",
+"type": "External Internship",
+"desc": "Sponsored by the U.S. Department of Energy (Pittsburgh Energy Technology Center). Provides juniors in science or engineering from accredited liberal arts colleges the opportunity to participate in 10-week summer fossil energy-related research at research universities. Participants work under guidance of a faculty member at the host university."
+},
+{
+"name": "Undergraduate Research and Creative Projects",
+"cat": "Academic Excellence",
+"dept": "Academic Affairs",
+"eligible": "Students completing undergraduate research or creative projects",
+"type": "Recognition",
+"desc": "Annual recognition of Berea College students who complete undergraduate research and creative projects. Multiple students recognized per year across all disciplines. Recognition at the annual awards ceremony. Program has been running since at least 2003."
+},
+{
+"name": "Ellen Bangson Award in Christian Education",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Student with interest in Christian education",
+"type": "Award",
+"desc": "Outstanding student with special interest in Christian education."
+},
+{
+"name": "Beckman Prizes for Excellence in Bible Study",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students excelling in Bible study",
+"type": "Prize",
+"desc": "Provides Bibles and study aids for excellence in Bible study."
+},
+{
+"name": "Class of 1942 Awards",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "One student per class year (Fr, Soph, Jr, Sr)",
+"type": "Scholarship",
+"desc": "Superior academic achievement with Christian character, financial need, and capacity to persevere. Annual scholarship."
+},
+{
+"name": "Discovery Grants",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students pursuing off-campus study experiences",
+"type": "Grant",
+"desc": "Supplements financial resources for domestic study in faculty-led courses, Independent/Team Initiated studies, or internships."
+},
+{
+"name": "Experiential Education Fund Grants",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students pursuing off-campus internships",
+"type": "Grant",
+"desc": "Enriches academic program through off-campus educational internship experiences."
+},
+{
+"name": "Red Foley Memorial Music Award",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Student/s contributing to campus social life through music",
+"type": "Award",
+"desc": "Awarded by Alumni Association to student(s) who made greatest contribution to campus social life through music."
+},
+{
+"name": "Bascom A. and Katherine Baugh Franklin Scholarship",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students in religion, agriculture, CFS, or technology/industrial arts with financial need",
+"type": "Scholarship",
+"desc": "Financial aid on basis of need for students in designated fields."
+},
+{
+"name": "Martin Memorial Scholarship Fund",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students/graduates entering full-time Christian service",
+"type": "Scholarship",
+"desc": "For students or graduates who plan to enter full-time Christian service."
+},
+{
+"name": "Lucille Christian & George McKinney Student Alumni Relations Council Award",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Junior in good standing, active volunteer",
+"type": "Award",
+"desc": "Active in volunteer service in the College community. Nominated by a recognized campus organization."
+},
+{
+"name": "Helen R. Smith Fund",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Students from Ohio (preferably Wayne County) entering ministry, teaching, or medicine",
+"type": "Scholarship",
+"desc": "Undergraduate or graduate scholarships based on need for students entering ministry, teaching, or medicine."
+},
+{
+"name": "Walter Brooks Foundation Grants (Physical Handicapping Conditions)",
+"cat": "Special",
+"dept": "Academic Affairs",
+"eligible": "Physically handicapped students",
+"type": "Grant",
+"desc": "Provides funds for correction of physically handicapping conditions."
+}
+];
+</script>
+<script>
+/* ================================================================
+   APP
+   ================================================================ */
+const LOCAL_KEY = "bereaAwardsSite.v1";
+const CLOUD_CONFIGURED = !!(FIREBASE_CONFIG.apiKey && !/^PASTE/i.test(FIREBASE_CONFIG.apiKey));
+let CLOUD = false;               // true once Firebase has loaded successfully
+let S = null;                    // the whole shared state
+let fbDb = null, fbAuth = null, user = null, dbRef = null;
+let pendingRender = false;
+let ACCESS = {};                 // who has been given access (cloud mode only)
+const timers = {};
+const UI = { awQ:"", awCat:"", awDept:"", awRecon:"", awOpen:null, tlShowPast:true };
+
+/* ---------- helpers ---------- */
+const esc = s => String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const richTip = s => esc(s).replace(/&lt;(\/?)strong&gt;/g,"<$1strong>");
+const safeUrl = u => /^(https?:\/\/|mailto:|#|[\w\-./]+$)/i.test(u||"") ? u : "#";
+const todayISO = () => { const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+const toDate = iso => iso ? new Date(iso+"T12:00:00") : null;
+function fmt(iso, opts){ const d=toDate(iso); if(!d||isNaN(d)) return ""; return d.toLocaleDateString("en-US", opts||{weekday:"short",month:"short",day:"numeric",year:"numeric"}); }
+const fmtShort = iso => fmt(iso,{weekday:"short",month:"short",day:"numeric"});
+const isWeekend = iso => { const d=toDate(iso); return d && (d.getDay()===0||d.getDay()===6); };
+const daysBetween = (a,b) => Math.round((toDate(b)-toDate(a))/86400000);
+const sorted = obj => Object.entries(obj||{}).filter(([k,v])=>v&&typeof v==="object").sort((a,b)=>(a[1].order??0)-(b[1].order??0));
+const nextOrder = obj => Object.values(obj||{}).reduce((m,v)=>Math.max(m,(v&&v.order)||0),-1)+1;
+const newId = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2,5);
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove("show"),2200); }
+function status(msg, cls){ const el=document.getElementById("saveStatus"); el.textContent=msg; el.className="st "+(cls||""); }
+
+/* ---------- build starting data ---------- */
+function keyed(arr, prefix, map){ const o={}; (arr||[]).forEach((x,i)=>{ o[prefix+String(i+1).padStart(3,"0")] = Object.assign({order:i}, map?map(x,i):x); }); return o; }
+function buildWidget(w){
+  if(w.type==="prompt") return {type:"prompt", label:w.label, value:w.value||""};
+  if(w.type==="picklist") return {type:"picklist", label:w.label, options:keyed(w.options,"o",o=>({text:o.text,on:!!o.on}))};
+  if(w.type==="table") return {type:"table", cols:w.cols.slice(), rows:keyed(w.rows,"r",r=>({cells:r.slice(),done:false}))};
+  return {type:"embed", what:w.what, label:w.label||""};
+}
+function buildSession(s){
+  return { n:s.n, part:s.part, title:s.title, date:s.date, time:s.time, status:s.status||"Not started", who:s.who, goal:s.goal, tip:s.tip||"", notes:"", isCheckin:false,
+    resources:keyed(s.resources,"r"), prep:keyed(s.prep,"p",t=>({text:t})),
+    agenda:keyed(s.agenda,"a",a=>({text:a.t,min:a.min,notes:a.notes||""})),
+    commitments:keyed(s.commitments,"k",c=>({who:c.who,what:c.what,when:c.when,done:!!c.done})),
+    ws:{heading:s.ws.heading, intro:s.ws.intro||"", widgets:keyed(s.ws.widgets,"w",buildWidget)} };
+}
+function checkinSession(date, focus){
+  return { n:null, part:"Check-in", title:"Check-In Meeting", date:date||"", time:"60 minutes", status:"Not started", who:FULL_GROUP,
+    goal:"Open items closed out, current needs handled, nothing falls through the cracks between the bigger sessions.", tip:"", notes:"", isCheckin:true,
+    resources:{}, prep:keyed(["Everyone: bring anything that's come up since the last meeting."],"p",t=>({text:t})),
+    agenda:keyed([{t:"Standing — Review open commitments: what's done, what's slipping.",min:15},{t:"Focus — "+(focus||"Current or urgent needs from any area (fill in)."),min:30},{t:"Close — Commitments read back; confirm the next meeting's date and topic.",min:15}],"a",a=>({text:a.t,min:a.min,notes:""})),
+    commitments:keyed([{who:"",what:"",when:"",done:false}],"k"),
+    ws:{heading:"Open Items", intro:"Track what's carried over and what's new.", widgets:keyed([{type:"table",cols:["Open item","Owner","Status"],rows:[["","",""],["","",""],["","",""]]},{type:"prompt",label:"New items raised today:",value:""}],"w",buildWidget)} };
+}
+function buildSeed(){
+  const sessions={};
+  SEED_SESSIONS.forEach((s,i)=>{ sessions[s.id]=Object.assign(buildSession(s),{order:i}); });
+  SEED_CHECKINS.forEach((c,i)=>{ sessions[c.id]=Object.assign(checkinSession(c.date,c.focus),{order:100+i}); });
+  const offCycle = n => /christensen|wood achievement/i.test(n);
+  return {
+    meta:{version:1, seeded:new Date().toISOString()},
+    settings:Object.assign({},SEED_SETTINGS),
+    sessions,
+    timeline:keyed(SEED_TIMELINE,"t",r=>({name:r[0],cat:r[1],start:r[2],end:r[3]||"",owner:r[4],notes:r[5],confirmed:!!r[6]})),
+    awards:keyed(SEED_AWARDS,"aw",a=>({name:a.name,cat:a.cat,dept:a.dept,eligible:a.eligible||"",type:a.type||"",desc:a.desc||"",stipulations:a.stipulations||"",
+      fund:"Unknown",agreement:"Unknown",awardspring:"Unknown",cycle:offCycle(a.name)?"Off-cycle":(a.cat==="External"?"External":"Main"),owner:"",gap:offCycle(a.name)?"Off-cycle — align with main cycle or document its own":"",offered:true})),
+    societies:keyed(SEED_SOCIETIES,"so",r=>({name:r[0],discipline:r[1],purpose:r[2],eligibility:r[3],sponsor:r[4],email:"",timing:r[5],status:"Unconfirmed",ceremony:"TBD",confirmed:false,inProgram2025:!!r[6],notes:""})),
+    comms:keyed(SEED_COMMS,"cm",r=>({message:r[0],audience:r[1],date:r[2],whenText:r[3],sender:r[4],notes:r[5],status:"Not started"})),
+    templates:keyed(SEED_TEMPLATES,"tp"),
+    budget:keyed(SEED_BUDGET,"b",r=>({desc:r[0],cat:r[1],dept:r[2],est:r[3],act:null,status:"Planned",date:"",notes:r[4]})),
+    improvements:keyed(SEED_IMPROVEMENTS,"im",r=>({icon:r[0],title:r[1],challenge:r[2],rec:r[3],status:/date chosen/.test(r[3])?"In progress":"Not started",decision:""})),
+    people:keyed(SEED_PEOPLE,"pp",r=>({name:r[0],area:r[1],ws:r[2],email:r[3]}))
+  };
+}
+
+/* ---------- path get / set ---------- */
+function getP(path){ return path.split("/").reduce((o,k)=>o==null?undefined:o[k], S); }
+function setLocal(path,val){
+  const ks=path.split("/"); let o=S;
+  for(let i=0;i<ks.length-1;i++){ if(o[ks[i]]==null||typeof o[ks[i]]!=="object") o[ks[i]]={}; o=o[ks[i]]; }
+  const last=ks[ks.length-1];
+  if(val===null||val===undefined){ if(Array.isArray(o)) o[last]=""; else delete o[last]; } else o[last]=val;
+}
+function whoAmI(){ if(!user) return "this browser"; const p=Object.values(S&&S.people||{}).find(p=>p.email&&p.email.toLowerCase()===(user.email||"").toLowerCase()); return p?p.name:user.email; }
+function write(path,val){
+  if(!S) return;
+  setLocal(path,val);
+  const le={by:whoAmI(), at:new Date().toISOString()};
+  setLocal("meta/lastEdit",le);
+  if(CLOUD && user){
+    status("⟳ Saving…");
+    Promise.all([fbDb.ref(DB_ROOT+"/"+path).set(val===undefined?null:val), fbDb.ref(DB_ROOT+"/meta/lastEdit").set(le)])
+      .then(()=>status("☁️ Saved to the shared database"))
+      .catch(e=>{ status("⚠ Save failed: "+e.message,"err"); });
+  } else {
+    try{ localStorage.setItem(LOCAL_KEY, JSON.stringify(S)); status("💾 Saved in this browser only","warn"); }
+    catch(e){ status("⚠ This browser won't save — download a backup before closing","err"); }
+  }
+  showLastEdit();
+}
+function showLastEdit(){
+  const el=document.getElementById("lastEdit"); const le=S&&S.meta&&S.meta.lastEdit;
+  el.textContent = le ? "Last change: "+le.by+" · "+new Date(le.at).toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}) : "";
+}
+
+/* ---------- field builders (every editable field carries its database path) ---------- */
+function inp(p,v,o={}){ return `<input type="${o.type||"text"}" class="${o.cls||""}" data-p="${p}" ${o.num?'data-num="1"':""} value="${esc(v)}" placeholder="${esc(o.ph||"")}" ${o.style?`style="${o.style}"`:""} aria-label="${esc(o.aria||o.ph||"")}">`; }
+function ta(p,v,o={}){ return `<textarea class="${o.cls||""}" data-p="${p}" rows="${o.rows||1}" placeholder="${esc(o.ph||"")}" aria-label="${esc(o.aria||o.ph||"")}">${esc(v)}</textarea>`; }
+function sel(p,v,opts,o={}){ return `<select data-p="${p}" class="${o.cls||""}" aria-label="${esc(o.aria||"")}">${opts.map(x=>{const val=Array.isArray(x)?x[0]:x, lab=Array.isArray(x)?x[1]:x; return `<option value="${esc(val)}" ${String(v)===String(val)?"selected":""}>${esc(lab)}</option>`;}).join("")}</select>`; }
+function chk(p,v,aria){ return `<input type="checkbox" data-p="${p}" ${v?"checked":""} aria-label="${esc(aria||"done")}">`; }
+function delBtn(p,label){ return `<button class="x noprint" data-act="del" data-p="${p}" data-label="${esc(label||"this item")}" title="Remove">✕</button>`; }
+function addBtn(p,tpl,label,extra){ return `<button class="btn ghost sm addrow noprint" data-act="add" data-p="${p}" data-tpl="${tpl}" ${extra||""}>＋ ${esc(label)}</button>`; }
+function mvBtns(p){ return `<button class="mv noprint" data-act="move" data-p="${p}" data-dir="-1" title="Move up">▲</button><button class="mv noprint" data-act="move" data-p="${p}" data-dir="1" title="Move down">▼</button>`; }
+const TEMPLATES = {
+  agenda:()=>({text:"",min:5,notes:""}), prep:()=>({text:""}), commit:()=>({who:"",what:"",when:"",done:false}), res:()=>({label:"",url:""}),
+  option:()=>({text:"",on:false}),
+  timeline:()=>({name:"New milestone",cat:"prep",start:todayISO(),end:"",owner:"",notes:"",confirmed:false}),
+  award:()=>({name:"New award",cat:"Academic Excellence",dept:"Academic Affairs",eligible:"",type:"Award",desc:"",stipulations:"",fund:"Unknown",agreement:"Unknown",awardspring:"Unknown",cycle:"Main",owner:"",gap:"",offered:true}),
+  society:()=>({name:"New society",discipline:"",purpose:"",eligibility:"",sponsor:"",email:"",timing:"",status:"Unconfirmed",ceremony:"TBD",confirmed:false,notes:""}),
+  comm:()=>({message:"New message",audience:"",date:todayISO(),whenText:"",sender:"",notes:"",status:"Not started"}),
+  template:()=>({title:"New template",when:"",owners:"",body:""}),
+  budget:()=>({desc:"New expense",cat:"Other",dept:"Academic Affairs",est:null,act:null,status:"Planned",date:"",notes:""}),
+  improvement:()=>({icon:"💡",title:"New improvement",challenge:"",rec:"",status:"Not started",decision:""}),
+  person:()=>({name:"",area:"",ws:"",email:""})
+};
+
+/* ---------- events ---------- */
+function commitEl(el){
+  const p=el.dataset.p; clearTimeout(timers[p]); delete timers[p];
+  let v=el.value; if(el.dataset.num) v = v===""?null:Number(v);
+  if(getP(p)===v) return;
+  write(p,v);
+}
+function isTyping(){ const a=document.activeElement; return !!(a && a.dataset && a.dataset.p && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.type!=="checkbox"); }
+function autosize(el){ if(el.tagName==="TEXTAREA"){ el.style.height="auto"; el.style.height=(el.scrollHeight+3)+"px"; } }
+document.addEventListener("input",e=>{
+  const el=e.target; if(!el.dataset||!el.dataset.p||el.type==="checkbox"||el.tagName==="SELECT"||el.type==="date") return;
+  autosize(el); clearTimeout(timers[el.dataset.p]); timers[el.dataset.p]=setTimeout(()=>commitEl(el),600);
+});
+document.addEventListener("change",e=>{
+  const el=e.target; if(!el.dataset||!el.dataset.p) return;
+  if(el.type==="checkbox"){ write(el.dataset.p, el.checked); render(); }
+  else if(el.tagName==="SELECT"||el.type==="date"){ commitEl(el); render(); }
+  else commitEl(el);
+});
+document.addEventListener("focusout",e=>{
+  const el=e.target; if(el.dataset&&el.dataset.p&&timers[el.dataset.p]!==undefined) commitEl(el);
+  if(pendingRender) setTimeout(()=>{ if(!isTyping()&&pendingRender){ render(); } },30);
+});
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-act]"); if(!b) return;
+  const act=b.dataset.act, p=b.dataset.p;
+  if(act==="add"){
+    const parent=getP(p)||{}; const id=newId(b.dataset.tpl.slice(0,2));
+    let obj = b.dataset.tpl==="row" ? {cells:Array(Number(b.dataset.ncols)).fill(""),done:false} : TEMPLATES[b.dataset.tpl]();
+    obj.order=nextOrder(parent);
+    write(p+"/"+id,obj);
+    if(b.dataset.tpl==="award"){ UI.awOpen=id; UI.awQ=""; UI.awCat=""; UI.awDept=""; UI.awRecon=""; }
+    render();
+    const fresh=document.querySelector(`[data-p^="${p}/${id}/"]`); if(fresh&&fresh.focus){ fresh.focus(); if(fresh.select) fresh.select(); }
+  } else if(act==="del"){
+    if(confirm("Remove "+b.dataset.label+"? This can't be undone.")){
+      const pr=getP(p); if(/^people\/[^/]+$/.test(p) && pr && pr.uid && CLOUD && user) fbDb.ref("awardsAccess/"+pr.uid).remove();
+      write(p,null); render(); }
+  } else if(act==="move"){
+    const parts=p.split("/"), id=parts.pop(), parentPath=parts.join("/");
+    const list=sorted(getP(parentPath)); const i=list.findIndex(([k])=>k===id); const j=i+Number(b.dataset.dir);
+    if(j<0||j>=list.length) return;
+    list.forEach(([k],idx)=>{ const want = idx===i?j:(idx===j?i:idx); if((list[idx][1].order)!==want) write(parentPath+"/"+k+"/order",want); });
+    render();
+  } else if(act==="toggleAward"){ UI.awOpen = UI.awOpen===b.dataset.id?null:b.dataset.id; render(); }
+});
+window.addEventListener("hashchange",()=>{ render(); window.scrollTo(0,0); });
+
+/* ---------- routing & render ---------- */
+const TABS=[["home","🏠 Home"],["meetings","📘 Meetings"],["timeline","📅 Timeline"],["awards","🏆 Awards"],["societies","🏛️ Honor Societies"],["comms","📧 Communications"],["budget","💰 Budget"],["improvements","💡 Improvements"],["team","👥 Team"],["help","❓ Help"]];
+function route(){ const h=(location.hash||"#home").slice(1); const [t,id]=h.split("/"); return {tab:t||"home", id}; }
+function render(){
+  pendingRender=false;
+  if(!S){ return; }
+  if(isTyping()){ pendingRender=true; return; }
+  const r=route(); const y=window.scrollY;
+  document.getElementById("tabs").innerHTML = TABS.map(([k,l])=>`<a href="#${k}" class="${(r.tab===k||(r.tab==="m"&&k==="meetings"))?"on":""}">${l}</a>`).join("");
+  const days=daysBetween(todayISO(), (S.settings&&S.settings.ceremonyDate)||CEREMONY_DATE);
+  document.getElementById("countchip").textContent = days>0 ? `🎓 ${days} days to the ceremony` : (days===0?"🎓 Ceremony day!":"🎓 Ceremony complete");
+  const views={home:vHome,meetings:vMeetings,m:vMeeting,timeline:vTimeline,awards:vAwards,societies:vSocieties,comms:vComms,budget:vBudget,improvements:vImprovements,team:vTeam,help:vHelp};
+  document.getElementById("main").innerHTML = (views[r.tab]||vHome)(r.id);
+  document.querySelectorAll("#main textarea").forEach(autosize);
+  showLastEdit();
+  window.scrollTo(0,y);
+}
+
+/* ---------- shared pieces ---------- */
+function sessionsByDate(){ return sorted(S.sessions).sort((a,b)=>(a[1].date||"9999").localeCompare(b[1].date||"9999")); }
+function nextMeeting(){ const t=todayISO(); return sessionsByDate().find(([k,s])=>(s.date||"")>=t && s.status!=="Done"); }
+function statusPill(s){ const m={"Done":"p-green","Scheduled":"p-blue","Not started":"p-gray","In progress":"p-amber","Sent":"p-green","Ready":"p-blue","Drafting":"p-amber","Paid":"p-green","Committed":"p-amber","Planned":"p-gray"}; return `<span class="pill ${m[s]||"p-gray"}">${esc(s)}</span>`; }
+function openCommitments(){
+  const out=[]; sessionsByDate().forEach(([sid,s])=>sorted(s.commitments).forEach(([k,c])=>{ if((c.what||"").trim() && !c.done) out.push({sid,s,k,c}); })); return out;
+}
+
+/* ---------- HOME ---------- */
+function vHome(){
+  const st=S.settings||{}; const nm=nextMeeting(); const t=todayISO();
+  const days=daysBetween(t, st.ceremonyDate||CEREMONY_DATE);
+  const soon=sorted(S.timeline).map(([k,x])=>({k,...x})).filter(x=>{ const end=x.end||x.start; return end>=t && x.start<=addDays(t,45); }).sort((a,b)=>a.start.localeCompare(b.start));
+  const oc=openCommitments();
+  const sess=Object.values(S.sessions||{}).filter(s=>!s.isCheckin);
+  const tl=Object.values(S.timeline||{}); const socs=Object.values(S.societies||{}).filter(s=>s.status!=="Inactive"); const aws=Object.values(S.awards||{}).filter(a=>a.offered!==false);
+  return `
+  <div class="hero">
+    <div><div class="big">${Math.max(days,0)}</div><div class="lbl">days until the ceremony</div></div>
+    <div style="flex:1;min-width:260px">
+      <div class="lbl">Recognition Ceremony &amp; Reception</div>
+      ${inp("settings/ceremonyText",st.ceremonyText,{cls:"bare",style:"color:#fff;font-weight:700;font-size:1.05rem",aria:"Ceremony details"})}
+      <div class="lbl" style="margin-top:8px">Our goal this year</div>
+      ${ta("settings/goal",st.goal,{cls:"bare",aria:"Goal statement"})}
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0">Next meeting</h3>
+      ${nm?`<div style="font-size:1.1rem;font-weight:700">${esc(nm[1].isCheckin?"Check-In Meeting":"Session "+nm[1].n+" · "+nm[1].title)}</div>
+        <div class="muted">🗓 ${fmt(nm[1].date)}${nm[1].date===t?" · <strong style='color:var(--orange)'>TODAY</strong>":""} · ${esc(nm[1].time)}</div>
+        <p style="margin:8px 0">🎯 ${esc(nm[1].goal)}</p>
+        <a class="btn" href="#m/${nm[0]}" style="text-decoration:none;display:inline-block">Open agenda →</a>`:`<p class="muted">No upcoming meetings scheduled.</p>`}
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Coming up (next 45 days)</h3>
+      ${soon.length?`<table class="t"><tbody>${soon.map(x=>`<tr><td style="white-space:nowrap">${fmtShort(x.start)}${x.end?" → "+fmtShort(x.end):""}</td><td>${esc(x.name)}<div class="muted small">${esc(x.owner)}</div></td><td>${x.confirmed?'<span class="pill p-green">confirmed</span>':'<span class="pill p-amber">to confirm</span>'}</td></tr>`).join("")}</tbody></table>`:`<p class="muted">Nothing in the next 45 days.</p>`}
+      <a href="#timeline" class="small">Full timeline →</a>
+    </div>
+  </div>
+  <div class="grid g4" style="margin-bottom:14px">
+    <div class="stat"><div class="v">${sess.filter(s=>s.status==="Done").length} / ${sess.length}</div><div class="l">Topic sessions done</div></div>
+    <div class="stat"><div class="v">${tl.filter(x=>x.confirmed).length} / ${tl.length}</div><div class="l">Timeline dates confirmed</div></div>
+    <div class="stat"><div class="v">${aws.filter(a=>a.fund==="Matched").length} / ${aws.length}</div><div class="l">Awards matched to a fund</div></div>
+    <div class="stat"><div class="v">${socs.filter(s=>s.confirmed).length} / ${socs.length}</div><div class="l">Honor societies confirmed</div></div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Open commitments (${oc.length})</h3>
+    ${oc.length?`<div class="tablewrap"><table class="t"><thead><tr><th>Done</th><th>Who</th><th>What</th><th>By when</th><th>From</th></tr></thead><tbody>
+      ${oc.map(o=>`<tr><td>${chk(`sessions/${o.sid}/commitments/${o.k}/done`,false)}</td><td>${esc(o.c.who)}</td><td>${esc(o.c.what)}</td><td>${esc(o.c.when)}</td><td><a href="#m/${o.sid}">${esc(o.s.isCheckin?"Check-in "+fmtShort(o.s.date):"Session "+o.s.n)}</a></td></tr>`).join("")}
+    </tbody></table></div>`:`<p class="muted">Nothing open. Commitments are added at the bottom of each meeting page.</p>`}
+  </div>
+  <div class="card"><h3 style="margin-top:0">About this project</h3>${ta("settings/purpose",st.purpose,{cls:"bare",aria:"Project purpose"})}
+    <div class="small muted" style="margin-top:8px">Teams channel link: ${inp("settings/teamsLink",st.teamsLink,{ph:"Paste the Teams channel link here",style:"max-width:520px"})} ${st.teamsLink?`<a href="${esc(safeUrl(st.teamsLink))}" target="_blank" rel="noopener">Open ↗</a>`:""}</div>
+  </div>`;
+}
+function addDays(iso,n){ const d=toDate(iso); d.setDate(d.getDate()+n); return d.toISOString().slice(0,10); }
+
+/* ---------- MEETINGS LIST ---------- */
+const PART_NOTES={
+  "Part I · Set the Destination":"July–September · full group · confirm the goal, lock the date, plan backward.",
+  "Part II · Build the Foundation":"October–November · nomination systems, every award, every honor society, one accurate webpage.",
+  "Part III · Plan the Communication":"November–December · one calendar, one message, ready to launch before break.",
+  "Part IV · Run the Cycle":"January–April · launch, select, produce, celebrate on April 15.",
+  "Part V · Celebrate & Learn":"May · close the loop and set up next year."
+};
+function vMeetings(){
+  const nm=nextMeeting(); let lastPart=""; let html=`
+  <h2>Meetings</h2>
+  <details class="card how"><summary>How these meetings work</summary>
+    <p>Thirteen one-hour topic sessions carry the project from a shared goal to the April 15 ceremony, with short check-ins in the bi-weekly slots between them. Everything is editable — agendas, dates, attendees, notes — and saves automatically for the whole team.</p>
+    <p style="margin-bottom:4px">The method underneath is <strong>Results-Based Accountability</strong>, which comes down to three habits:</p>
+    <ol><li><strong>Begin with the end in mind.</strong> Agree on the destination first, then plan backward from it.</li>
+    <li><strong>Ask honest questions along the way.</strong> How much did we do? How well? Is anyone better off?</li>
+    <li><strong>End every meeting with who / what / by when.</strong></li></ol>
+    <p style="margin-bottom:0"><strong>Every meeting has the same shape:</strong> Standing items (follow-ups + urgent needs) → one Focus topic → Close (commitments read back aloud). Use <strong>📋 Copy for Teams</strong> on a meeting page to paste a summary into the channel afterward.</p>
+  </details>
+  <p class="small muted">Meeting dates from Oct 12 on are a <strong>proposed</strong> every-other-Monday schedule — change any date on the meeting's page and the list re-sorts.</p>`;
+  sessionsByDate().forEach(([id,s])=>{
+    if(!s.isCheckin && s.part!==lastPart){ lastPart=s.part; html+=`<div class="partlabel">${esc(s.part)}</div><p class="partnote">${esc(PART_NOTES[s.part]||"")}</p>`; }
+    const isNext = nm && nm[0]===id;
+    html+=`<div class="sesscard ${s.status==="Done"?"done":""} ${s.isCheckin?"checkin":""} ${isNext?"next":""}" onclick="if(!event.target.closest('select'))location.hash='#m/${id}'">
+      <div class="sessnum">${s.status==="Done"?"✓":(s.isCheckin?"•":s.n)}</div>
+      <div style="flex:1;min-width:0">
+        <h4>${esc(s.isCheckin?"Check-In Meeting":s.title)} ${isNext?'<span class="pill p-amber">NEXT</span>':""} ${s.isCheckin?'<span class="pill p-blue">check-in</span>':""}</h4>
+        <div class="meta">🗓 ${s.date?fmt(s.date):"Date TBD"} · ${esc(s.time)}${isWeekend(s.date)?' <span class="warn">⚠ weekend</span>':""}</div>
+        ${s.isCheckin?`<div class="meta">${esc((sorted(s.agenda)[1]||[,{text:""}])[1].text.replace(/^Focus — /,""))}</div>`:`<div class="meta">🎯 ${esc(s.goal)}</div>`}
+      </div>
+      <div class="statuswrap">${sel(`sessions/${id}/status`,s.status,["Not started","Scheduled","Done"],{aria:"Status"})}</div>
+    </div>`;
+  });
+  html+=`<div class="card noprint" style="margin-top:18px"><strong>＋ Add a check-in meeting</strong>
+    <div class="listrow" style="margin-top:8px;max-width:420px"><input type="date" id="newCheckinDate" aria-label="Check-in date"><button class="btn" onclick="addCheckin()">Add</button></div>
+    <div class="muted small">For bi-weekly slots that don't need one of the big topics. Each gets a real agenda.</div></div>`;
+  return html;
+}
+function addCheckin(){ const d=document.getElementById("newCheckinDate").value; const id=newId("ci"); write("sessions/"+id, Object.assign(checkinSession(d,""),{order:200+nextOrder(S.sessions)})); location.hash="#m/"+id; }
+
+/* ---------- MEETING DETAIL ---------- */
+function vMeeting(id){
+  const s=S.sessions&&S.sessions[id]; if(!s) return `<p>Meeting not found. <a href="#meetings">Back to meetings</a></p>`;
+  const P="sessions/"+id; const list=sessionsByDate(); const i=list.findIndex(([k])=>k===id);
+  const prev=list[i-1], next=list[i+1];
+  const ag=sorted(s.agenda); const total=ag.reduce((m,[k,a])=>m+(Number(a.min)||0),0);
+  let h=`<div class="sessnav noprint"><a href="#meetings">← All meetings</a><span>${prev?`<a href="#m/${prev[0]}">‹ Previous</a>`:""}${prev&&next?" · ":""}${next?`<a href="#m/${next[0]}">Next ›</a>`:""}</span></div>
+  <div class="card">
+    <div class="muted small" style="font-weight:700;color:var(--orange)">${esc(s.isCheckin?"Check-in":s.part+" · Session "+s.n)}</div>
+    ${inp(P+"/title",s.title,{cls:"bare",style:"font-family:'EB Garamond',serif;font-size:1.7rem;color:var(--blue);font-weight:600",aria:"Meeting title"})}
+    <div class="headgrid" style="margin-top:8px">
+      <div><span class="flabel">Date</span>${inp(P+"/date",s.date,{type:"date",aria:"Date"})}<div class="small muted">${fmt(s.date)}${isWeekend(s.date)?' <span class="warn">⚠ weekend</span>':""}</div></div>
+      <div><span class="flabel">Status</span>${sel(P+"/status",s.status,["Not started","Scheduled","Done"],{aria:"Status"})}</div>
+      <div><span class="flabel">Length / time</span>${inp(P+"/time",s.time,{aria:"Length"})}</div>
+      <div class="noprint"><button class="btn orange" style="width:100%" onclick="copyForTeams('${id}')">📋 Copy for Teams</button></div>
+    </div>
+    <div style="margin-top:12px"><span class="flabel">🎯 Goal of this meeting</span>${ta(P+"/goal",s.goal,{aria:"Goal"})}</div>
+    ${s.tip?`<div class="tip" style="margin-top:12px">${richTip(s.tip)}</div>`:""}
+  </div>
+  <div class="grid g2">
+    <div class="card"><h3 style="margin-top:0">👥 Who should be there</h3>${ta(P+"/who",s.who,{aria:"Attendees"})}</div>
+    <div class="card"><h3 style="margin-top:0">🔗 Resources</h3>
+      ${sorted(s.resources).map(([k,r])=>`<div class="listrow">${inp(`${P}/resources/${k}/label`,r.label,{ph:"Label"})}${inp(`${P}/resources/${k}/url`,r.url,{ph:"https://…"})}${r.url?`<a href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener" title="Open">↗</a>`:""}${delBtn(`${P}/resources/${k}`,"this link")}</div>`).join("")}
+      ${addBtn(P+"/resources","res","Add link")}</div>
+  </div>
+  <div class="card"><h3 style="margin-top:0">📝 Before the meeting</h3>
+    ${sorted(s.prep).map(([k,x])=>`<div class="listrow">•${ta(`${P}/prep/${k}/text`,x.text)}${delBtn(`${P}/prep/${k}`,"this prep item")}</div>`).join("")}
+    ${addBtn(P+"/prep","prep","Add prep item")}</div>
+  <div class="card"><h3 style="margin-top:0">🕐 Agenda <span class="muted small" style="text-transform:none;letter-spacing:0">· ${total} of 60 min ${total>60?'<span class="warn">⚠ over an hour</span>':""}</span></h3>
+    ${ag.map(([k,a],n)=>`<div class="agrow"><div class="num">${n+1}</div>${ta(`${P}/agenda/${k}/text`,a.text,{aria:"Agenda item"})}
+      <div class="minbox">${inp(`${P}/agenda/${k}/min`,a.min,{type:"number",num:1,aria:"Minutes"})}min</div>
+      <div>${mvBtns(`${P}/agenda/${k}`)}${delBtn(`${P}/agenda/${k}`,"this agenda item")}</div>
+      <div class="notes">${ta(`${P}/agenda/${k}/notes`,a.notes,{ph:"Notes from the meeting…",aria:"Notes"})}</div></div>`).join("")}
+    ${addBtn(P+"/agenda","agenda","Add agenda item")}</div>
+  <div class="card"><h3 style="margin-top:0">🧩 ${esc(s.ws&&s.ws.heading||"Worksheet")}</h3>
+    ${s.ws&&s.ws.intro?`<p class="muted small">${esc(s.ws.intro)}</p>`:""}
+    ${sorted(s.ws&&s.ws.widgets).map(([k,w])=>widget(`${P}/ws/widgets/${k}`,w)).join("")}</div>
+  <div class="card"><h3 style="margin-top:0">✅ Commitments — who / what / by when</h3>
+    <div class="tablewrap"><table class="t"><thead><tr><th style="width:44px">Done</th><th style="width:22%">Who</th><th>What</th><th style="width:18%">By when</th><th style="width:30px"></th></tr></thead><tbody>
+    ${sorted(s.commitments).map(([k,c])=>`<tr class="${c.done?"done":""}"><td>${chk(`${P}/commitments/${k}/done`,c.done)}</td><td>${ta(`${P}/commitments/${k}/who`,c.who,{ph:"Who"})}</td><td>${ta(`${P}/commitments/${k}/what`,c.what,{ph:"What"})}</td><td>${ta(`${P}/commitments/${k}/when`,c.when,{ph:"By when"})}</td><td>${delBtn(`${P}/commitments/${k}`,"this commitment")}</td></tr>`).join("")}
+    </tbody></table></div>${addBtn(P+"/commitments","commit","Add commitment")}</div>
+  <div class="card"><h3 style="margin-top:0">🗒️ Decisions &amp; other notes</h3>${ta(P+"/notes",s.notes,{rows:3,ph:"Decisions made, parking-lot items, anything else worth keeping…"})}</div>
+  ${s.isCheckin?`<div class="noprint"><button class="btn danger" data-act="del" data-p="${P}" data-label="this check-in meeting" onclick="setTimeout(()=>{if(!S.sessions['${id}'])location.hash='#meetings'},50)">🗑 Delete this check-in</button></div>`:""}`;
+  return h;
+}
+function widget(p,w){
+  if(w.type==="prompt") return `<div class="widget"><label>${esc(w.label)}</label>${ta(p+"/value",w.value,{rows:2})}</div>`;
+  if(w.type==="picklist") return `<div class="widget"><label>${esc(w.label)}</label>${sorted(w.options).map(([k,o])=>`<div class="opt">${chk(`${p}/options/${k}/on`,o.on,"adopt")}${inp(`${p}/options/${k}/text`,o.text,{cls:"bare"})}${delBtn(`${p}/options/${k}`,"this option")}</div>`).join("")}${addBtn(p+"/options","option","Add option")}</div>`;
+  if(w.type==="table"){ const cols=w.cols||[]; return `<div class="widget tablewrap"><table class="t"><thead><tr><th style="width:44px">✓</th>${cols.map(c=>`<th>${esc(c)}</th>`).join("")}<th style="width:30px"></th></tr></thead><tbody>
+    ${sorted(w.rows).map(([k,r])=>`<tr class="${r.done?"done":""}"><td>${chk(`${p}/rows/${k}/done`,r.done)}</td>${cols.map((c,ci)=>`<td>${ta(`${p}/rows/${k}/cells/${ci}`,(r.cells||[])[ci],{aria:c})}</td>`).join("")}<td>${delBtn(`${p}/rows/${k}`,"this row")}</td></tr>`).join("")}
+    </tbody></table>${addBtn(p+"/rows","row","Add row",`data-ncols="${cols.length}"`)}</div>`; }
+  if(w.type==="embed"){
+    const map={timeline:["timeline",()=>timelineTable(false)],comms:["comms",()=>commsTable()],societies:["societies",()=>societiesTable()],awardGaps:["awards",()=>awardGapsTable()]};
+    const m=map[w.what]; if(!m) return "";
+    return `<div class="widget"><label>${esc(w.label)} <a class="small noprint" href="#${m[0]}" style="font-weight:400">open full tab →</a></label><div class="embed">${m[1]()}</div></div>`;
+  }
+  return "";
+}
+function copyForTeams(id){
+  const s=S.sessions[id]; const L=[];
+  L.push((s.isCheckin?"Check-In Meeting":"Session "+s.n+" · "+s.title)+" — "+fmt(s.date));
+  L.push("Goal: "+s.goal); L.push("Attendees: "+s.who); L.push("");
+  L.push("AGENDA & NOTES"); sorted(s.agenda).forEach(([k,a],i)=>{ L.push(`${i+1}. ${a.text} (${a.min||0} min)`); if(a.notes) L.push("   → "+a.notes); });
+  const ws=sorted(s.ws&&s.ws.widgets); if(ws.length){ L.push(""); L.push((s.ws.heading||"WORKSHEET").toUpperCase());
+    ws.forEach(([k,w])=>{ if(w.type==="prompt"&&w.value) L.push("• "+w.label+" "+w.value);
+      if(w.type==="picklist") { L.push("• "+w.label); sorted(w.options).filter(([k,o])=>o.on).forEach(([k,o])=>L.push("   ✓ "+o.text)); }
+      if(w.type==="table") sorted(w.rows).forEach(([k,r])=>{ const c=(w.cols||[]).map((_,i)=>(r.cells||[])[i]).filter(Boolean); if(c.length) L.push("   "+(r.done?"☑ ":"☐ ")+c.join(" | ")); }); }); }
+  if(s.notes){ L.push(""); L.push("DECISIONS & NOTES"); L.push(s.notes); }
+  const cm=sorted(s.commitments).filter(([k,c])=>c.what); if(cm.length){ L.push(""); L.push("COMMITMENTS (who / what / by when)"); cm.forEach(([k,c])=>L.push(`${c.done?"☑":"☐"} ${c.who} — ${c.what} — ${c.when}`)); }
+  const txt=L.join("\n");
+  (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast("Copied — paste it into the Teams channel")).catch(()=>{ const t=document.createElement("textarea"); t.value=txt; document.body.appendChild(t); t.select(); try{document.execCommand("copy");toast("Copied — paste it into Teams");}catch(e){alert(txt);} t.remove(); });
+}
+
+/* ---------- TIMELINE ---------- */
+function timelineTable(full){
+  const t=todayISO(); let rows=sorted(S.timeline).sort((a,b)=>(a[1].start||"").localeCompare(b[1].start||""));
+  if(!UI.tlShowPast && full) rows=rows.filter(([k,x])=>(x.end||x.start)>=t);
+  return `<div class="tablewrap"><table class="t"><thead><tr><th style="width:44px">Conf.</th><th>Milestone / activity</th><th style="width:150px">Start</th><th style="width:150px">End <span class="muted" style="text-transform:none">(blank = one day)</span></th><th style="width:18%">Owner</th>${full?`<th style="width:130px">Category</th><th>Notes</th>`:""}<th style="width:30px"></th></tr></thead><tbody>
+  ${rows.map(([k,x])=>{ const P="timeline/"+k; const past=(x.end||x.start)<t; const wk=isWeekend(x.start)||isWeekend(x.end);
+    return `<tr class="${x.confirmed?"done":""} ${past?"past":""}"><td>${chk(P+"/confirmed",x.confirmed,"confirmed")}</td>
+    <td>${ta(P+"/name",x.name)}${!full&&x.notes?`<div class="muted small">${esc(x.notes)}</div>`:""}${wk?'<div class="warn">⚠ falls on a weekend</div>':""}${past?'<div class="muted small">past</div>':""}</td>
+    <td>${inp(P+"/start",x.start,{type:"date"})}</td><td>${inp(P+"/end",x.end,{type:"date"})}</td><td>${ta(P+"/owner",x.owner)}</td>
+    ${full?`<td>${sel(P+"/cat",x.cat,Object.entries(GCATS).map(([k,v])=>[k,v.label]))}</td><td>${ta(P+"/notes",x.notes)}</td>`:""}<td>${delBtn(P,"this milestone")}</td></tr>`; }).join("")}
+  </tbody></table></div>${addBtn("timeline","timeline","Add milestone")}`;
+}
+function vTimeline(){
+  const start=new Date("2026-07-01T12:00:00"), end=new Date("2027-06-01T12:00:00"); const span=end-start;
+  const pct=iso=>Math.max(0,Math.min(100,(toDate(iso)-start)/span*100));
+  const months=[]; for(let d=new Date(start); d<end; d.setMonth(d.getMonth()+1)) months.push(d.toLocaleDateString("en-US",{month:"short"})+(d.getMonth()===0||months.length===0?" ’"+String(d.getFullYear()).slice(2):""));
+  const rows=sorted(S.timeline).sort((a,b)=>(a[1].start||"").localeCompare(b[1].start||""));
+  const tp=pct(todayISO());
+  return `<h2>Timeline — planned backward from April 15, 2027</h2>
+  <p class="muted small">One shared schedule for the whole project (it also appears inside the Sept 28 meeting page). Dates are <strong>proposals</strong> worked backward from the ceremony until the group checks <strong>Conf.</strong> — each row's notes say where the date came from (summer draft, moved, or new). ⚠ flags any date that lands on a weekend.</p>
+  <div class="legend">${Object.values(GCATS).map(c=>`<span style="--c:${c.color}">${c.label}</span>`).join("")}<span style="--c:var(--red)">Today</span></div>
+  <div class="gantt"><div class="ginner">
+    <div class="gmonths">${months.map(m=>`<div>${m}</div>`).join("")}</div>
+    <div style="position:relative">
+      <div class="gtoday" style="left:calc(230px + (100% - 230px) * ${tp/100})"></div>
+      ${rows.map(([k,x])=>{ const c=(GCATS[x.cat]||GCATS.prep).color; const ms=!x.end||x.end===x.start;
+        return `<div class="grow" title="${esc(x.name)} · ${fmt(x.start)}${x.end?" – "+fmt(x.end):""}"><div class="gl">${x.confirmed?"✓ ":""}${esc(x.name)}</div><div class="gt">${ms?`<div class="gdia" style="left:${pct(x.start)}%;background:${c}"></div>`:`<div class="gbar" style="left:${pct(x.start)}%;width:${Math.max(pct(x.end)-pct(x.start),.6)}%;background:${c}"></div>`}</div></div>`; }).join("")}
+    </div></div></div>
+  <div class="card" style="margin-top:14px"><div class="listrow noprint"><label class="small"><input type="checkbox" ${UI.tlShowPast?"checked":""} onchange="UI.tlShowPast=this.checked;render()"> Show past items</label></div>${timelineTable(true)}</div>`;
+}
+
+/* ---------- AWARDS ---------- */
+const AW_CATS=["Academic Excellence","Disciplinary","Citizenship/Leadership","Service","Labor","Special","Appalachia","International","Honor Society","External","Medical/Dental"];
+const AW_DEPTS=["Academic Affairs","CELTS","Labor","Dept/Faculty","Athletics","Medical/Dental","Other"];
+const YN=["Unknown","Yes","No"];
+function reconChip(a){ if(a.offered===false) return '<span class="pill p-gray">not offered</span>'; if(a.fund==="Matched"&&a.agreement==="Yes"&&a.owner) return '<span class="pill p-green">reconciled</span>'; if(a.fund==="No fund found"||a.agreement==="No") return '<span class="pill p-red">gap</span>'; return '<span class="pill p-amber">to check</span>'; }
+function awardForm(k,a){ const P="awards/"+k; return `<div class="formgrid">
+  <div class="wide"><span class="flabel">Award name</span>${inp(P+"/name",a.name)}</div>
+  <div><span class="flabel">Category</span>${sel(P+"/cat",a.cat,AW_CATS)}</div>
+  <div><span class="flabel">Department / owner area</span>${sel(P+"/dept",a.dept,AW_DEPTS)}</div>
+  <div><span class="flabel">Type</span>${inp(P+"/type",a.type)}</div>
+  <div><span class="flabel">Eligible recipients</span>${inp(P+"/eligible",a.eligible)}</div>
+  <div class="wide"><span class="flabel">Description</span>${ta(P+"/desc",a.desc)}</div>
+  <div class="wide"><span class="flabel">Stipulations / key criteria</span>${ta(P+"/stipulations",a.stipulations)}</div>
+  <div><span class="flabel">Fund matched (Finance list)?</span>${sel(P+"/fund",a.fund,["Unknown","Matched","No fund found"])}</div>
+  <div><span class="flabel">Fund agreement on file?</span>${sel(P+"/agreement",a.agreement,YN)}</div>
+  <div><span class="flabel">In AwardSpring?</span>${sel(P+"/awardspring",a.awardspring,["Unknown","Yes","No","N/A"])}</div>
+  <div><span class="flabel">Cycle</span>${sel(P+"/cycle",a.cycle,["Main","Off-cycle","External"])}</div>
+  <div><span class="flabel">Responsible person</span>${inp(P+"/owner",a.owner)}</div>
+  <div><span class="flabel">Offered this year?</span><label>${chk(P+"/offered",a.offered!==false,"offered")} Yes</label></div>
+  <div class="wide"><span class="flabel">What's missing / who resolves it</span>${ta(P+"/gap",a.gap)}</div>
+  <div class="wide noprint"><button class="btn danger sm" data-act="del" data-p="${P}" data-label="${esc(a.name)}">🗑 Delete award</button> <button class="btn ghost sm" data-act="toggleAward" data-id="${k}">Close</button></div></div>`; }
+function vAwards(){
+  const q=UI.awQ.toLowerCase();
+  const all=sorted(S.awards); const rows=all.filter(([k,a])=>(!q||(a.name+" "+a.desc+" "+a.eligible).toLowerCase().includes(q))&&(!UI.awCat||a.cat===UI.awCat)&&(!UI.awDept||a.dept===UI.awDept)&&(!UI.awRecon||reconChip(a).includes(UI.awRecon)));
+  const opt=(arr,v)=>arr.map(x=>`<option ${x===v?"selected":""}>${esc(x)}</option>`).join("");
+  return `<h2>Award Inventory</h2>
+  <p class="muted small">Compiled from the Academic Catalog, CELTS and Labor Program sites, the Christensen page, and internal award files. Finance's fund list is the authority — use the reconciliation fields (click any row) to match each award to a fund, an agreement, a cycle, and a responsible person.</p>
+  <div class="filters noprint">
+    <input type="text" placeholder="Search awards…" value="${esc(UI.awQ)}" oninput="UI.awQ=this.value;clearTimeout(window._aq);window._aq=setTimeout(()=>{render();const e=document.querySelector('.filters input');e.focus();e.setSelectionRange(e.value.length,e.value.length)},350)" aria-label="Search">
+    <select onchange="UI.awCat=this.value;render()" aria-label="Category"><option value="">All categories</option>${opt(AW_CATS,UI.awCat)}</select>
+    <select onchange="UI.awDept=this.value;render()" aria-label="Department"><option value="">All departments</option>${opt(AW_DEPTS,UI.awDept)}</select>
+    <select onchange="UI.awRecon=this.value;render()" aria-label="Reconciliation"><option value="">Any status</option>${opt(["to check","gap","reconciled","not offered"],UI.awRecon)}</select>
+    <span class="muted small" style="align-self:center">${rows.length} of ${all.length}</span>
+  </div>
+  ${addBtn("awards","award","Add new award")}
+  <div class="card tablewrap" style="margin-top:10px"><table class="t"><thead><tr><th>Award</th><th>Category</th><th>Dept</th><th>Eligible</th><th>Status</th></tr></thead><tbody>
+  ${rows.map(([k,a])=>`<tr class="awrow" data-act="toggleAward" data-id="${k}"><td><strong>${esc(a.name)}</strong>${a.cycle!=="Main"?` <span class="pill p-blue">${esc(a.cycle)}</span>`:""}</td><td>${esc(a.cat)}</td><td>${esc(a.dept)}</td><td class="small">${esc(a.eligible)}</td><td>${reconChip(a)}</td></tr>
+    ${UI.awOpen===k?`<tr class="awedit"><td colspan="5">${awardForm(k,a)}</td></tr>`:""}`).join("")}
+  </tbody></table></div>`;
+}
+function awardGapsTable(){
+  const rows=sorted(S.awards).filter(([k,a])=>a.offered!==false && !(a.fund==="Matched"&&a.agreement==="Yes"&&a.owner));
+  return `<p class="small muted">${rows.length} awards still need a fund match, agreement, or responsible person.</p><div class="tablewrap" style="max-height:520px;overflow-y:auto"><table class="t"><thead><tr><th>Award</th><th style="width:130px">Fund</th><th style="width:110px">Agreement</th><th style="width:110px">Cycle</th><th style="width:16%">Responsible</th><th>Gap / notes</th></tr></thead><tbody>
+  ${rows.map(([k,a])=>{const P="awards/"+k; return `<tr><td class="small"><strong>${esc(a.name)}</strong><div class="muted">${esc(a.dept)}</div></td><td>${sel(P+"/fund",a.fund,["Unknown","Matched","No fund found"])}</td><td>${sel(P+"/agreement",a.agreement,YN)}</td><td>${sel(P+"/cycle",a.cycle,["Main","Off-cycle","External"])}</td><td>${ta(P+"/owner",a.owner)}</td><td>${ta(P+"/gap",a.gap)}</td></tr>`;}).join("")}
+  </tbody></table></div>`;
+}
+
+/* ---------- HONOR SOCIETIES ---------- */
+function societiesTable(){
+  return `<div class="tablewrap"><table class="t"><thead><tr><th style="width:44px">Conf.</th><th>Society</th><th>Advisor / sponsor</th><th>Induction timing</th><th style="width:120px">Status</th><th style="width:100px">In ceremony?</th></tr></thead><tbody>
+  ${sorted(S.societies).map(([k,s])=>{const P="societies/"+k; return `<tr class="${s.confirmed?"done":""}"><td>${chk(P+"/confirmed",s.confirmed)}</td><td><strong>${esc(s.name)}</strong><div class="muted small">${esc(s.discipline)}</div></td><td>${ta(P+"/sponsor",s.sponsor,{ph:"Identify advisor"})}</td><td>${ta(P+"/timing",s.timing,{ph:"Confirm timing"})}</td><td>${sel(P+"/status",s.status,["Unconfirmed","Active","Inactive"])}</td><td>${sel(P+"/ceremony",s.ceremony,["TBD","Yes","No"])}</td></tr>`;}).join("")}
+  </tbody></table></div>${addBtn("societies","society","Add society")}`;
+}
+function vSocieties(){
+  const all=sorted(S.societies); const act=all.filter(([k,s])=>s.status!=="Inactive");
+  return `<h2>Honor Societies &amp; Clubs</h2>
+  <div class="grid g4" style="margin-bottom:12px">
+    <div class="stat"><div class="v">${act.filter(([k,s])=>s.confirmed).length} / ${act.length}</div><div class="l">Advisor &amp; timing confirmed (target: Fri Oct 30)</div></div>
+    <div class="stat"><div class="v">${all.filter(([k,s])=>!s.sponsor).length}</div><div class="l">Still need an advisor named</div></div>
+    <div class="stat"><div class="v">${all.filter(([k,s])=>s.ceremony==="Yes").length}</div><div class="l">Joining the April 15 ceremony</div></div>
+    <div class="stat"><div class="v">Mar 5</div><div class="l">Inductee lists due</div></div>
+  </div>
+  <p class="muted small">Draft list — the first nine were in the 2025 awards program with confirmed sponsors; the rest come from college records and need confirming. Check the box once the advisor and induction date are confirmed in writing.</p>
+  <div class="grid g3">
+  ${all.map(([k,s])=>{const P="societies/"+k; return `<div class="soc ${s.confirmed?"ok":""} ${s.status==="Inactive"?"inactive":""}">
+    ${inp(P+"/name",s.name,{cls:"bare nm",style:"font-weight:700;font-size:1rem"})}
+    ${inp(P+"/discipline",s.discipline,{cls:"bare",ph:"Discipline",style:"color:var(--gray);font-size:.85rem"})}
+    ${s.inProgram2025?'<span class="pill p-blue" style="align-self:flex-start">in 2025 program</span>':""}
+    <div class="row2"><div><span class="flabel small">Advisor / sponsor</span>${inp(P+"/sponsor",s.sponsor,{ph:"Identify"})}</div><div><span class="flabel small">Email</span>${inp(P+"/email",s.email,{type:"email",ph:"name@berea.edu"})}</div></div>
+    <div><span class="flabel small">Induction timing</span>${inp(P+"/timing",s.timing,{ph:"Confirm with advisor"})}</div>
+    <div class="row2"><div><span class="flabel small">Chapter status</span>${sel(P+"/status",s.status,["Unconfirmed","Active","Inactive"])}</div><div><span class="flabel small">In ceremony?</span>${sel(P+"/ceremony",s.ceremony,["TBD","Yes","No"])}</div></div>
+    <div><span class="flabel small">Eligibility</span>${ta(P+"/eligibility",s.eligibility)}</div>
+    <div><span class="flabel small">Notes</span>${ta(P+"/notes",s.notes,{ph:s.purpose})}</div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><label class="small">${chk(P+"/confirmed",s.confirmed)} Confirmed in writing</label>${delBtn(P,s.name)}</div>
+  </div>`;}).join("")}</div>
+  ${addBtn("societies","society","Add society or organization")}`;
+}
+
+/* ---------- COMMUNICATIONS ---------- */
+function commsTable(){
+  return `<div class="tablewrap"><table class="t"><thead><tr><th>Message</th><th style="width:14%">Audience</th><th style="width:140px">Date</th><th style="width:15%">Who sends it</th><th style="width:115px">Status</th><th style="width:30px"></th></tr></thead><tbody>
+  ${sorted(S.comms).sort((a,b)=>(a[1].date||"").localeCompare(b[1].date||"")).map(([k,c])=>{const P="comms/"+k; return `<tr class="${c.status==="Sent"?"done":""}"><td>${ta(P+"/message",c.message)}${c.notes?`<div class="muted small">${esc(c.notes)}</div>`:""}</td><td>${ta(P+"/audience",c.audience)}</td><td>${inp(P+"/date",c.date,{type:"date"})}<div class="small muted">${esc(c.whenText||"")}</div></td><td>${ta(P+"/sender",c.sender)}</td><td>${sel(P+"/status",c.status,["Not started","Drafting","Ready","Sent"])}</td><td>${delBtn(P,"this message")}</td></tr>`;}).join("")}
+  </tbody></table></div>${addBtn("comms","comm","Add message")}`;
+}
+function vComms(){
+  return `<h2>Communications</h2><p class="muted small"><strong>One campus, one message:</strong> key announcements go out together, on the same day, saying the same things. All pre-break content is due to Tiffany by Fri Dec 11, 5 PM.</p>
+  <div class="card">${commsTable()}</div>
+  <h3>Templates</h3><div class="grid g2">
+  ${sorted(S.templates).map(([k,t])=>{const P="templates/"+k; return `<div class="card tmpl">${inp(P+"/title",t.title,{cls:"bare",style:"font-weight:700"})}
+    <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0">${inp(P+"/when",t.when,{ph:"When"})}${inp(P+"/owners",t.owners,{ph:"Owners"})}</div>
+    ${ta(P+"/body",t.body,{rows:4})}<div style="display:flex;justify-content:space-between;margin-top:6px"><button class="btn ghost sm noprint" onclick="navigator.clipboard&&navigator.clipboard.writeText(S.templates['${k}'].body).then(()=>toast('Template copied'))">Copy text</button>${delBtn(P,"this template")}</div></div>`;}).join("")}
+  </div>${addBtn("templates","template","Add template")}`;
+}
+
+/* ---------- BUDGET ---------- */
+function money(v){ return v==null||v===""||isNaN(v)?"—":"$"+Number(v).toLocaleString("en-US",{maximumFractionDigits:0}); }
+function vBudget(){
+  const rows=sorted(S.budget); const est=rows.reduce((m,[k,b])=>m+(Number(b.est)||0),0), act=rows.reduce((m,[k,b])=>m+(Number(b.act)||0),0);
+  const byDept={}; rows.forEach(([k,b])=>{ const d=b.dept||"Other"; byDept[d]=byDept[d]||{e:0,a:0}; byDept[d].e+=Number(b.est)||0; byDept[d].a+=Number(b.act)||0; });
+  return `<h2>Budget</h2>
+  <div class="grid g4" style="margin-bottom:12px"><div class="stat"><div class="v">${money(est)}</div><div class="l">Total estimated</div></div><div class="stat"><div class="v">${money(act)}</div><div class="l">Total actual</div></div><div class="stat"><div class="v">${money(est-act)}</div><div class="l">Estimate minus actual</div></div><div class="stat"><div class="v">${rows.filter(([k,b])=>b.est==null).length}</div><div class="l">Lines with no estimate yet</div></div></div>
+  <div class="card tablewrap"><table class="t"><thead><tr><th>Description</th><th style="width:130px">Category</th><th style="width:150px">Department</th><th style="width:105px">Estimated $</th><th style="width:105px">Actual $</th><th style="width:115px">Status</th><th>Notes</th><th style="width:30px"></th></tr></thead><tbody>
+  ${rows.map(([k,b])=>{const P="budget/"+k; return `<tr><td>${ta(P+"/desc",b.desc)}</td><td>${sel(P+"/cat",b.cat,["Printing","Postage","Catering/Reception","Awards/Plaques","Software/Platform","Supplies","Labor/Staffing","Other"])}</td><td>${sel(P+"/dept",b.dept,["Academic Affairs","Labor Program","CELTS / Service","President's Office","Athletics","Medical/Dental","Shared","Other"])}</td><td>${inp(P+"/est",b.est,{type:"number",num:1})}</td><td>${inp(P+"/act",b.act,{type:"number",num:1})}</td><td>${sel(P+"/status",b.status,["Planned","Committed","Paid"])}</td><td>${ta(P+"/notes",b.notes)}</td><td>${delBtn(P,"this expense")}</td></tr>`;}).join("")}
+  </tbody></table>${addBtn("budget","budget","Add expense")}</div>
+  <div class="card"><h3 style="margin-top:0">By department</h3><table class="t"><thead><tr><th>Department</th><th>Estimated</th><th>Actual</th></tr></thead><tbody>${Object.entries(byDept).map(([d,v])=>`<tr><td>${esc(d)}</td><td>${money(v.e)}</td><td>${money(v.a)}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+/* ---------- IMPROVEMENTS ---------- */
+function vImprovements(){
+  return `<h2>Priority Improvements</h2><p class="muted small">Reviewed at the May 10 debrief. Record decisions here as the year goes.</p><div class="grid g2">
+  ${sorted(S.improvements).map(([k,m],i)=>{const P="improvements/"+k; return `<div class="card"><div style="display:flex;gap:8px;align-items:center"><span style="font-size:1.4rem">${esc(m.icon)}</span>${inp(P+"/title",m.title,{cls:"bare",style:"font-weight:700"})}${sel(P+"/status",m.status,["Not started","In progress","Decided","Done"])}</div>
+    <span class="flabel small" style="margin-top:6px">Challenge</span>${ta(P+"/challenge",m.challenge)}
+    <span class="flabel small" style="margin-top:6px">Recommendation</span>${ta(P+"/rec",m.rec)}
+    <span class="flabel small" style="margin-top:6px">Decision / progress</span>${ta(P+"/decision",m.decision,{ph:"What the group decided, and when"})}
+    <div style="text-align:right">${delBtn(P,m.title)}</div></div>`;}).join("")}</div>${addBtn("improvements","improvement","Add improvement")}`;
+}
+
+/* ---------- TEAM ---------- */
+function vTeam(){
+  return `<h2>Team &amp; Contacts</h2><p class="muted small">Add each person's email so the site can show who made the last change. To let someone into the shared site, first create their login in Firebase, then paste their <strong>User UID</strong> from Firebase into the <strong>Login ID</strong> column (see Help → "Adding a teammate"). Clearing the Login ID or deleting the row removes their access.</p>
+  <div class="card tablewrap"><table class="t"><thead><tr><th>Name</th><th>Area</th><th style="width:110px">Workstream(s)</th><th>Email</th><th style="width:210px">Login ID (User UID)</th><th style="width:30px"></th></tr></thead><tbody>
+  ${sorted(S.people).map(([k,p])=>{const P="people/"+k; const has=p.uid&&ACCESS[p.uid]; return `<tr><td>${inp(P+"/name",p.name)}</td><td>${inp(P+"/area",p.area)}</td><td>${inp(P+"/ws",p.ws)}</td><td>${inp(P+"/email",p.email,{type:"email",ph:"name@berea.edu"})}</td><td><input type="text" value="${esc(p.uid||"")}" placeholder="${CLOUD?"paste from Firebase":"available once online"}" ${CLOUD?"":"disabled"} onchange="setAccess('${k}',this.value)" aria-label="Login ID">${p.uid?(has?'<span class="pill p-green">has access</span>':'<span class="pill p-amber">not active</span>'):""}</td><td>${delBtn(P,p.name||"this person")}</td></tr>`;}).join("")}
+  </tbody></table>${addBtn("people","person","Add person")}</div>
+  <div class="card small"><strong>Workstream 1</strong> — Award database &amp; transparency (Philanthropy, Finance, Strategic Planning, OCI, AA).<br><strong>Workstream 2</strong> — Awards cycle, communications &amp; ceremony (AA, Labor, CELTS, Athletics, President's Office, Print, Med/Dental).</div>`;
+}
+
+function setAccess(k,uid){
+  uid=(uid||"").trim(); const p=S.people[k]||{}; const old=p.uid||"";
+  if(uid && !/^[A-Za-z0-9_-]{6,128}$/.test(uid)){ alert("That doesn't look like a Firebase User UID. Copy it from Firebase → Authentication → Users → User UID column."); render(); return; }
+  if(old===uid) return;
+  if(CLOUD&&user){
+    if(old) fbDb.ref("awardsAccess/"+old).remove();
+    if(uid) fbDb.ref("awardsAccess/"+uid).set(p.name||p.email||true).catch(e=>alert("Couldn't grant access: "+e.message));
+  }
+  write("people/"+k+"/uid", uid||null); render();
+}
+
+/* ---------- HELP ---------- */
+function vHelp(){
+  return `<h2>Help</h2>
+  <div class="card"><h3 style="margin-top:0">Using the site</h3><ul>
+    <li><strong>Click any field and type.</strong> Changes save on their own after you pause (watch the status line under the tabs). There is no Save button.</li>
+    <li>${CLOUD?"You're connected to the <strong>shared database</strong> — teammates usually see your edits within seconds, and you see theirs.":"This copy is in <strong>preview mode</strong> — edits are saved only in this browser. Once the site is connected to Firebase (see the setup guide), everyone shares one copy."}</li>
+    <li><strong>Meetings</strong> is the curriculum: open the next session before each meeting, fill in notes during it, add commitments at the bottom, then use <strong>📋 Copy for Teams</strong>.</li>
+    <li><strong>Timeline</strong>, <strong>Communications</strong>, <strong>Honor Societies</strong> and <strong>Awards</strong> are live lists — the same rows appear inside the meeting pages that work on them, so nothing needs updating twice.</li>
+    <li><strong>💾 Backup</strong> downloads everything as one file. Do this every few weeks and save it in the Teams channel.</li>
+  </ul></div>
+  <div class="card"><h3 style="margin-top:0">Adding a teammate (site owner only)</h3><ol>
+    <li>Go to <a href="https://console.firebase.google.com" target="_blank" rel="noopener">console.firebase.google.com</a> → your project → <strong>Authentication</strong> → <strong>Users</strong> → <strong>Add user</strong>.</li>
+    <li>Enter their Berea email and any temporary password (they'll never need it), then click <strong>Add user</strong>.</li>
+    <li>In the Users list, copy the long code in their <strong>User UID</strong> column.</li>
+    <li>On this site's <a href="#team">Team</a> tab, find (or add) their row, fill in their email, and paste the code into <strong>Login ID</strong>. The row shows <em>has access</em>.</li>
+    <li>Send them the site link and say: <em>"Type your email, click 'Set or reset my password', and check your inbox (and junk folder)."</em></li></ol>
+    <p class="small muted">To remove someone: clear their Login ID here (they lose access right away), and disable or delete their login in Firebase.</p></div>
+  <div class="card"><h3 style="margin-top:0">Where things live</h3><ul>
+    <li><strong>Teams channel</strong> — the official record: recordings, files, and the pasted meeting summaries.</li>
+    <li><strong>This site</strong> — the working plan: meetings, timeline, awards, societies, communications, budget.</li></ul></div>
+  <div class="card noprint"><h3 style="margin-top:0;color:var(--red)">Danger zone</h3>
+    <p class="small">Replace <strong>everything</strong> with the original starting data (download a backup first).</p>
+    <button class="btn danger" onclick="resetAll()">Reset to starting data</button></div>`;
+}
+
+/* ---------- backup / import / reset ---------- */
+function exportBackup(){
+  if(!S) return; const blob=new Blob([JSON.stringify(S,null,1)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="awards-site-backup-"+todayISO()+".json"; document.body.appendChild(a); a.click(); a.remove();
+}
+function replaceAll(obj){
+  S=obj;
+  if(CLOUD&&user){ status("⟳ Saving…"); fbDb.ref(DB_ROOT).set(obj).then(()=>{status("☁️ Saved to the shared database");}).catch(e=>status("⚠ "+e.message,"err")); }
+  else { try{localStorage.setItem(LOCAL_KEY,JSON.stringify(S)); status("💾 Saved in this browser only","warn");}catch(e){} }
+  render();
+}
+function importBackup(input){
+  const f=input.files[0]; if(!f) return; const r=new FileReader();
+  r.onload=()=>{ try{ const o=JSON.parse(r.result); if(!o.sessions||!o.timeline) throw new Error("This doesn't look like a backup from this site.");
+      if(confirm("Replace ALL current data"+(CLOUD?" in the shared database":"")+" with this backup?")) { replaceAll(o); toast("Backup loaded"); } }
+    catch(e){ alert("Couldn't load that file: "+e.message); } input.value=""; };
+  r.readAsText(f);
+}
+function resetAll(){ if(confirm("Replace everything with the starting data? Download a backup first if you might want today's version.") && confirm("Are you sure? This affects everyone.")) replaceAll(buildSeed()); }
+
+/* ---------- auth screens (cloud mode) ---------- */
+function vLogin(msg){
+  document.getElementById("tabs").innerHTML=""; document.getElementById("userbox").innerHTML="";
+  document.getElementById("main").innerHTML=`<div class="authwrap"><h2>Sign in</h2>
+    <p class="muted small">Use the email your site owner registered for you.</p>
+    <label for="em">Email</label><input type="email" id="em" autocomplete="username">
+    <label for="pw">Password</label><input type="password" id="pw" autocomplete="current-password" onkeydown="if(event.key==='Enter')signIn()">
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="sib" onclick="signIn()">Sign in</button>
+    <button class="btn ghost" onclick="resetPw()">Set or reset my password</button></div>
+    <div class="err" id="autherr">${esc(msg||"")}</div>
+    <p class="muted small" style="margin-top:14px">First time here? Type your email and click <strong>Set or reset my password</strong> — you'll get an email with a link to choose your own. (Check junk mail.) No account yet? Ask Tiffany Lindsey.</p></div>`;
+  status("Not signed in","warn");
+}
+function signIn(){
+  const em=document.getElementById("em").value.trim(), pw=document.getElementById("pw").value; const err=document.getElementById("autherr");
+  if(!em||!pw){ err.textContent="Enter your email and password."; return; }
+  document.getElementById("sib").textContent="Signing in…";
+  fbAuth.signInWithEmailAndPassword(em,pw).catch(e=>{ document.getElementById("sib").textContent="Sign in";
+    err.textContent = /wrong-password|user-not-found|invalid-credential|invalid-login/.test(e.code)?"That email and password don't match. Try again, or use 'Set or reset my password'.":(e.code==="auth/too-many-requests"?"Too many tries — wait a few minutes.":e.message); });
+}
+function resetPw(){
+  const em=document.getElementById("em").value.trim(); const err=document.getElementById("autherr");
+  if(!em){ err.textContent="Type your email first, then click the button again."; return; }
+  fbAuth.sendPasswordResetEmail(em).then(()=>{ err.innerHTML='<span class="ok">If that email has an account, a link is on its way. Check your inbox (and junk folder).</span>'; }).catch(e=>{ err.textContent=e.message; });
+}
+function vEmptyDb(){
+  document.getElementById("main").innerHTML=`<div class="authwrap" style="max-width:560px"><h2>Your shared database is empty</h2>
+    <p>This is normal the first time. Choose how to start:</p>
+    <p><button class="btn" onclick="replaceAll(buildSeed())">Load the starting data</button></p>
+    <p><button class="btn ghost" onclick="document.getElementById('importFile').click()">Import a backup file</button><br><span class="muted small">Use this if you already made changes in preview mode and downloaded a 💾 Backup.</span></p></div>`;
+  status("Connected — database empty","warn");
+}
+
+/* ---------- start up ---------- */
+function startLocal(reason){
+  CLOUD=false;
+  try{ const raw=localStorage.getItem(LOCAL_KEY); if(raw){ const o=JSON.parse(raw); if(o&&o.sessions) S=o; } }catch(e){}
+  if(!S) S=buildSeed();
+  document.getElementById("banner").innerHTML=`<div class="banner">👀 <strong>Preview mode</strong> — ${esc(reason)} Changes are saved only in this browser. Use <strong>💾 Backup</strong> to keep a copy; you can import it into the shared site later.</div>`;
+  status("💾 Saved in this browser only","warn");
+  render();
+}
+function startCloud(){
+  try{ firebase.initializeApp(FIREBASE_CONFIG); fbDb=firebase.database(); fbAuth=firebase.auth(); CLOUD=true; }
+  catch(e){ startLocal("Couldn't connect to Firebase ("+e.message+")."); return; }
+  status("Connecting…");
+  fbAuth.onAuthStateChanged(u=>{
+    user=u;
+    if(dbRef){ dbRef.off(); dbRef=null; fbDb.ref("awardsAccess").off(); }
+    if(!u){ S=null; vLogin(); return; }
+    document.getElementById("userbox").innerHTML=`<span>${esc(u.email)}</span> <button class="hbtn" onclick="if(confirm('Sign out?'))fbAuth.signOut()">Sign out</button>`;
+    dbRef=fbDb.ref(DB_ROOT);
+    dbRef.on("value",snap=>{
+      const v=snap.val();
+      if(!v){ S=null; vEmptyDb(); return; }
+      S=v; status("☁️ Connected to the shared database");
+      render();
+    },err=>{ status("⚠ No access","err"); document.getElementById("main").innerHTML=`<div class="authwrap"><h2>You're signed in, but don't have access yet</h2>
+      <p>Your login works, but the site owner hasn't added you to the team yet. Send them this Login ID:</p>
+      <p><code style="font-size:1rem;background:var(--wash);padding:4px 8px;border-radius:6px;user-select:all">${esc(u.uid)}</code></p>
+      <p class="small muted">Site owner: if this is <em>your</em> login, check that this exact ID is in the database rules (setup guide, Step 6). Details: ${esc(err.message)}</p></div>`; });
+    fbDb.ref("awardsAccess").on("value",snap=>{ ACCESS=snap.val()||{}; if(route().tab==="team") render(); },()=>{});
+  });
+}
+if(CLOUD_CONFIGURED){
+  if(typeof firebase==="undefined") startLocal("the Firebase code couldn't load (are you offline?).");
+  else startCloud();
+} else startLocal("this copy isn't connected to a shared database yet.");
+</script>
+</body>
+</html>
